@@ -1,0 +1,25 @@
+ - Revised arrowcharts
+
+- new spaceroom bg
+
+- vanus
+
+- added moving sun and moon, changing sky, new song, and a transformation animation to theo week.
+
+- revised theo assets
+
+- new menu and blue ball songs
+
+- custom controls (fg kl)
+
+- removed joke weeks
+
+- removed all weeks accept tutorial and theo
+
+- renamed spritesheets
+
+- added lemon theo
+
+- added a space and autumn theme to the mod
+
+We will add more weeks in 2.0. this isn't a one week mod like whitty or something. 

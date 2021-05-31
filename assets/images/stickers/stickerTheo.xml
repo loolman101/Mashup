@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="stickerTheo.png">
+	<!-- Created with Adobe Animate version 19.0.0.326 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="theoSticker0000" x="0" y="0" width="121" height="69" frameX="-2" frameY="-1" frameWidth="123" frameHeight="70"/>
+	<SubTexture name="theoSticker0001" x="0" y="0" width="121" height="69" frameX="-2" frameY="-1" frameWidth="123" frameHeight="70"/>
+	<SubTexture name="theoSticker0002" x="0" y="69" width="119" height="70" frameX="-2" frameY="0" frameWidth="123" frameHeight="70"/>
+	<SubTexture name="theoSticker0003" x="0" y="139" width="119" height="70" frameX="0" frameY="0" frameWidth="123" frameHeight="70"/>
+	<SubTexture name="theoSticker0004" x="0" y="139" width="119" height="70" frameX="0" frameY="0" frameWidth="123" frameHeight="70"/>
+	<SubTexture name="theoSticker0005" x="0" y="139" width="119" height="70" frameX="0" frameY="0" frameWidth="123" frameHeight="70"/>
+	<SubTexture name="theoSticker0006" x="0" y="139" width="119" height="70" frameX="0" frameY="0" frameWidth="123" frameHeight="70"/>
+	<SubTexture name="theoSticker0007" x="0" y="139" width="119" height="70" frameX="0" frameY="0" frameWidth="123" frameHeight="70"/>
+	<SubTexture name="theoSticker0008" x="0" y="139" width="119" height="70" frameX="0" frameY="0" frameWidth="123" frameHeight="70"/>
+	<SubTexture name="theoSticker0009" x="0" y="139" width="119" height="70" frameX="0" frameY="0" frameWidth="123" frameHeight="70"/>
+	<SubTexture name="theoSticker0010" x="0" y="139" width="119" height="70" frameX="0" frameY="0" frameWidth="123" frameHeight="70"/>
+	<SubTexture name="theoSticker0011" x="0" y="139" width="119" height="70" frameX="0" frameY="0" frameWidth="123" frameHeight="70"/>
+	<SubTexture name="theoSticker0012" x="0" y="139" width="119" height="70" frameX="0" frameY="0" frameWidth="123" frameHeight="70"/>
+	<SubTexture name="theoSticker0013" x="0" y="139" width="119" height="70" frameX="0" frameY="0" frameWidth="123" frameHeight="70"/>
+	<SubTexture name="theoSticker0014" x="0" y="139" width="119" height="70" frameX="0" frameY="0" frameWidth="123" frameHeight="70"/>
+	<SubTexture name="theoSticker0015" x="0" y="139" width="119" height="70" frameX="0" frameY="0" frameWidth="123" frameHeight="70"/>
+	<SubTexture name="theoSticker0016" x="0" y="139" width="119" height="70" frameX="0" frameY="0" frameWidth="123" frameHeight="70"/>
+	<SubTexture name="theoSticker0017" x="0" y="139" width="119" height="70" frameX="0" frameY="0" frameWidth="123" frameHeight="70"/>
+	<SubTexture name="theoSticker0018" x="0" y="139" width="119" height="70" frameX="0" frameY="0" frameWidth="123" frameHeight="70"/>
+	<SubTexture name="theoSticker0019" x="0" y="139" width="119" height="70" frameX="0" frameY="0" frameWidth="123" frameHeight="70"/>
+	<SubTexture name="theoSticker0020" x="0" y="139" width="119" height="70" frameX="0" frameY="0" frameWidth="123" frameHeight="70"/>
+	<SubTexture name="theoSticker0021" x="0" y="139" width="119" height="70" frameX="0" frameY="0" frameWidth="123" frameHeight="70"/>
+	<SubTexture name="theoSticker0022" x="0" y="139" width="119" height="70" frameX="0" frameY="0" frameWidth="123" frameHeight="70"/>
+	<SubTexture name="theoSticker0023" x="0" y="139" width="119" height="70" frameX="0" frameY="0" frameWidth="123" frameHeight="70"/>
+	<SubTexture name="theoSticker0024" x="0" y="139" width="119" height="70" frameX="0" frameY="0" frameWidth="123" frameHeight="70"/>
+</TextureAtlas>

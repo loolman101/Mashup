@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Intro.png">
+	<!-- Created with Adobe Animate version 19.0.0.326 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Intro Confirm0000" x="0" y="0" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0001" x="600" y="0" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0002" x="1200" y="0" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0003" x="1800" y="0" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0004" x="2400" y="0" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0005" x="3000" y="0" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0006" x="0" y="338" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0007" x="600" y="338" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0008" x="1200" y="338" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0009" x="1800" y="338" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0010" x="2400" y="338" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0011" x="3000" y="338" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0012" x="0" y="676" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0013" x="600" y="676" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0014" x="1200" y="676" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0015" x="1800" y="676" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0016" x="2400" y="676" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0017" x="3000" y="676" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0018" x="0" y="1014" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0019" x="600" y="1014" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0020" x="1200" y="1014" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0021" x="1800" y="1014" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0022" x="2400" y="1014" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0023" x="3000" y="1014" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0024" x="0" y="1352" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0025" x="600" y="1352" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0026" x="1200" y="1352" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0027" x="1800" y="1352" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0028" x="2400" y="1352" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0029" x="3000" y="1352" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0030" x="0" y="1690" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0031" x="600" y="1690" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0032" x="1200" y="1690" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0033" x="1800" y="1690" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0034" x="2400" y="1690" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0035" x="3000" y="1690" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0036" x="0" y="2028" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0037" x="600" y="2028" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0038" x="1200" y="2028" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0039" x="1800" y="2028" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0040" x="2400" y="2028" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0041" x="3000" y="2028" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0042" x="0" y="2366" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0043" x="600" y="2366" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0044" x="1200" y="2366" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0045" x="1200" y="2366" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0046" x="1800" y="2366" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0047" x="1800" y="2366" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0048" x="1800" y="2366" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0049" x="1800" y="2366" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0050" x="1800" y="2366" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0051" x="2400" y="2366" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0052" x="2400" y="2366" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0053" x="2400" y="2366" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0054" x="2400" y="2366" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0055" x="3000" y="2366" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0056" x="3000" y="2366" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0057" x="3000" y="2366" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0058" x="0" y="2704" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0059" x="0" y="2704" width="600" height="338"/>
+	<SubTexture name="Intro Confirm0060" x="0" y="0" width="1" height="1"/>
+	<SubTexture name="awesomeIntro0000" x="0" y="0" width="600" height="338"/>
+</TextureAtlas>

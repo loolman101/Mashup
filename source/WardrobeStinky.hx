@@ -1,0 +1,24 @@
+import flixel.FlxG;
+
+class WardrobeStinky
+{
+    public static function initWardrobe()
+    {
+        if (FlxG.save.data.wardrobeUnlocked == null)
+            FlxG.save.data.wardrobeUnlocked = false;
+    }
+
+    public static function unlockDaWardrobe()
+    {
+        FlxG.save.data.wardrobeUnlocked = true;
+    }
+
+    public static function unlockWardrobeItem(daItem:String)
+    {
+        switch (daItem)
+        {
+            case 'theo':
+                FlxG.save.data.theoOutfit = true;
+        }
+    }
+}
