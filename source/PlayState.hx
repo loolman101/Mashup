@@ -520,7 +520,8 @@ class PlayState extends MusicBeatState
 					camFollow.setPosition(boyfriend.getMidpoint().x - 100, boyfriend.getMidpoint().y - 100);
 					schoolIntro(doof); 
 				case 'autumn' | 'leaf-decay' | 'corruption':
-					schoolIntro(doof);
+					trace('acidic is dumb');
+					startCountdown();
 				default:
 					startCountdown();
 			}
