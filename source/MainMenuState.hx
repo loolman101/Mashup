@@ -79,7 +79,7 @@ class MainMenuState extends MusicBeatState
 			menuItem.ID = i;
 			menuItem.screenCenter(X);
 			menuItems.add(menuItem);
-			menuItem.scrollFactor.set();
+			menuItem.scrollFactor.set(0, 1);
 			menuItem.antialiasing = true;
 		}
 
@@ -169,9 +169,8 @@ class MainMenuState extends MusicBeatState
 										FlxG.switchState(new FreeplayState());
 
 										trace("Freeplay Menu Selected");
-									case 'credits':
-										FlxG.switchState(new CreditsMenu());
-
+									case 'wardrobe':
+										FlxG.switchState(new WardrobeMenu());
 									case 'options':
 										FlxG.switchState(new OptionsMenu());
 									case 'credits':

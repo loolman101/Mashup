@@ -1516,6 +1516,17 @@ class PlayState extends MusicBeatState
 				// if ()
 				StoryMenuState.weekUnlocked[Std.int(Math.min(storyWeek + 1, StoryMenuState.weekUnlocked.length - 1))] = true;
 
+				WardrobeStinky.unlockDaWardrobe();
+
+				switch (storyWeek)
+				{
+					case 0:
+						//WardrobeStinky.unlockWardrobeItem('spaceroom');
+						trace('spaceroom unlock');
+					case 1:
+						WardrobeStinky.unlockWardrobeItem('theo');
+				}
+
 				if (SONG.validScore)
 				{
 					NGio.unlockMedal(60961);

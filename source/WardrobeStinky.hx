@@ -17,6 +17,8 @@ class WardrobeStinky
     {
         switch (daItem)
         {
+            case 'spaceroom':
+                FlxG.save.data.spaceroomOutfit = true;
             case 'theo':
                 FlxG.save.data.theoOutfit = true;
         }

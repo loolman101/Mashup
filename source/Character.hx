@@ -16,7 +16,7 @@ class Character extends FlxSprite
 
 	public var holdTimer:Float = 0;
 
-	public function new(x:Float, y:Float, ?character:String = "bf", ?isPlayer:Bool = false)
+	public function new(x:Float, y:Float, ?character:String = "bf", ?isPlayer:Bool = false, ?isPreview:Bool = false)
 	{
 		animOffsets = new Map<String, Array<Dynamic>>();
 		super(x, y);
@@ -39,8 +39,13 @@ class Character extends FlxSprite
 				animation.addByPrefix('singUP', 'GF Up Note', 24, false);
 				animation.addByPrefix('singDOWN', 'GF Down Note', 24, false);
 				animation.addByIndices('sad', 'gf sad', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "", 24, false);
-				animation.addByIndices('danceLeft', 'GF Dancing Beat', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
-				animation.addByIndices('danceRight', 'GF Dancing Beat', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+				if (isPreview)
+					animation.addByPrefix('danceRight', 'GF Dancing Beat', 24, true);
+				else
+				{
+					animation.addByIndices('danceLeft', 'GF Dancing Beat', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+					animation.addByIndices('danceRight', 'GF Dancing Beat', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+				}
 				animation.addByIndices('hairBlow', "GF Dancing Beat Hair blowing", [0, 1, 2, 3], "", 24);
 				animation.addByIndices('hairFall', "GF Dancing Beat Hair Landing", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], "", 24, false);
 				animation.addByPrefix('scared', 'GF FEAR', 24);
@@ -61,7 +66,7 @@ class Character extends FlxSprite
 
 				playAnim('danceRight');
 				
-                        case 'og-gf':
+            case 'og-gf':
 				// GIRLFRIEND CODE
 				tex = FlxAtlasFrames.fromSparrow('assets/images/realGF.png', 'assets/images/realGF.xml');
 				frames = tex;
@@ -96,7 +101,10 @@ class Character extends FlxSprite
 			case 'theo-lemon':
 				tex = FlxAtlasFrames.fromSparrow('assets/images/TheoDemon_FINISHED_Assets.png', 'assets/images/TheoDemon_FINISHED_Assets.xml');
 				frames = tex;
-				animation.addByPrefix('idle', 'monster idle', 24, false);
+				if (isPreview)
+					animation.addByPrefix('idle', 'monster idle', 24, true);
+				else
+					animation.addByPrefix('idle', 'monster idle', 24, false);
 				animation.addByPrefix('singUP', 'monster up note', 24, false);
 				animation.addByPrefix('singDOWN', 'monster down', 24, false);
 				animation.addByPrefix('singLEFT', 'Monster left note', 24, false);
@@ -112,63 +120,79 @@ class Character extends FlxSprite
 				playAnim('idle');
 
 			case 'bf':
-				if (PlayState.curStage == 'loveyDovey')
+				if (!isPreview)
 				{
-					var tex = FlxAtlasFrames.fromSparrow('assets/images/valentine/BOYFRIEND.png', 'assets/images/valentine/BOYFRIEND.xml');
-					frames = tex;
+					if (PlayState.curStage == 'loveyDovey')
+					{
+						var tex = FlxAtlasFrames.fromSparrow('assets/images/valentine/BOYFRIEND.png', 'assets/images/valentine/BOYFRIEND.xml');
+						frames = tex;
+					}
+					else
+					{
+						switch(PlayState.SONG.song.toLowerCase())
+						{
+							case 'dread':
+								var tex = FlxAtlasFrames.fromSparrow('assets/images/BoyFriend_SCARED_Assets.png', 'assets/images/BoyFriend_SCARED_Assets.xml');
+								frames = tex;
+							default:
+								var tex = FlxAtlasFrames.fromSparrow('assets/images/BOYFRIEND.png', 'assets/images/BOYFRIEND.xml');
+								frames = tex;
+						}
+					}
+					animation.addByPrefix('idle', 'BF idle dance', 24, false);
+					animation.addByPrefix('singUP', 'BF NOTE UP0', 24, false);
+					animation.addByPrefix('singLEFT', 'BF NOTE LEFT0', 24, false);
+					animation.addByPrefix('singRIGHT', 'BF NOTE RIGHT0', 24, false);
+					animation.addByPrefix('singDOWN', 'BF NOTE DOWN0', 24, false);
+					animation.addByPrefix('singUPmiss', 'BF NOTE UP MISS', 24, false);
+					animation.addByPrefix('singLEFTmiss', 'BF NOTE LEFT MISS', 24, false);
+					animation.addByPrefix('singRIGHTmiss', 'BF NOTE RIGHT MISS', 24, false);
+					animation.addByPrefix('singDOWNmiss', 'BF NOTE DOWN MISS', 24, false);
+					animation.addByPrefix('hey', 'BF HEY', 24, false);
+
+					animation.addByPrefix('firstDeath', "BF dies", 24, false);
+					animation.addByPrefix('deathLoop', "BF Dead Loop", 24, true);
+					animation.addByPrefix('deathConfirm', "BF Dead confirm", 24, false);
+
+					animation.addByPrefix('scared', 'BF idle shaking', 24);
+
+					addOffset('idle', -5);
+					addOffset("singUP", -29, 27);
+					addOffset("singRIGHT", -38, -7);
+					addOffset("singLEFT", 12, -6);
+					addOffset("singDOWN", -10, -50);
+					addOffset("singUPmiss", -29, 27);
+					addOffset("singRIGHTmiss", -30, 21);
+					addOffset("singLEFTmiss", 12, 24);
+					addOffset("singDOWNmiss", -11, -19);
+					addOffset("hey", 7, 4);
+					addOffset('firstDeath', 37, 11);
+					addOffset('deathLoop', 37, 5);
+					addOffset('deathConfirm', 37, 69);
+					addOffset('scared', -4);
+
+					playAnim('idle');
+
+					flipX = true;
 				}
 				else
 				{
-					switch(PlayState.SONG.song.toLowerCase())
-					{
-						case 'dread':
-							var tex = FlxAtlasFrames.fromSparrow('assets/images/BoyFriend_SCARED_Assets.png', 'assets/images/BoyFriend_SCARED_Assets.xml');
-							frames = tex;
-						default:
-							var tex = FlxAtlasFrames.fromSparrow('assets/images/BOYFRIEND.png', 'assets/images/BOYFRIEND.xml');
-							frames = tex;
-					}
+					var tex = FlxAtlasFrames.fromSparrow('assets/images/BOYFRIEND.png', 'assets/images/BOYFRIEND.xml');
+					frames = tex;
+
+					animation.addByPrefix('idle', 'BF idle dance', 24, true);
+
+					addOffset('idle', -5);
+
+					playAnim('idle');
 				}
-				animation.addByPrefix('idle', 'BF idle dance', 24, false);
-				animation.addByPrefix('singUP', 'BF NOTE UP0', 24, false);
-				animation.addByPrefix('singLEFT', 'BF NOTE LEFT0', 24, false);
-				animation.addByPrefix('singRIGHT', 'BF NOTE RIGHT0', 24, false);
-				animation.addByPrefix('singDOWN', 'BF NOTE DOWN0', 24, false);
-				animation.addByPrefix('singUPmiss', 'BF NOTE UP MISS', 24, false);
-				animation.addByPrefix('singLEFTmiss', 'BF NOTE LEFT MISS', 24, false);
-				animation.addByPrefix('singRIGHTmiss', 'BF NOTE RIGHT MISS', 24, false);
-				animation.addByPrefix('singDOWNmiss', 'BF NOTE DOWN MISS', 24, false);
-				animation.addByPrefix('hey', 'BF HEY', 24, false);
-
-				animation.addByPrefix('firstDeath', "BF dies", 24, false);
-				animation.addByPrefix('deathLoop', "BF Dead Loop", 24, true);
-				animation.addByPrefix('deathConfirm', "BF Dead confirm", 24, false);
-
-				animation.addByPrefix('scared', 'BF idle shaking', 24);
-
-				addOffset('idle', -5);
-				addOffset("singUP", -29, 27);
-				addOffset("singRIGHT", -38, -7);
-				addOffset("singLEFT", 12, -6);
-				addOffset("singDOWN", -10, -50);
-				addOffset("singUPmiss", -29, 27);
-				addOffset("singRIGHTmiss", -30, 21);
-				addOffset("singLEFTmiss", 12, 24);
-				addOffset("singDOWNmiss", -11, -19);
-				addOffset("hey", 7, 4);
-				addOffset('firstDeath', 37, 11);
-				addOffset('deathLoop', 37, 5);
-				addOffset('deathConfirm', 37, 69);
-				addOffset('scared', -4);
-
-				playAnim('idle');
-
-				flipX = true;
-
 			case 'theo':
 				frames = FlxAtlasFrames.fromSparrow('assets/images/Theo_FINISHED_Assets.png', 'assets/images/Theo_FINISHED_Assets.xml');
 				animation.addByPrefix('vore', 'theo VORE', 24, false);
-				animation.addByPrefix('idle', 'theo idle', 24, false);
+				if (isPreview)
+					animation.addByPrefix('idle', 'theo idle', 24, true);
+				else
+					animation.addByPrefix('idle', 'theo idle', 24, false);
 				animation.addByPrefix('singUP', 'theo up', 24, false);
 				animation.addByPrefix('singRIGHT', 'theo right', 24, false);
 				animation.addByPrefix('singLEFT', 'theo left', 24, false);
@@ -176,10 +200,10 @@ class Character extends FlxSprite
 
 				addOffset('vore');
 				addOffset('idle', 0, 11);
-				addOffset('singUP', 0, 25);
-				addOffset('singRIGHT', -20, 40);
-				addOffset('singLEFT', 82, 9);
-				addOffset('singDOWN', 20, -30);
+				addOffset('singUP', 19, 54);
+				addOffset('singRIGHT', -24, 37);
+				addOffset('singLEFT', 53, 5);
+				addOffset('singDOWN', 13, -30);
 
 				playAnim('idle');
 		}
