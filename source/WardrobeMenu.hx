@@ -9,7 +9,7 @@ using StringTools;
 
 class WardrobeMenu extends MusicBeatState
 {
-    var wardrobeItems:Array<String> = ['NORMAL', 'test', 'test vee too'];
+    var wardrobeItems:Array<String> = ['NORMAL'];
 
     var menuItems:FlxTypedGroup<Alphabet>;
 
@@ -53,6 +53,9 @@ class WardrobeMenu extends MusicBeatState
 
         if (controls.DOWN_P)
             changeSelection(1);
+
+        if (controls.BACK)
+            FlxG.switchState(new MainMenuState());
 
         super.update(elapsed);
     }
