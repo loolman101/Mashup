@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="FNF_main_menu_assets (2).png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="story mode white0000" x="0" y="0" width="497" height="205" frameX="-1" frameY="0" frameWidth="499" frameHeight="205"/>
+	<SubTexture name="story mode white0001" x="497" y="0" width="499" height="202" frameX="0" frameY="-2" frameWidth="499" frameHeight="205"/>
+	<SubTexture name="story mode white0002" x="0" y="205" width="497" height="204" frameX="-1" frameY="0" frameWidth="499" frameHeight="205"/>
+</TextureAtlas>

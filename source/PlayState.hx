@@ -426,6 +426,9 @@ class PlayState extends MusicBeatState
 		strumLine = new FlxSprite(0, 50).makeGraphic(FlxG.width, 10);
 		strumLine.scrollFactor.set();
 
+		if (FlxG.save.data.downscroll)
+			strumLine.y = FlxG.height - 165;
+
 		strumLineNotes = new FlxTypedGroup<FlxSprite>();
 		add(strumLineNotes);
 
@@ -461,6 +464,8 @@ class PlayState extends MusicBeatState
 		healthBarBG = new FlxSprite(0, FlxG.height * 0.9).loadGraphic('assets/images/healthBar.png');
 		healthBarBG.screenCenter(X);
 		healthBarBG.scrollFactor.set();
+		if (FlxG.save.data.downscroll)
+			healthBarBG.y = 50;
 		if (!isCinematic)
 			add(healthBarBG);
 
@@ -472,18 +477,18 @@ class PlayState extends MusicBeatState
 		if (!isCinematic)
 			add(healthBar);
 
-		scoreTxt = new FlxText(healthBarBG.x + healthBarBG.width - 190, healthBarBG.y + 30, 0, "", 20);
+		var downscrollJunky:Int = 1;
+		if (FlxG.save.data.downscroll) // blah
+			downscrollJunky = -1;
+
+		scoreTxt = new FlxText(healthBarBG.x + healthBarBG.width - 190, healthBarBG.y + 30 * downscrollJunky, 0, "", 20);
 		scoreTxt.setFormat("assets/fonts/vcr.ttf", 16, FlxColor.WHITE, RIGHT);
 		scoreTxt.scrollFactor.set();
-		if (!isCinematic)
-			add(scoreTxt);
 
-		missTxt = new FlxText(healthBarBG.x + healthBarBG.width - 350, healthBarBG.y + 30, 0, "", 20);
+		missTxt = new FlxText(healthBarBG.x + healthBarBG.width - 350, healthBarBG.y + 30 * downscrollJunky, 0, "", 20);
 		missTxt.setFormat("assets/fonts/vcr.ttf", 16, FlxColor.WHITE, RIGHT);
 		missTxt.scrollFactor.set();
 		missTxt.text = "Misses: 0";
-		if (!isCinematic)
-			add(missTxt);
 
 		iconP1 = new HealthIcon(SONG.player1, true);
 		iconP1.y = healthBar.y - (iconP1.height / 2);
@@ -494,6 +499,14 @@ class PlayState extends MusicBeatState
 		iconP2.y = healthBar.y - (iconP2.height / 2);
 		if (!isCinematic)
 			add(iconP2);
+
+		if (FlxG.save.data.downscroll)
+			iconP2.y = iconP1.y = iconP1.y + 10; // weird junk man
+
+		if (!isCinematic)
+			add(missTxt);
+		if (!isCinematic)
+			add(scoreTxt);
 
 		strumLineNotes.cameras = [camHUD];
 		notes.cameras = [camHUD];
@@ -1441,12 +1454,15 @@ class PlayState extends MusicBeatState
 					daNote.destroy();
 				}
 
-				daNote.y = (strumLine.y - (Conductor.songPosition - daNote.strumTime) * (0.45 * FlxMath.roundDecimal(PlayState.SONG.speed, 2)));
+				if (FlxG.save.data.downscroll)
+					daNote.y = (strumLine.y - (Conductor.songPosition - daNote.strumTime) * (-0.45 * FlxMath.roundDecimal(PlayState.SONG.speed, 2)));
+				else
+					daNote.y = (strumLine.y - (Conductor.songPosition - daNote.strumTime) * (0.45 * FlxMath.roundDecimal(PlayState.SONG.speed, 2)));
 
 				// WIP interpolation shit? Need to fix the pause issue
 				// daNote.y = (strumLine.y - (songTime - daNote.strumTime) * (0.45 * PlayState.SONG.speed));
 
-				if (daNote.y < -daNote.height)
+				if (daNote.y < -daNote.height && !FlxG.save.data.downscroll || daNote.y >= strumLine.y + 106 && FlxG.save.data.downscroll)
 				{
 					if (daNote.tooLate || !daNote.wasGoodHit)
 					{

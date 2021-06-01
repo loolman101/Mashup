@@ -73,6 +73,7 @@ class TitleState extends MusicBeatState
 
 		StickerJunk.initStickers();
 		WardrobeStinky.initWardrobe();
+		OptionJunkers.initOptions();
 
 		Highscore.load();
 
@@ -149,13 +150,15 @@ class TitleState extends MusicBeatState
 		// bg.updateHitbox();
 		add(bg);
 
-		logoBl = new FlxSprite(-150, -100);
+		logoBl = new FlxSprite(-25, -75);
 		logoBl.frames = FlxAtlasFrames.fromSparrow('assets/images/logoBumpin.png', 'assets/images/logoBumpin.xml');
 		logoBl.antialiasing = true;
-		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24);
+		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24, false);
 		logoBl.animation.play('bump');
+		logoBl.setGraphicSize(Std.int(logoBl.width / 1.25));
 		logoBl.updateHitbox();
-		// logoBl.screenCenter();
+		/*logoBl.screenCenter(X);
+		logoBl.x -= FlxG.width * 0.2;*/
 		// logoBl.color = FlxColor.BLACK;
 
 		gfDance = new FlxSprite(FlxG.width * 0.4, FlxG.height * 0.07);
@@ -361,7 +364,7 @@ class TitleState extends MusicBeatState
 	{
 		super.beatHit();
 
-		logoBl.animation.play('bump');
+		logoBl.animation.play('bump', true);
 		danceLeft = !danceLeft;
 
 		if (danceLeft)

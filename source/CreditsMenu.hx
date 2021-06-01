@@ -11,25 +11,39 @@ import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import lime.utils.Assets;
+import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
+import flixel.addons.display.FlxBackdrop;
 
 class CreditsMenu extends MusicBeatState
 {
 	var selector:FlxText;
 	var curSelected:Int = 0;
 
-	var coolPeople:Array<String> = ['ACIDICSHOES', 'ZUMORIZU', 'JUKEBOX', 'BLAMEJAJUBZ', 'KIRO', 'THE FIZZY FRENZY', 'GRANTARE', 'RAT', 'EVANCLUBYT', 'ROCKETPOPS', 'COSMIC BERRY', 'JOHNLEBRON'];
+	var titleText:Alphabet;
+
+	var poop:Float;
+
+	var fart:FlxBackdrop;
+
+	var coolPeople:Array<String> = ['ACIDICSHOES', 'ZUMORIZU', 'JUKEBOX', 'BLAMEJAJUBZ', 'KIRO', 'RUBY', 'GRANTARE', 'RAT', 'EVANCLUBYT', 'ROCKETPOPS', 'COSMIC BERRY', 'JOHNLEBRON'];
 
 	private var grpControls:FlxTypedGroup<Alphabet>;
 
 	override function create()
 	{
-		var menuBG:FlxSprite = new FlxSprite().loadGraphic('assets/images/menuCredits.png');
+		var menuBG:FlxSprite = new FlxSprite().loadGraphic('assets/images/menuDesat.png');
 		menuBG.color = 0xFFea71fd;
 		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
 		menuBG.updateHitbox();
 		menuBG.screenCenter();
 		menuBG.antialiasing = true;
 		add(menuBG);
+
+		fart = new FlxBackdrop('assets/images/Literal_Micd_Up.png', 1, 1, true, true);
+		fart.alpha = 0.175;
+		fart.scrollFactor.set(0.1, 0);
+		add(fart);
 
 		grpControls = new FlxTypedGroup<Alphabet>();
 		add(grpControls);
@@ -43,13 +57,32 @@ class CreditsMenu extends MusicBeatState
 		}
 			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
 
-		FlxG.sound.playMusic('assets/music/HAHAIGETTONAMETHISSONGLOOL.ogg');
+		titleText = new Alphabet(0, 20, 'CONTRIBUTORS', true, false);
+		titleText.screenCenter(X);
+		poop = titleText.x;
+		titleText.x = -300;
+		add(titleText);
+
+		FlxG.sound.playMusic('assets/music/Credits_LOOL.ogg');
 
 		super.create();
 	}
 
+	var hasDoneTheThing:Bool = false;
+
+	var literalJunk:String = 'the first one'; // lol
+
 	override function update(elapsed:Float)
 	{
+		if (!hasDoneTheThing)
+		{
+			FlxTween.tween(titleText, {x: poop}, 0.6, {ease: FlxEase.cubeOut});
+			hasDoneTheThing = true;
+		}
+
+		fart.x -= 0.27/(120/60);
+		fart.y -= -0.63/(120/60);
+		
 		super.update(elapsed);
 		if (controls.ACCEPT)
 		{
@@ -59,7 +92,7 @@ class CreditsMenu extends MusicBeatState
 				case 4:
 					FlxG.openURL("https://www.youtube.com/channel/UCYWbre_6s1DbTpHTRK-GKKQ");
 				case 5:
-					FlxG.openURL("https://www.youtube.com/channel/UCy2hDS9MCXjcTbEfZfuY2tw");
+					trace('fizzy was here');
 				case 6:
 					FlxG.openURL('https://www.youtube.com/channel/UCKbKOSJPbP4u81cpBpoSntw');
 				case 7:

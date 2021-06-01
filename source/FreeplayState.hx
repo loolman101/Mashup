@@ -12,12 +12,17 @@ import lime.utils.Assets;
 import flixel.graphics.atlas.FlxAtlas;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
+import flixel.addons.display.FlxBackdrop;
+import flixel.util.FlxTimer;
 
 using StringTools;
 
 class FreeplayState extends MusicBeatState
 {
 	var songs:Array<String> = ['Spaceroom', 'Autumn', 'Leaf-Decay', 'Corruption', 'Dread'];
+	var songChars:Array<String> = ['gf', 'theo', 'theo', 'theo', 'theo-lemon'];
+	var chars:FlxTypedGroup<Character>;
 
 	var selector:FlxText;
 	var curSelected:Int = 0;
@@ -28,7 +33,11 @@ class FreeplayState extends MusicBeatState
 	var lerpScore:Int = 0;
 	var intendedScore:Int = 0;
 
+	var hasInitialized:Bool = false;
+
 	var fullComboCoin:FlxSprite;
+
+	var micdUpIRL:FlxBackdrop;
 
 	private var grpSongs:FlxTypedGroup<Sussy>;
 	private var curPlaying:Bool = false;
@@ -51,39 +60,6 @@ class FreeplayState extends MusicBeatState
 		isDebug = true;
 		#end
 
-	/*	if (StoryMenuState.weekUnlocked[2] || isDebug)
-		{
-			songs.push('Musical-Genius');
-			songs.push('Virginity');
-		}
-
-		if (StoryMenuState.weekUnlocked[3] || isDebug)
-		{
-			songs.push('Autumn');
-			songs.push('Leaf-Decay');
-			songs.push('Corruption');
-		}
-
-		if (StoryMenuState.weekUnlocked[4] || isDebug)
-		{
-			songs.push('Blammer');
-		}
-
-		if (StoryMenuState.weekUnlocked[5] || isDebug)
-		{
-			songs.push('Cocoa');
-			songs.push('Eggnog');
-			songs.push('Winter-Horrorland');
-		}   
-
-		if (StoryMenuState.weekUnlocked[6] || isDebug)
-		{
-			songs.push('Senpai');
-			songs.push('Roses');
-			songs.push('Thorns');
-			// songs.push('Winter-Horrorland');
-		}     */ 
-
 		// LOAD MUSIC
 
 		// LOAD CHARACTERS
@@ -91,32 +67,55 @@ class FreeplayState extends MusicBeatState
 		var bg:FlxSprite = new FlxSprite().loadGraphic('assets/images/menuBGBlue.png');
 		add(bg);
 
-		fullComboCoin = new FlxSprite(830, 270);
+		micdUpIRL = new FlxBackdrop('assets/images/Literal_Micd_Up.png', 1, 1, true, true);
+		micdUpIRL.alpha = 0.35;
+		add(micdUpIRL);
+
+		var titleText:FlxSprite = new FlxSprite(0, 5);
+		titleText.frames = FlxAtlasFrames.fromSparrow('assets/images/Freeplay_Junk.png', 'assets/images/Freeplay_Junk.xml');
+		titleText.animation.addByPrefix('idle', 'story mode white', 24, true);
+		titleText.animation.play('idle');
+		titleText.setGraphicSize(0, 150);
+		titleText.updateHitbox();
+		titleText.antialiasing = true;
+		titleText.screenCenter(X);
+		add(titleText);
+
+		fullComboCoin = new FlxSprite(0 -10);
 		fullComboCoin.frames = FlxAtlasFrames.fromSparrow('assets/images/fullCombo.png', 'assets/images/fullCombo.xml');
 		fullComboCoin.animation.addByPrefix('idle', 'Shiny', 24, true);
 		fullComboCoin.animation.play('idle');
-		fullComboCoin.setGraphicSize(Std.int(fullComboCoin.width / 1.5));
+		fullComboCoin.setGraphicSize(Std.int(fullComboCoin.width * 0.3));
 		fullComboCoin.updateHitbox();
-		add(fullComboCoin);
+		fullComboCoin.antialiasing = true;
 		fullComboCoin.visible = false;
+
+		chars = new FlxTypedGroup<Character>();
+		add(chars);
+
+		for (i in 0...songChars.length)
+		{
+			var songChar:Character = new Character(FlxG.width, FlxG.height, songChars[i], false, true);
+			songChar.ID = i;
+			songChar.visible = false;
+			chars.add(songChar);
+		}
 
 		grpSongs = new FlxTypedGroup<Sussy>();
 		add(grpSongs);
 
 		for (i in 0...songs.length)
 		{
-			var coolSongName:Sussy = new Sussy(30, 260 + (100 * i), songs[i].toLowerCase(), i);
+			var coolSongName:Sussy = new Sussy(-60, 260 + (100 * i), songs[i].toLowerCase(), i);
 			grpSongs.add(coolSongName);
 		}
 
-		scoreText = new FlxText(FlxG.width * 0.7, 5, 0, "", 32);
-		// scoreText.autoSize = false;
-		scoreText.setFormat("assets/fonts/vcr.ttf", 32, FlxColor.WHITE, RIGHT);
-		// scoreText.alignment = RIGHT;
+		add(fullComboCoin);
 
-		var scoreBG:FlxSprite = new FlxSprite(scoreText.x - 6, 0).makeGraphic(Std.int(FlxG.width * 0.35), 66, 0xFF000000);
-		scoreBG.alpha = 0.6;
-		add(scoreBG);
+		scoreText = new FlxText(FlxG.width * 0.7, titleText.height + 10, 0, "", 30);
+		// scoreText.autoSize = false;
+		scoreText.setFormat("assets/fonts/vcr.ttf", 30, FlxColor.WHITE, RIGHT);
+		// scoreText.alignment = RIGHT;
 
 		diffText = new FlxText(scoreText.x, scoreText.y + 36, 0, "", 24);
 		diffText.font = scoreText.font;
@@ -154,6 +153,12 @@ class FreeplayState extends MusicBeatState
 			trace(md);
 		 */
 
+		new FlxTimer().start(0.5, function(tmr:FlxTimer){
+			hasInitialized = true;
+			changeSelection();
+			repositionCrap();
+		});
+
 		super.create();
 	}
 
@@ -166,12 +171,17 @@ class FreeplayState extends MusicBeatState
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}
 
+		micdUpIRL.x -= -0.27/(120/60); // STOLEN FROM MIC'D UP LOOOL
+		micdUpIRL.y -= 0.63/(120/60);
+
 		lerpScore = Math.floor(FlxMath.lerp(lerpScore, intendedScore, 0.4));
 
 		if (Math.abs(lerpScore - intendedScore) <= 10)
 			lerpScore = intendedScore;
 
 		scoreText.text = "PERSONAL BEST:" + lerpScore;
+		// scoreText.x = FlxG.width - (scoreText.width * scoreText.text.length);
+		scoreText.screenCenter(X);
 
 		var upP = controls.UP_P;
 		var downP = controls.DOWN_P;
@@ -265,34 +275,55 @@ class FreeplayState extends MusicBeatState
 
 		var bullShit:Int = 0;
 
+		chars.forEach(function(spr:Character){
+			if (spr.ID == curSelected)
+				spr.visible = true;
+			else
+				spr.visible = false;
+		});
+
 		for (item in grpSongs.members)
 		{
 			var lastY = item.y;
 			var trueWidth = item.width;
 			var daY = 260 + ((bullShit - curSelected) * 100);
 			var scaledY = FlxMath.remapToRange(daY, 0, 1, 0, 1.3);
-			FlxTween.tween(item, {y: daY}, 0.1);
+			FlxTween.cancelTweensOf(item);
+			FlxTween.tween(item, {alpha: 0.6 - (Math.abs(item.index - curSelected) * 0.15), 
+				y: daY, x: 30 - (Math.abs(item.index - curSelected) * 60), 
+				'scale.x': 1 - (Math.abs(item.index - curSelected) * 0.15), 
+				'scale.y': 1 - (Math.abs(item.index - curSelected) * 0.15)}, 0.2, 
+				{ease: FlxEase.quintOut, onComplete: function(twn:FlxTween){
+					if (item.index == curSelected)
+						item.alpha = 1;
+					if (!hasInitialized)
+						item.x = -600;
+				}
+			});
 
 			bullShit++;
-
-			//item.setGraphicSize(Std.int((bullShit - curSelected) * trueWidth));
-
-			item.intednedSize = item.size *  (1 - (Math.abs(item.index - curSelected) * 0.4));
-			trace(Std.string(item.index) + ' ' + Std.string(item.intednedSize));
-			trace(Std.string(item.index) + ' ' + Std.string(Std.int(FlxMath.lerp(item.size, item.intednedSize, 0.5))));
-
-			//item.setGraphicSize(Std.int((Math.abs(bullShit - curSelected)) * -1));
-
-			item.alpha = 0.6 - (Math.abs(item.index - curSelected) * 0.15);
-			// item.setGraphicSize(Std.int(item.width * 0.8));
-
-			if (item.index == curSelected)
-			{
-				item.alpha = 1;
-				item.intednedSize = item.size;
-				// item.setGraphicSize(Std.int(item.width));
-			}
 		}
+	}
+
+	function repositionCrap()
+	{
+		chars.forEach(function(spr:Character){
+			switch (songChars[spr.ID])
+			{
+				case 'gf':
+					spr.setGraphicSize(0, 450);
+					spr.updateHitbox();
+					FlxTween.tween(spr, {x: 786, y: 269}, 0.35, {ease: FlxEase.quartOut});
+				case 'theo':
+					spr.flipX = true;
+					FlxTween.tween(spr, {x: 916, y: 332}, 0.35, {ease: FlxEase.quartOut});
+				case 'theo-lemon':
+					spr.setGraphicSize(0, 540);
+					spr.updateHitbox();
+					spr.flipX = true;
+					FlxTween.tween(spr, {x: 905, y: 179}, 0.35, {ease: FlxEase.quartOut});
+			}
+		});
 	}
 }
 
@@ -316,8 +347,8 @@ class Sussy extends FlxSprite
 	{
 		//intednedSize = Std.int((intednedSize / 5) * width);
 		//trace(intednedSize);
-		if (width != intednedSize)
-			setGraphicSize(Std.int(FlxMath.lerp(width, intednedSize, 0.5)));
+		/*if (width != intednedSize)
+			setGraphicSize(Std.int(intednedSize));*/
 		//updateHitbox();*/
 		super.update(elapsed);
 	}

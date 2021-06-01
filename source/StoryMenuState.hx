@@ -13,6 +13,8 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.net.curl.CURLCode;
+import flixel.tweens.FlxEase;
+import flixel.effects.FlxFlicker;
 
 using StringTools;
 
@@ -64,12 +66,13 @@ class StoryMenuState extends MusicBeatState
 	var sprDifficulty:FlxSprite;
 	var leftArrow:FlxSprite;
 	var rightArrow:FlxSprite;
-	var theYoMamaYTChannel:FlxSprite;
+	var theYoMamaYTChannel:FlxTypedGroup<FlxSprite>;
 	var sopar:FlxSprite;
 	var fnfNeo:FlxSprite;
 	var junking:FlxSprite;
 	var babish:FlxSprite;
-	var yellowBG:FlxSprite;
+	//var yellowBG:FlxSprite;
+	var allThemBackgrounds:FlxTypedGroup<FlxSprite>;
 	var bgSize:Int = 0;
 
 	var fullComboCoin:FlxSprite;
@@ -98,7 +101,17 @@ class StoryMenuState extends MusicBeatState
 		rankText.screenCenter(X);
 
 		var ui_tex = FlxAtlasFrames.fromSparrow('assets/images/campaign_menu_UI_assets.png', 'assets/images/campaign_menu_UI_assets.xml');
-		yellowBG = new FlxSprite(0).loadGraphic('assets/images/storymenu_SPACEROOM.png'); 
+
+		allThemBackgrounds = new FlxTypedGroup<FlxSprite>();
+		add(allThemBackgrounds);
+
+		for (i in 0...weekBG.length)
+		{
+			var songBG:FlxSprite = new FlxSprite(1280 * i).loadGraphic('assets/images/storymenu_' + weekBG[i] + '.png');
+			songBG.ID = i;
+			allThemBackgrounds.add(songBG);
+		}
+		
 
 		trace('A A MONG US A A  AAAA MONG US US');
 
@@ -106,7 +119,7 @@ class StoryMenuState extends MusicBeatState
 		//add(grpWeekText);
 
 		var blackBarThingie:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, 56, FlxColor.BLACK);
-		add(blackBarThingie);
+		//add(blackBarThingie);
 
 		grpWeekCharacters = new FlxTypedGroup<MenuCharacter>();
 
@@ -117,7 +130,7 @@ class StoryMenuState extends MusicBeatState
 
 		for (i in 0...weekData.length)
 		{
-			var weekThing:MenuItem = new MenuItem(0, yellowBG.y + yellowBG.height + 10, i);
+			var weekThing:MenuItem = new MenuItem(0, 720 + 10, i);
 			weekThing.y += ((weekThing.height + 20) * i);
 			weekThing.targetY = i;
 			grpWeekText.add(weekThing);
@@ -176,19 +189,35 @@ class StoryMenuState extends MusicBeatState
 		rightArrow.y -= rightArrow.height / 2;
 		leftArrow.y -= leftArrow.height / 2;
 
-		add(yellowBG);
+		//add(yellowBG);
 		add(grpWeekCharacters);
 
 		add(rightArrow);
 		add(leftArrow);
 
-		theYoMamaYTChannel = new FlxSprite(0);
-		theYoMamaYTChannel.frames = FlxAtlasFrames.fromSparrow('assets/images/weeks.png', 'assets/images/weeks.xml');
-		theYoMamaYTChannel.animation.addByPrefix('anim0', 'tutorial', 24, false);
-		theYoMamaYTChannel.animation.addByPrefix('anim1', 'WEEK1', 24, false);
-		theYoMamaYTChannel.animation.play('anim0');
-		theYoMamaYTChannel.setGraphicSize(Std.int(theYoMamaYTChannel.width / 1.5));
+		theYoMamaYTChannel = new FlxTypedGroup<FlxSprite>();
 		add(theYoMamaYTChannel);
+
+		for (i in 0...weekData.length)
+		{
+			var weekThingy:FlxSprite = new FlxSprite(1280 * i);
+			weekThingy.frames = FlxAtlasFrames.fromSparrow('assets/images/weeks.png', 'assets/images/weeks.xml');
+			weekThingy.animation.addByPrefix('anim0', 'tutorial', 24, false);
+			weekThingy.animation.addByPrefix('anim1', 'WEEK1', 24, false);
+			weekThingy.animation.play('anim' + i, true);
+			weekThingy.setGraphicSize(Std.int(weekThingy.width / 1.5));
+			switch (i)
+			{
+				case 0:
+					weekThingy.setGraphicSize(Std.int(weekThingy.width / 1.5));
+				case 1:
+					weekThingy.setGraphicSize(Std.int(weekThingy.width / 2.5));
+			}
+			weekThingy.ID = i;
+			theYoMamaYTChannel.add(weekThingy);
+		}
+
+		
 
 	/*	fnfNeo = new FlxSprite(973, 160);
 		fnfNeo.frames = FlxAtlasFrames.fromSparrow('assets/images/weeks.png', 'assets/images/weeks.xml');
@@ -278,8 +307,6 @@ class StoryMenuState extends MusicBeatState
 		{
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}
-
-		theYoMamaYTChannel.animation.play('anim' + curWeek, true);
 		//fnfNeo.animation.play('anim' + (curWeek + 1), true);
 		//junking.animation.play('anim' + (curWeek - 1), true);
 
@@ -387,12 +414,15 @@ class StoryMenuState extends MusicBeatState
 			PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
 			PlayState.storyWeek = curWeek;
 			PlayState.campaignScore = 0;
-			new FlxTimer().start(1, function(tmr:FlxTimer)
-			{
-				if (FlxG.sound.music != null)
-					FlxG.sound.music.stop();
-				FlxG.switchState(new PlayState());
+			theYoMamaYTChannel.forEach(function(spr:FlxSprite){
+				FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
+				{
+					if (FlxG.sound.music != null)
+						FlxG.sound.music.stop();
+					FlxG.switchState(new PlayState());
+				});
 			});
+			
 		}
 	}
 
@@ -428,15 +458,17 @@ class StoryMenuState extends MusicBeatState
 
 		var bullShit:Int = 0;
 
-		yellowBG.loadGraphic('assets/images/storymenu_' + weekBG[curWeek] + '.png'); 
+		//yellowBG.loadGraphic('assets/images/storymenu_' + weekBG[curWeek] + '.png'); 
 
-		switch (curWeek)
-		{
-			case 0:
-				theYoMamaYTChannel.setGraphicSize(Std.int(theYoMamaYTChannel.width / 1.5));
-			case 1:
-				theYoMamaYTChannel.setGraphicSize(Std.int(theYoMamaYTChannel.width / 2.5));
-		}
+		allThemBackgrounds.forEach(function(spr:FlxSprite){
+			FlxTween.cancelTweensOf(spr);
+			FlxTween.tween(spr, {x: 1280 * (spr.ID - curWeek)}, 0.4, {ease: FlxEase.quintOut});
+		});
+
+		theYoMamaYTChannel.forEach(function(spr:FlxSprite){
+			FlxTween.cancelTweensOf(spr);
+			FlxTween.tween(spr, {x: 1280 * (spr.ID - curWeek)}, 0.3, {ease: FlxEase.quintOut});
+		});
 
 		for (item in grpWeekText.members)
 		{

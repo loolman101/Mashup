@@ -12,6 +12,7 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import io.newgrounds.NG;
 import lime.app.Application;
+import flixel.addons.display.FlxBackdrop;
 
 using StringTools;
 
@@ -23,6 +24,9 @@ class MainMenuState extends MusicBeatState
 
 	var optionShit:Array<String>;
 
+	var micUpJunk:FlxBackdrop;
+	var micUpSopar:FlxBackdrop;
+
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 
@@ -33,17 +37,19 @@ class MainMenuState extends MusicBeatState
 			FlxG.sound.playMusic('assets/music/freakyMenu' + TitleState.soundExt);
 		}
 
-		if (FlxG.save.data.wardrobeUnlocked)
+		/*if (FlxG.save.data.wardrobeUnlocked)
 			optionShit = ['story mode', 'freeplay', 'options', 'wardrobe', 'credits'];
 		else
-			optionShit = ['story mode', 'freeplay', 'options', 'credits'];
+			optionShit = ['story mode', 'freeplay', 'options', 'credits'];*/
+
+		optionShit = ['story mode', 'freeplay', 'options', 'credits'];
 
 		persistentUpdate = persistentDraw = true;
 
 		var bg:FlxSprite = new FlxSprite(-80).loadGraphic('assets/images/menuBG.png');
-		bg.scrollFactor.x = 0;
-		bg.scrollFactor.y = 0.18;
-		bg.setGraphicSize(Std.int(bg.width * 1.1));
+		bg.scrollFactor.x = 0.01;
+		bg.scrollFactor.y = 0;
+		bg.setGraphicSize(Std.int(bg.width * 1.2));
 		bg.updateHitbox();
 		bg.screenCenter();
 		bg.antialiasing = true;
@@ -53,9 +59,9 @@ class MainMenuState extends MusicBeatState
 		add(camFollow);
 
 		magenta = new FlxSprite(-80).loadGraphic('assets/images/menuDesat.png');
-		magenta.scrollFactor.x = 0;
-		magenta.scrollFactor.y = 0.18;
-		magenta.setGraphicSize(Std.int(magenta.width * 1.1));
+		magenta.scrollFactor.x = 0.01;
+		magenta.scrollFactor.y = 0.;
+		magenta.setGraphicSize(Std.int(magenta.width * 1.2));
 		magenta.updateHitbox();
 		magenta.screenCenter();
 		magenta.visible = false;
@@ -64,6 +70,11 @@ class MainMenuState extends MusicBeatState
 		add(magenta);
 		// magenta.scrollFactor.set();
 
+		micUpJunk = new FlxBackdrop('assets/images/Literal_Micd_Up.png', 1, 1, true, true);
+		micUpJunk.alpha = 0.35;
+		micUpJunk.scrollFactor.set(0.1, 0);
+		add(micUpJunk);
+
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
 
@@ -71,15 +82,16 @@ class MainMenuState extends MusicBeatState
 
 		for (i in 0...optionShit.length)
 		{
-			var menuItem:FlxSprite = new FlxSprite(0, 60 + (i * 160));
+			var menuItem:FlxSprite = new FlxSprite();
 			menuItem.frames = tex;
 			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
 			menuItem.animation.play('idle');
 			menuItem.ID = i;
-			menuItem.screenCenter(X);
+			menuItem.screenCenter(Y);
+			menuItem.x = (i * (menuItem.width * 2));
 			menuItems.add(menuItem);
-			menuItem.scrollFactor.set(0, 1);
+			menuItem.scrollFactor.set(1, 0);
 			menuItem.antialiasing = true;
 		}
 
@@ -98,6 +110,8 @@ class MainMenuState extends MusicBeatState
 	}
 
 	var selectedSomethin:Bool = false;
+	
+	var leftOrRight:Int = 1;
 
 	override function update(elapsed:Float)
 	{
@@ -106,15 +120,18 @@ class MainMenuState extends MusicBeatState
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}
 
+		micUpJunk.x -= (-0.27/(120/60)) * leftOrRight;
+		micUpJunk.y -= -0.63/(120/60);
+
 		if (!selectedSomethin)
 		{
-			if (controls.UP_P)
+			if (controls.LEFT_P)
 			{
 				FlxG.sound.play('assets/sounds/scrollMenu' + TitleState.soundExt);
 				changeItem(-1);
 			}
 
-			if (controls.DOWN_P)
+			if (controls.RIGHT_P)
 			{
 				FlxG.sound.play('assets/sounds/scrollMenu' + TitleState.soundExt);
 				changeItem(1);
@@ -187,13 +204,15 @@ class MainMenuState extends MusicBeatState
 
 		menuItems.forEach(function(spr:FlxSprite)
 		{
-			spr.screenCenter(X);
+			spr.screenCenter(Y);
 		});
 	}
 
 	function changeItem(huh:Int = 0)
 	{
 		curSelected += huh;
+
+		leftOrRight = leftOrRight * -1;
 
 		if (curSelected >= menuItems.length)
 			curSelected = 0;
@@ -207,10 +226,7 @@ class MainMenuState extends MusicBeatState
 			if (spr.ID == curSelected)
 			{
 				spr.animation.play('selected');
-				if (curSelected == 3)
-					camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y - 30);
-				else
-					camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y);
+				camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y);
 			}
 
 			spr.updateHitbox();

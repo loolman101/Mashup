@@ -13,6 +13,7 @@ import flixel.util.FlxColor;
 import lime.utils.Assets;
 import flixel.graphics.atlas.FlxAtlas;
 import flixel.graphics.frames.FlxAtlasFrames;
+import flixel.addons.display.FlxBackdrop;
 
 class OptionsMenu extends MusicBeatState
 {
@@ -21,7 +22,9 @@ class OptionsMenu extends MusicBeatState
 
 	public static var cinematicMode:Bool = false;
 
-	var controlsStrings:Array<String> = ['CINEMATIC MODE', 'TOGGLE FULLSCREEN'];
+	var controlsStrings:Array<String> = ['CINEMATIC MODE', 'TOGGLE FULLSCREEN', 'DOWNSCROLL'];
+
+	var iLoveWow2:FlxBackdrop;
 
 	var checkMark:FlxSprite;
 
@@ -30,18 +33,24 @@ class OptionsMenu extends MusicBeatState
 	override function create()
 	{
 		var menuBG:FlxSprite = new FlxSprite().loadGraphic('assets/images/menuDesat.png');
-		menuBG.color = 0xFFea71fd;
+		menuBG.color = 0xFF00f2ff;
 		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
 		menuBG.updateHitbox();
 		menuBG.screenCenter();
 		menuBG.antialiasing = true;
 		add(menuBG);
 
+		iLoveWow2 = new FlxBackdrop('assets/images/Literal_Micd_Up.png', 1, 1, true, true);
+		iLoveWow2.alpha = 0.2;
+		iLoveWow2.scrollFactor.set(0.1, 0);
+		add(iLoveWow2);
+
 		checkMark = new FlxSprite(1030, 350);
 		checkMark.frames = FlxAtlasFrames.fromSparrow('assets/images/option_things.png', 'assets/images/option_things.xml');
 		checkMark.animation.addByPrefix('true', 'ON', 24, false);
 		checkMark.animation.addByPrefix('false', 'OFF', 24, false);
 		checkMark.animation.play('false');
+		checkMark.alpha = 0.75;
 		add(checkMark);
 
 		grpControls = new FlxTypedGroup<Alphabet>();
@@ -65,6 +74,9 @@ class OptionsMenu extends MusicBeatState
 	{
 		super.update(elapsed);
 
+		iLoveWow2.x -= -0.27/(120/60);
+		iLoveWow2.y -= -0.63/(120/60);
+
 		if (controls.ACCEPT)
 		{
 			switch(curSelected) {
@@ -72,6 +84,8 @@ class OptionsMenu extends MusicBeatState
 					cinematicMode = !cinematicMode;
 				case 1:
 					FlxG.fullscreen = !FlxG.fullscreen;
+				case 2:
+					FlxG.save.data.downscroll = !FlxG.save.data.downscroll;
 			}
 		}
 
@@ -80,6 +94,8 @@ class OptionsMenu extends MusicBeatState
 				checkMark.animation.play(Std.string(cinematicMode));
 			case 1:
 				checkMark.animation.play(Std.string(FlxG.fullscreen));
+			case 2:
+				checkMark.animation.play(Std.string(FlxG.save.data.downscroll));
 		}
 
 		if (isSettingControl)
