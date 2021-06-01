@@ -518,7 +518,7 @@ class PlayState extends MusicBeatState
 			{
 				case 'dread':
 					camFollow.setPosition(boyfriend.getMidpoint().x - 100, boyfriend.getMidpoint().y - 100);
-					schoolIntro(doof); 
+					startCountdown();
 				case 'autumn' | 'leaf-decay' | 'corruption':
 					trace('acidic is dumb');
 					startCountdown();
