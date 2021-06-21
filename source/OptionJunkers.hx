@@ -4,7 +4,7 @@ class OptionJunkers
 {
     public static function initOptions()
     {
-        if (FlxG.save.data.downscroll == null)
-            FlxG.save.data.downscroll = false;
+        if (FlxG.save.data.scrolltype == null)
+            FlxG.save.data.scrolltype = 'upscroll';
     }
 }

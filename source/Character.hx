@@ -31,7 +31,7 @@ class Character extends FlxSprite
 		{
 			case 'gf':
 				// GIRLFRIEND CODE
-				tex = FlxAtlasFrames.fromSparrow('assets/images/Vanus_ass_sets.png', 'assets/images/Vanus_ass_sets.xml');
+				tex = FlxAtlasFrames.fromSparrow('assets/images/Calliope_Assets.png', 'assets/images/Calliope_Assets.xml');
 				frames = tex;
 				animation.addByPrefix('cheer', 'GF Cheer', 24, false);
 				animation.addByPrefix('singLEFT', 'GF left note', 24, false);
@@ -40,11 +40,10 @@ class Character extends FlxSprite
 				animation.addByPrefix('singDOWN', 'GF Down Note', 24, false);
 				animation.addByIndices('sad', 'gf sad', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "", 24, false);
 				if (isPreview)
-					animation.addByPrefix('danceRight', 'GF Dancing Beat', 24, true);
+					animation.addByPrefix('idle', 'Calliope Idle', 24, true);
 				else
 				{
-					animation.addByIndices('danceLeft', 'GF Dancing Beat', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
-					animation.addByIndices('danceRight', 'GF Dancing Beat', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+					animation.addByPrefix('idle', 'Calliope Idle', 24, false);
 				}
 				animation.addByIndices('hairBlow', "GF Dancing Beat Hair blowing", [0, 1, 2, 3], "", 24);
 				animation.addByIndices('hairFall', "GF Dancing Beat Hair Landing", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], "", 24, false);
@@ -52,8 +51,7 @@ class Character extends FlxSprite
 
 				addOffset('cheer');
 				addOffset('sad', -2, -22);
-				addOffset('danceLeft', 0, -9);
-				addOffset('danceRight', 0, -9);
+				addOffset('idle', -250, 0);
 
 				addOffset("singUP", 0, 0);
 				addOffset("singRIGHT", 0, -9);
@@ -64,7 +62,7 @@ class Character extends FlxSprite
 
 				addOffset('scared', -2, -11);
 
-				playAnim('danceRight');
+				playAnim('idle');
 				
             case 'og-gf':
 				// GIRLFRIEND CODE
@@ -110,6 +108,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singLEFT', 'Monster left note', 24, false);
 				animation.addByPrefix('singRIGHT', 'Monster Right note', 24, false);
 				animation.addByPrefix('meAndAcidicWhenAmongUs', 'laughter', 24, false);
+				animation.addByPrefix('swipe', 'thankyourocket', 24, false);
 
 				addOffset('idle', -70, 130);
 				addOffset("singUP", 45, 118);
@@ -117,6 +116,7 @@ class Character extends FlxSprite
 				addOffset("singLEFT", -6, 160);
 				addOffset("singDOWN", -11, -22);
 				addOffset('meAndAcidicWhenAmongUs', -30, 6);
+				addOffset('swipe', 46, 289);
 				playAnim('idle');
 
 			case 'bf':
@@ -197,6 +197,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'theo right', 24, false);
 				animation.addByPrefix('singLEFT', 'theo left', 24, false);
 				animation.addByPrefix('singDOWN', 'theo down', 24, false);
+				animation.addByPrefix('creppy', 'creppy', 24 ,false);
 
 				addOffset('vore');
 				addOffset('idle', 0, 11);
@@ -204,6 +205,7 @@ class Character extends FlxSprite
 				addOffset('singRIGHT', -24, 37);
 				addOffset('singLEFT', 53, 5);
 				addOffset('singDOWN', 13, -30);
+				addOffset('creppy', -11, 12);
 
 				playAnim('idle');
 		}
@@ -255,9 +257,6 @@ class Character extends FlxSprite
 
 		switch (curCharacter)
 		{
-			case 'gf':
-				if (animation.curAnim.name == 'hairFall' && animation.curAnim.finished)
-					playAnim('danceRight');
 			case 'og-gf':
 				if (animation.curAnim.name == 'hairFall' && animation.curAnim.finished)
 					playAnim('danceRight');
@@ -277,23 +276,6 @@ class Character extends FlxSprite
 		{
 			switch (curCharacter)
 			{
-				case 'gf':
-					if (!animation.curAnim.name.startsWith('hair'))
-					{
-						danced = !danced;
-
-						if (danced)
-						{
-							playAnim('danceRight');
-							//PlayState.stickerBop('idle');
-						}
-						else
-						{
-							playAnim('danceLeft');
-							//PlayState.stickerBop('idle');
-						}
-					}
-
 				case 'spooky':
 					danced = !danced;
 
@@ -301,6 +283,13 @@ class Character extends FlxSprite
 						playAnim('danceRight');
 					else
 						playAnim('danceLeft');
+				case 'gf':
+					danced = !danced;
+
+					if (!danced)
+						playAnim('idle', true);
+					else
+						playAnim('idle', false);
 				default:
 					playAnim('idle');
 			}
@@ -319,7 +308,7 @@ class Character extends FlxSprite
 		else
 			offset.set(0, 0);
 
-		if (curCharacter == 'gf' || curCharacter == 'og-gf')
+		if (curCharacter == 'og-gf')
 		{
 			if (AnimName == 'singLEFT')
 			{

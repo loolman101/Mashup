@@ -24,7 +24,9 @@ class MusicBeatState extends FlxUIState
 	override function create()
 	{
 		if (transIn != null)
-			trace('reg ' + transIn.region);
+			trace('subscribe to grantare');
+			
+			//trace('reg ' + transIn.region);
 
 		#if (!web)
 		TitleState.soundExt = '.ogg';

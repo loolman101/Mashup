@@ -22,7 +22,7 @@ class OptionsMenu extends MusicBeatState
 
 	public static var cinematicMode:Bool = false;
 
-	var controlsStrings:Array<String> = ['CINEMATIC MODE', 'TOGGLE FULLSCREEN', 'DOWNSCROLL'];
+	var controlsStrings:Array<String> = ['CINEMATIC MODE', 'TOGGLE FULLSCREEN', FlxG.save.data.scrolltype];
 
 	var iLoveWow2:FlxBackdrop;
 
@@ -85,7 +85,27 @@ class OptionsMenu extends MusicBeatState
 				case 1:
 					FlxG.fullscreen = !FlxG.fullscreen;
 				case 2:
-					FlxG.save.data.downscroll = !FlxG.save.data.downscroll;
+					var newScrollType:String = '';
+
+					switch (FlxG.save.data.scrolltype)
+					{
+						case 'upscroll':
+							newScrollType = 'downscroll';
+						case 'downscroll':
+							newScrollType = 'upscroll'; // leftscroll 
+						case 'leftscroll':
+							newScrollType = 'rightscroll';
+						case 'rightscroll':
+							newScrollType = 'upscroll';
+					}
+
+					FlxG.save.data.scrolltype = newScrollType;
+
+					grpControls.remove(grpControls.members[curSelected]);
+					var stupid:Alphabet = new Alphabet(0, (70 * curSelected) + 30, newScrollType, true, false);
+					stupid.isMenuItem = true;
+					stupid.targetY = 0;
+					grpControls.add(stupid);
 			}
 		}
 
@@ -95,7 +115,7 @@ class OptionsMenu extends MusicBeatState
 			case 1:
 				checkMark.animation.play(Std.string(FlxG.fullscreen));
 			case 2:
-				checkMark.animation.play(Std.string(FlxG.save.data.downscroll));
+				checkMark.visible = false;
 		}
 
 		if (isSettingControl)
