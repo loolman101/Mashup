@@ -50,6 +50,7 @@ class PlayState extends MusicBeatState
 	public static var daThingy:Bool = false;
 	public static var SONG:SwagSong;
 	public static var isStoryMode:Bool = false;
+	public static var isBonusSong:Bool = false;
 	public static var storyWeek:Int = 0;
 	public static var storyPlaylist:Array<String> = [];
 	public static var storyDifficulty:Int = 1;
@@ -124,7 +125,9 @@ class PlayState extends MusicBeatState
 	var scoreTxt:FlxText;
 	var missTxt:FlxText;
 
-	var warningText:FlxText;
+	var warningText:FlxSprite;
+
+	var blame:FlxSprite;
 
 	var isCinematic:Bool = OptionsMenu.cinematicMode;
 
@@ -207,26 +210,41 @@ class PlayState extends MusicBeatState
 				dialogue = CoolUtil.coolTextFile('assets/data/dialogue/blammer.txt');
 		}
 
-		if (SONG.song.toLowerCase() == 'autumn' || SONG.song.toLowerCase() == 'corruption' || SONG.song.toLowerCase() == 'leaf-decay' || SONG.song.toLowerCase() == 'dread')
+		var spikes:FlxSprite = new FlxSprite(-340, 5);
+		var mic:FlxSprite = new FlxSprite(-340, 5);
+
+		var coolFG:FlxSprite = new FlxSprite(-339, 19);
+
+		if (SONG.song.toLowerCase() == 'autumn' || SONG.song.toLowerCase() == 'corruption' || SONG.song.toLowerCase() == 'leaf-decay' || SONG.song.toLowerCase() == 'dread' || SONG.song.toLowerCase() == 'breakdown' || SONG.song.toLowerCase() == 'corruption-bsides')
 		{
 			curStage = 'philly';
+
+			var daSongName:String = SONG.song.toLowerCase();
+
+			switch (daSongName)
+			{
+				case 'breakdown':
+					daSongName = 'leaf-decay';
+				case 'corruption-bsides':
+					daSongName = 'corruption';
+			}
 
 			if (SONG.song == 'Dread')
 				daThingy = true;
 
-			var bg:FlxSprite = new FlxSprite(-100).loadGraphic('assets/images/theo/' + SONG.song.toLowerCase() + '/sky.png');
+			var bg:FlxSprite = new FlxSprite(-100).loadGraphic('assets/images/theo/' + daSongName + '/sky.png');
 			bg.scrollFactor.set(0.1, 0.1);
 			add(bg);
 
 			var city:FlxSprite;
 
-			if (SONG.song.toLowerCase() == 'dread')
+			if (daSongName == 'dread')
 			{
 				sun = new FlxSprite(50, 150).loadGraphic('assets/images/theo/moon.png');
 				sun.scrollFactor.set(0.1, 0.1);
 				add(sun);
 
-				city = new FlxSprite(-10).loadGraphic('assets/images/theo/' + SONG.song.toLowerCase() + '/bg.png');
+				city = new FlxSprite(-10).loadGraphic('assets/images/theo/' + daSongName + '/bg.png');
 				city.scrollFactor.set(0.3, 0.3);
 				city.setGraphicSize(Std.int(city.width * 0.85));
 				city.updateHitbox();
@@ -245,14 +263,14 @@ class PlayState extends MusicBeatState
 				sun.scrollFactor.set(0.1, 0.1);
 				add(sun);
 
-				city = new FlxSprite(-10).loadGraphic('assets/images/theo/' + SONG.song.toLowerCase() + '/bg.png');
+				city = new FlxSprite(-10).loadGraphic('assets/images/theo/' + daSongName + '/bg.png');
 				city.scrollFactor.set(0.3, 0.3);
 				city.setGraphicSize(Std.int(city.width * 0.85));
 				city.updateHitbox();
 				add(city);
 			}
 
-			switch(SONG.song.toLowerCase())
+			switch(daSongName)
 			{
 				case 'leaf-decay':
 					sun.y += 75;
@@ -260,13 +278,13 @@ class PlayState extends MusicBeatState
 					sun.y += 150;
 			}
 
-			var streetBehind:FlxSprite = new FlxSprite(-40, 50).loadGraphic('assets/images/theo/' + SONG.song.toLowerCase() + '/fence.png');
+			var streetBehind:FlxSprite = new FlxSprite(-40, 50).loadGraphic('assets/images/theo/' + daSongName + '/fence.png');
 			add(streetBehind);
 
-			if (SONG.song.toLowerCase() == 'dread')
+			if (daSongName == 'dread')
 				add(bgCult);
 
-			phillyTrain = new FlxSprite(2000, 360).loadGraphic('assets/images/theo/' + SONG.song.toLowerCase() + '/leaves.png');
+			phillyTrain = new FlxSprite(2000, 360).loadGraphic('assets/images/theo/' + daSongName + '/leaves.png');
 			add(phillyTrain);
 
 			trainSound = new FlxSound().loadEmbedded('assets/sounds/train_passes' + TitleState.soundExt);
@@ -274,7 +292,7 @@ class PlayState extends MusicBeatState
 
 			// var cityLights:FlxSprite = new FlxSprite().loadGraphic(AssetPaths.win0.png);
 
-			var street:FlxSprite = new FlxSprite(-40, streetBehind.y).loadGraphic('assets/images/theo/' + SONG.song.toLowerCase() + '/ground.png');
+			var street:FlxSprite = new FlxSprite(-40, streetBehind.y).loadGraphic('assets/images/theo/' + daSongName + '/ground.png');
 			add(street);
 
 			wiggleShit.effectType = WiggleEffectType.DREAMY;
@@ -290,8 +308,12 @@ class PlayState extends MusicBeatState
 				streetBehind.shader = wiggleShit.shader;
 				street.shader = wiggleShit.shader;
 
-				warningText = new FlxText(0, 0, 0, "PRESS SPACE!!!", 30);
-				warningText.setFormat("assets/fonts/vcr.ttf", 30, FlxColor.WHITE, CENTER);
+				warningText = new FlxSprite();
+				warningText.frames = FlxAtlasFrames.fromSparrow('assets/images/PRESS_SPACE_LOL.png', 'assets/images/PRESS_SPACE_LOL.xml');
+				warningText.animation.addByPrefix('juk', 'P bold', 24, true);
+				warningText.animation.play('juk');
+				warningText.setGraphicSize(Std.int(warningText.width * 0.85));
+				warningText.updateHitbox();
 				warningText.scrollFactor.set();
 				warningText.screenCenter(X);
 				warningText.visible = false;
@@ -300,6 +322,75 @@ class PlayState extends MusicBeatState
 				var testingJunk:FlxSprite = new FlxSprite(100, 100).loadGraphic(coolImage);
 				// add(testingJunk);
 			}
+		}
+		else if (SONG.song.toLowerCase() == 'ardyssey')
+		{
+			trace('POOPOO IMPOSTER');
+			curStage = 'CALLIOPE_THE_INSTRUMENT';
+			defaultCamZoom = 0.9;
+			var bg:FlxSprite = new FlxSprite(-339, 19).loadGraphic('assets/images/calliopeTheInstrument/yjytk.png');
+			bg.setGraphicSize(1987);
+			bg.updateHitbox();
+			add(bg);
+
+			coolFG.loadGraphic('assets/images/calliopeTheInstrument/fhgfh.png');
+			coolFG.setGraphicSize(1987);
+			coolFG.updateHitbox();
+			coolFG.scrollFactor.set(1.35, 1.02);
+		}
+		else if (SONG.song.toLowerCase() == 'fear-the-funk' || SONG.song.toLowerCase() == 'whitty-remark' || SONG.song.toLowerCase() == 'gig')
+		{
+			defaultCamZoom = 0.9;
+			var posX:Float = -290;
+			var posY:Float = -10;
+			curStage = 'geneStage';
+			var bg:FlxSprite = new FlxSprite(-340, 5).loadGraphic('assets/images/feerDaFunk/stageBack.png');
+			bg.setGraphicSize(1977);
+			bg.updateHitbox();
+			add(bg);
+
+			blame = new FlxSprite(-65, 294);
+			blame.frames = FlxAtlasFrames.fromSparrow('assets/images/feerDaFunk/BlameBgBounce.png', 'assets/images/feerDaFunk/BlameBgBounce.xml');
+			blame.animation.addByPrefix('idle', 'funny', 24, false);
+			blame.animation.play('idle');
+			if (SONG.song == 'Fear-the-Funk')
+				add(blame);
+
+			spikes.loadGraphic('assets/images/feerDaFunk/stageSpikes.png');
+			spikes.setGraphicSize(1977);
+			spikes.updateHitbox();
+			spikes.scrollFactor.set(1.1, 1);
+			
+			mic.loadGraphic('assets/images/feerDaFunk/mic.png');
+			mic.setGraphicSize(1977);
+			mic.updateHitbox();
+			mic.scrollFactor.set(1.35, 1);
+			/*var bg:FlxSprite = new FlxSprite(posX, posY).loadGraphic('assets/images/feerDaFunk/ewgwg.png');
+			bg.antialiasing = true;
+			bg.scrollFactor.set(0.9, 0.9);
+			bg.active = false;
+			add(bg);
+
+			var stageFront:FlxSprite = new FlxSprite(posX, posY).loadGraphic('assets/images/feerDaFunk/sedsad.png');
+			stageFront.antialiasing = true;
+			stageFront.active = false;
+			add(stageFront);
+
+			var stageCurtains:FlxSprite = new FlxSprite(posX, posY).loadGraphic('assets/images/feerDaFunk/nmy.png');
+			stageCurtains.antialiasing = true;
+			stageCurtains.scrollFactor.set(1.025, 1.025);
+			stageCurtains.active = false;
+
+			add(stageCurtains);*/
+		}
+		else if (SONG.song.toLowerCase() == 'contemplating-space')
+		{
+			trace('what do i put here acidic');
+			curStage = 'spaceThing';
+			add(new FlxSprite().loadGraphic('assets/images/spaceThing.png'));
+			var that:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+			that.alpha = 0.5;
+			add(that);
 		}
 		else if (SONG.song.toLowerCase() == 'fancy-evening' || SONG.song.toLowerCase() == 'intense-feelings' || SONG.song.toLowerCase() == 'paying-the-bill')
 		{
@@ -337,6 +428,68 @@ class PlayState extends MusicBeatState
 
 			add(stageCurtains);
 		}
+		else if (SONG.song.toLowerCase() == 'ashes')
+		{
+			curStage = 'school';
+
+			// defaultCamZoom = 0.9;
+
+			var bgSky = new FlxSprite().loadGraphic('assets/images/weeb/weebSky.png');
+			bgSky.scrollFactor.set(0.1, 0.1);
+			add(bgSky);
+
+			var repositionShit = -200;
+
+			var bgSchool:FlxSprite = new FlxSprite(repositionShit, 0).loadGraphic('assets/images/weeb/weebSchool.png');
+			bgSchool.scrollFactor.set(0.6, 0.90);
+			add(bgSchool);
+
+			var bgStreet:FlxSprite = new FlxSprite(repositionShit).loadGraphic('assets/images/weeb/weebStreet.png');
+			bgStreet.scrollFactor.set(0.95, 0.95);
+			add(bgStreet);
+
+			var fgTrees:FlxSprite = new FlxSprite(repositionShit + 170, 130).loadGraphic('assets/images/weeb/weebTreesBack.png');
+			fgTrees.scrollFactor.set(0.9, 0.9);
+			add(fgTrees);
+
+			var bgTrees:FlxSprite = new FlxSprite(repositionShit - 380, -800);
+			var treetex = FlxAtlasFrames.fromSpriteSheetPacker('assets/images/weeb/weebTrees.png', 'assets/images/weeb/weebTrees.txt');
+			bgTrees.frames = treetex;
+			bgTrees.animation.add('treeLoop', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18], 12);
+			bgTrees.animation.play('treeLoop');
+			bgTrees.scrollFactor.set(0.85, 0.85);
+			add(bgTrees);
+
+			var treeLeaves:FlxSprite = new FlxSprite(repositionShit, -40);
+			treeLeaves.frames = FlxAtlasFrames.fromSparrow('assets/images/weeb/petals.png', 'assets/images/weeb/petals.xml');
+			treeLeaves.animation.addByPrefix('leaves', 'PETALS ALL', 24, true);
+			treeLeaves.animation.play('leaves');
+			treeLeaves.scrollFactor.set(0.85, 0.85);
+			add(treeLeaves);
+
+			var widShit = Std.int(bgSky.width * 6);
+
+			bgSky.setGraphicSize(widShit);
+			bgSchool.setGraphicSize(widShit);
+			bgStreet.setGraphicSize(widShit);
+			bgTrees.setGraphicSize(Std.int(widShit * 1.4));
+			fgTrees.setGraphicSize(Std.int(widShit * 0.8));
+			treeLeaves.setGraphicSize(widShit);
+
+			fgTrees.updateHitbox();
+			bgSky.updateHitbox();
+			bgSchool.updateHitbox();
+			bgStreet.updateHitbox();
+			bgTrees.updateHitbox();
+			treeLeaves.updateHitbox();
+
+			bgGirls = new BackgroundGirls(-100, 190);
+			bgGirls.scrollFactor.set(0.9, 0.9);
+
+			bgGirls.setGraphicSize(Std.int(bgGirls.width * daPixelZoom));
+			bgGirls.updateHitbox();
+			add(bgGirls);
+		}
 		else
 		{
 			defaultCamZoom = 0.9;
@@ -364,6 +517,8 @@ class PlayState extends MusicBeatState
 				gfVersion = 'gf-pixel';
 			case 'schoolEvil':
 				gfVersion = 'gf-pixel';
+			case 'CALLIOPE_THE_INSTRUMENT':
+				gfVersion = 'speakers';
 		}
 
 		if (curStage == 'limo')
@@ -411,6 +566,8 @@ class PlayState extends MusicBeatState
 
 			case "spooky":
 				dad.y += 200;
+			case 'calliope':
+				dad.y += 100;
 			case "theo-lemon":
 				dad.y += 100;
 				camPos.x += 600;
@@ -418,7 +575,9 @@ class PlayState extends MusicBeatState
 				dad.y += 130;
 			case 'dad':
 				camPos.x += 400;
-			case 'theo':
+			case 'gene':
+				dad.y += 135;
+			case 'theo' | 'theo-breakdown':
 				dad.x += 150;
 				camPos.x += 600;
 				dad.y += 375;
@@ -448,6 +607,17 @@ class PlayState extends MusicBeatState
 		{
 			case 'mall':
 				boyfriend.x += 200;
+			case 'geneStage':
+				gf.x -= 100;
+			case 'CALLIOPE_THE_INSTRUMENT':
+				gf.y += 550;
+			case 'school':
+				boyfriend.x += 200;
+				boyfriend.y += 220;
+				gf.x += 180;
+				gf.y += 300;
+			case 'spaceThing':
+				gf.visible = boyfriend.visible = dad.visible = false;
 		}
 
 		add(gf);
@@ -457,6 +627,15 @@ class PlayState extends MusicBeatState
 			add(limo);
 		add(dad);
 		add(boyfriend);
+
+		switch (curStage)
+		{
+			case 'geneStage':
+				add(spikes);
+				add(mic);	
+			case 'CALLIOPE_THE_INSTRUMENT':
+				add(coolFG);
+		}
 
 		var doof:DialogueBox = new DialogueBox(false, dialogue);
 		// doof.x += 70;
@@ -503,10 +682,12 @@ class PlayState extends MusicBeatState
 
 		add(camFollow);
 
-		FlxG.camera.follow(camFollow, LOCKON, 0.01);
+		if (curStage != 'spaceThing')
+			FlxG.camera.follow(camFollow, LOCKON, 0.01);
 		// FlxG.camera.setScrollBounds(0, FlxG.width, 0, FlxG.height);
 		FlxG.camera.zoom = defaultCamZoom;
-		FlxG.camera.focusOn(camFollow.getPosition());
+		if (curStage != 'spaceThing')
+			FlxG.camera.focusOn(camFollow.getPosition());
 
 		FlxG.worldBounds.set(0, 0, FlxG.width, FlxG.height);
 
@@ -543,12 +724,12 @@ class PlayState extends MusicBeatState
 
 		iconP1 = new HealthIcon(SONG.player1, true);
 		iconP1.y = healthBar.y - (iconP1.height / 2);
-		if (!isCinematic)
+		if (!isCinematic && curStage != 'spaceThing')
 			add(iconP1);
 
 		iconP2 = new HealthIcon(SONG.player2, false);
 		iconP2.y = healthBar.y - (iconP2.height / 2);
-		if (!isCinematic)
+		if (!isCinematic && curStage != 'spaceThing')
 			add(iconP2);
 
 		if (FlxG.save.data.scrolltype == 'downscroll')
@@ -1165,6 +1346,39 @@ class PlayState extends MusicBeatState
 									babyArrow.animation.addByPrefix('confirm', 'left confirm', 24, false);
 							}
 						}
+					case 'geneStage':
+						babyArrow.frames = FlxAtlasFrames.fromSparrow('assets/images/feerDaFunk/NOTE_assets.png', 'assets/images/feerDaFunk/NOTE_assets.xml');
+						babyArrow.animation.addByPrefix('green', 'arrowUP');
+						babyArrow.animation.addByPrefix('blue', 'arrowDOWN');
+						babyArrow.animation.addByPrefix('purple', 'arrowLEFT');
+						babyArrow.animation.addByPrefix('red', 'arrowRIGHT');
+
+						babyArrow.antialiasing = true;
+						babyArrow.setGraphicSize(Std.int(babyArrow.width * 0.7));
+
+						switch (Math.abs(i))
+						{
+							case 2:
+								babyArrow.x += Note.swagWidth * 2;
+								babyArrow.animation.addByPrefix('static', 'arrowUP');
+								babyArrow.animation.addByPrefix('pressed', 'up press', 24, false);
+								babyArrow.animation.addByPrefix('confirm', 'up confirm', 24, false);
+							case 3:
+								babyArrow.x += Note.swagWidth * 3;
+								babyArrow.animation.addByPrefix('static', 'arrowRIGHT');
+								babyArrow.animation.addByPrefix('pressed', 'right press', 24, false);
+								babyArrow.animation.addByPrefix('confirm', 'right confirm', 24, false);
+							case 1:
+								babyArrow.x += Note.swagWidth * 1;
+								babyArrow.animation.addByPrefix('static', 'arrowDOWN');
+								babyArrow.animation.addByPrefix('pressed', 'down press', 24, false);
+								babyArrow.animation.addByPrefix('confirm', 'down confirm', 24, false);
+							case 0:
+								babyArrow.x += Note.swagWidth * 0;
+								babyArrow.animation.addByPrefix('static', 'arrowLEFT');
+								babyArrow.animation.addByPrefix('pressed', 'left press', 24, false);
+								babyArrow.animation.addByPrefix('confirm', 'left confirm', 24, false);
+						}
 					default:
 						babyArrow.frames = FlxAtlasFrames.fromSparrow('assets/images/NOTE_assets.png', 'assets/images/NOTE_assets.xml');
 						babyArrow.animation.addByPrefix('green', 'arrowUP');
@@ -1369,6 +1583,12 @@ class PlayState extends MusicBeatState
 			if (player == 1)
 			{
 				playerStrums.add(babyArrow);
+				if (curStage == 'spaceThing')
+					babyArrow.x -= 275;
+			}
+			else if (curStage == 'spaceThing')
+			{
+				babyArrow.visible = false;
 			}
 
 			if (FlxG.save.data.scrolltype == 'downscroll' || FlxG.save.data.scrolltype == 'upscroll')
@@ -1586,8 +1806,8 @@ class PlayState extends MusicBeatState
 					case 'senpai-angry':
 						camFollow.y = dad.getMidpoint().y - 430;
 						camFollow.x = dad.getMidpoint().x - 100;
-					case 'theo':
-						camFollow.x += 25;
+					case 'theo' | 'theo-breakdown':
+						camFollow.x += 45;
 					case 'theo-lemon':
 						camFollow.x = 571.5;
 						//camFollow.y = 563.5;
@@ -1743,17 +1963,19 @@ class PlayState extends MusicBeatState
 					if (curSong == 'Dread' && camZooming)
 						FlxG.camera.zoom = defaultCamZoom + 0.02;
 
-
-					switch (Math.abs(daNote.noteData))
+					if (dad.animation.curAnim.name != 'swipe' || dad.animation.curAnim.name == 'swipe' && dad.animation.curAnim.finished)
 					{
-						case 2:
-							dad.playAnim('singUP' + altAnim, true);
-						case 3:
-							dad.playAnim('singRIGHT' + altAnim, true);
-						case 1:
-							dad.playAnim('singDOWN' + altAnim, true);
-						case 0:
-							dad.playAnim('singLEFT' + altAnim, true);
+						switch (Math.abs(daNote.noteData))
+						{
+							case 2:
+								dad.playAnim('singUP' + altAnim, true);
+							case 3:
+								dad.playAnim('singRIGHT' + altAnim, true);
+							case 1:
+								dad.playAnim('singDOWN' + altAnim, true);
+							case 0:
+								dad.playAnim('singLEFT' + altAnim, true);
+						}
 					}
 
 					dad.holdTimer = 0;
@@ -1782,7 +2004,7 @@ class PlayState extends MusicBeatState
 				{
 					if (daNote.tooLate || !daNote.wasGoodHit)
 					{
-						if (daNote.canBeHit && daNote.mustPress && !daNote.isSustainNote)
+						if (daNote.mustPress && !daNote.isSustainNote)
 							misses++;
 						health -= 0.0475;
 						combo = 0;
@@ -1921,6 +2143,11 @@ class PlayState extends MusicBeatState
 				transOut = FlxTransitionableState.defaultTransOut;
 			}
 		}
+		else if (isBonusSong)
+		{
+			trace('YO JUNK!! (yo mama but better)');
+			FlxG.switchState(new BonusSongState());
+		}
 		else
 		{
 			trace('WENT BACK TO FREEPLAY??');
@@ -1944,6 +2171,8 @@ class PlayState extends MusicBeatState
 		var coolText:FlxText = new FlxText(0, 0, 0, placement, 32);
 		coolText.screenCenter();
 		coolText.x = FlxG.width * 0.55;
+		if (SONG.player2 == 'calliope')
+			coolText.x = dad.x + 145;
 		//
 
 		var rating:FlxSprite = new FlxSprite();
@@ -2361,7 +2590,11 @@ class PlayState extends MusicBeatState
 				combo += 1;
 			}
 
-			var iCantWatchStreams:NoteSplash = new NoteSplash((FlxG.width / 2) + 50 + (Note.swagWidth * note.noteData), strumLine.y, note.noteData);
+			var poopoofart:Int = 0;
+			if (curStage == 'spaceThing')
+				poopoofart = -275;
+
+			var iCantWatchStreams:NoteSplash = new NoteSplash((FlxG.width / 2) + 50 + (Note.swagWidth * note.noteData) + poopoofart, strumLine.y, note.noteData);
 			if (curSong != 'Dread')
 				iCantWatchStreams.cameras = [camHUD];
 			else
@@ -2564,6 +2797,9 @@ class PlayState extends MusicBeatState
 				camJUNK.zoom += 0.03;
 		}
 
+		if (curSong == 'Fear-the-Funk' && curBeat == 166)
+			dad.playAnim('what', true);
+
 		if (curSong == 'Dread' && curStep > 958 && curStep < 1216)
 		{
 			if (!hasDoneThing)
@@ -2685,6 +2921,8 @@ class PlayState extends MusicBeatState
 
 				if (FlxG.random.bool(10) && fastCarCanDrive)
 					fastCarDrive();
+			case 'geneStage':
+				blame.animation.play('idle');
 			case "philly":
 				if (!trainMoving)
 					trainCooldown += 1;

@@ -20,7 +20,7 @@ class SecretState extends MusicBeatState
 {
     override function create()
     {
-        var coolImage:FlxSprite = new FlxSprite().loadGraphic('assets/images/zzzzzzzz.png');
+        var coolImage:FlxSprite = new FlxSprite().loadGraphic('assets/images/memes/zzzzzzzz.png');
         coolImage.screenCenter(X);
         coolImage.screenCenter(Y);
         coolImage.setGraphicSize(FlxG.height);

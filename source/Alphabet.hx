@@ -19,7 +19,9 @@ class Alphabet extends FlxSpriteGroup
 
 	// for menu shit
 	public var targetY:Float = 0;
+	public var targetX:Float = 0;
 	public var isMenuItem:Bool = false;
+	public var isSpoar:Bool = false;
 
 	public var text:String = "";
 
@@ -226,6 +228,13 @@ class Alphabet extends FlxSpriteGroup
 
 			y = FlxMath.lerp(y, (scaledY * 120) + (FlxG.height * 0.48), 0.16);
 			x = FlxMath.lerp(x, (targetY * 20) + 90, 0.16);
+		}
+		else if (isSpoar)
+		{
+			var scaledX = (FlxMath.remapToRange(targetX, 0, 1, 0, 1.3) * 5);
+
+			x = (FlxMath.lerp(x, (scaledX * 120) + (FlxG.width * 0.48), 0.16) - (4 * splitWords.length));
+			y = (FlxMath.lerp(y, (targetX * 20) + 90, 0.16) + 35);
 		}
 
 		super.update(elapsed);

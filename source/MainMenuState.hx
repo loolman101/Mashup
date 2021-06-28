@@ -30,6 +30,9 @@ class MainMenuState extends MusicBeatState
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 
+	var leftArrow:FlxSprite;
+	var rightArrow:FlxSprite;
+
 	override function create()
 	{
 		if (!FlxG.sound.music.playing)
@@ -37,12 +40,14 @@ class MainMenuState extends MusicBeatState
 			FlxG.sound.playMusic('assets/music/freakyMenu' + TitleState.soundExt);
 		}
 
-		/*if (FlxG.save.data.wardrobeUnlocked)
-			optionShit = ['story mode', 'freeplay', 'options', 'wardrobe', 'credits'];
+		if (FlxG.save.data.wardrobeUnlocked)
+			optionShit = ['story mode', 'freeplay', 'bonus-songs', 'options', 'wardrobe', 'credits'];
 		else
-			optionShit = ['story mode', 'freeplay', 'options', 'credits'];*/
+			optionShit = ['story mode', 'freeplay', 'bonus-songs', 'options', 'credits'];
 
-		optionShit = ['story mode', 'freeplay', 'options', 'credits'];
+		// optionShit = ['story mode', 'freeplay', 'options', 'credits'];
+
+		var ui_tex = FlxAtlasFrames.fromSparrow('assets/images/campaign_menu_UI_assets.png', 'assets/images/campaign_menu_UI_assets.xml');
 
 		persistentUpdate = persistentDraw = true;
 
@@ -82,18 +87,54 @@ class MainMenuState extends MusicBeatState
 
 		for (i in 0...optionShit.length)
 		{
-			var menuItem:FlxSprite = new FlxSprite();
-			menuItem.frames = tex;
-			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
-			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
-			menuItem.animation.play('idle');
-			menuItem.ID = i;
-			menuItem.screenCenter(Y);
-			menuItem.x = (i * (menuItem.width * 2));
-			menuItems.add(menuItem);
-			menuItem.scrollFactor.set(1, 0);
-			menuItem.antialiasing = true;
+			switch (i)
+			{
+				case 0 | 1 | 3:
+					var menuItem:FlxSprite = new FlxSprite();
+					menuItem.frames = tex;
+					menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
+					menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
+					menuItem.animation.play('idle');
+					menuItem.ID = i;
+					menuItem.screenCenter();
+					menuItem.x += 1280 * i;
+					menuItems.add(menuItem);
+					menuItem.scrollFactor.set(1, 0);
+					menuItem.antialiasing = true;
+				default:
+					var menuItem:FlxSprite = new FlxSprite();
+					menuItem.frames = FlxAtlasFrames.fromSparrow('assets/images/mainMenuJunkers/${optionShit[i]}.png', 'assets/images/mainMenuJunkers/${optionShit[i]}.xml');
+					menuItem.animation.addByPrefix('idle', '${optionShit[i]} basic', 24);
+					menuItem.animation.play('idle');
+					menuItem.ID = i;
+					menuItem.screenCenter();
+					menuItem.x += 1280 * i;
+					menuItems.add(menuItem);
+					menuItem.scrollFactor.set(1, 0);
+					menuItem.antialiasing = true;
+			}
+				
 		}
+
+		leftArrow = new FlxSprite();
+		leftArrow.frames = ui_tex;
+		leftArrow.animation.addByPrefix('idle', "arrow left");
+		leftArrow.animation.addByPrefix('press', "arrow push left");
+		leftArrow.animation.play('idle');
+		leftArrow.screenCenter();
+		leftArrow.x -= FlxG.width / 2.5;
+		leftArrow.scrollFactor.set();
+		add(leftArrow);
+
+		rightArrow = new FlxSprite();
+		rightArrow.frames = ui_tex;
+		rightArrow.animation.addByPrefix('idle', 'arrow right');
+		rightArrow.animation.addByPrefix('press', "arrow push right", 24, false);
+		rightArrow.animation.play('idle');
+		rightArrow.screenCenter();
+		rightArrow.x += FlxG.width / 2;
+		rightArrow.scrollFactor.set();
+		add(rightArrow);
 
 		FlxG.camera.follow(camFollow, null, 0.06);
 
@@ -136,6 +177,16 @@ class MainMenuState extends MusicBeatState
 				FlxG.sound.play('assets/sounds/scrollMenu' + TitleState.soundExt);
 				changeItem(1);
 			}
+
+			if (controls.RIGHT)
+				rightArrow.animation.play('press')
+			else
+				rightArrow.animation.play('idle');
+
+			if (controls.LEFT)
+				leftArrow.animation.play('press');
+			else
+				leftArrow.animation.play('idle');
 
 			if (controls.BACK)
 			{
@@ -186,6 +237,8 @@ class MainMenuState extends MusicBeatState
 										FlxG.switchState(new FreeplayState());
 
 										trace("Freeplay Menu Selected");
+									case 'bonus-songs':
+										FlxG.switchState(new BonusSongState());
 									case 'wardrobe':
 										FlxG.switchState(new WardrobeMenu());
 									case 'options':

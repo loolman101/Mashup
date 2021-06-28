@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="war droooobe.png">
+	<!-- Created with Adobe Animate version 21.0.7.42652 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="wardrobe basic0000" x="0" y="0" width="802" height="154" frameX="-3" frameY="-6" frameWidth="805" frameHeight="162"/>
+	<SubTexture name="wardrobe basic0001" x="0" y="154" width="801" height="160" frameX="-2" frameY="-2" frameWidth="805" frameHeight="162"/>
+	<SubTexture name="wardrobe basic0002" x="0" y="314" width="801" height="156" frameX="0" frameY="0" frameWidth="805" frameHeight="162"/>
+</TextureAtlas>

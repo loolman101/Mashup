@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bow nes songs ubqdwdyqwuebdrw.png">
+	<!-- Created with Adobe Animate version 21.0.7.42652 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="bonus-songs basic0000" x="0" y="0" width="423" height="233" frameX="-2" frameY="-4" frameWidth="430" frameHeight="242"/>
+	<SubTexture name="bonus-songs basic0001" x="423" y="0" width="430" height="238" frameX="0" frameY="-3" frameWidth="430" frameHeight="242"/>
+	<SubTexture name="bonus-songs basic0002" x="0" y="238" width="428" height="242" frameX="-2" frameY="0" frameWidth="430" frameHeight="242"/>
+	<SubTexture name="bonus-songs white0000" x="428" y="238" width="411" height="215" frameX="-2" frameY="-2" frameWidth="413" frameHeight="219"/>
+	<SubTexture name="bonus-songs white0001" x="428" y="238" width="411" height="215" frameX="-2" frameY="-2" frameWidth="413" frameHeight="219"/>
+	<SubTexture name="bonus-songs white0002" x="428" y="238" width="411" height="215" frameX="-2" frameY="-2" frameWidth="413" frameHeight="219"/>
+	<SubTexture name="bonus-songs white0003" x="428" y="238" width="411" height="215" frameX="-2" frameY="-2" frameWidth="413" frameHeight="219"/>
+	<SubTexture name="bonus-songs white0004" x="0" y="480" width="412" height="219" frameX="0" frameY="0" frameWidth="413" frameHeight="219"/>
+	<SubTexture name="bonus-songs white0005" x="0" y="480" width="412" height="219" frameX="0" frameY="0" frameWidth="413" frameHeight="219"/>
+	<SubTexture name="bonus-songs white0006" x="0" y="480" width="412" height="219" frameX="0" frameY="0" frameWidth="413" frameHeight="219"/>
+	<SubTexture name="bonus-songs white0007" x="0" y="480" width="412" height="219" frameX="0" frameY="0" frameWidth="413" frameHeight="219"/>
+	<SubTexture name="bonus-songs white0008" x="412" y="480" width="412" height="218" frameX="0" frameY="-1" frameWidth="413" frameHeight="219"/>
+	<SubTexture name="bonus-songs white0009" x="412" y="480" width="412" height="218" frameX="0" frameY="-1" frameWidth="413" frameHeight="219"/>
+	<SubTexture name="bonus-songs white0010" x="412" y="480" width="412" height="218" frameX="0" frameY="-1" frameWidth="413" frameHeight="219"/>
+	<SubTexture name="bonus-songs white0011" x="412" y="480" width="412" height="218" frameX="0" frameY="-1" frameWidth="413" frameHeight="219"/>
+</TextureAtlas>

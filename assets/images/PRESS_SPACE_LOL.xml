@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="PRESS SPACE LMAOOO.png">
+	<!-- Created with Adobe Animate version 21.0.7.42652 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="P bold0000" x="0" y="0" width="411" height="140"/>
+	<SubTexture name="P bold0001" x="0" y="0" width="411" height="140"/>
+	<SubTexture name="P bold0002" x="0" y="140" width="411" height="140"/>
+	<SubTexture name="P bold0003" x="0" y="140" width="411" height="140"/>
+</TextureAtlas>

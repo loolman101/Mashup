@@ -23,8 +23,9 @@ class StoryMenuState extends MusicBeatState
 	var scoreText:FlxText;
 
 	var weekData:Array<Dynamic> = [
-		['Spaceroom'],
-		['Autumn', 'Leaf-Decay', "Corruption", 'Dread']
+		['Ardyssey'],
+		['Autumn', 'Leaf-Decay', "Corruption", 'Dread'],
+		['Fear-the-Funk']
 	];
 	var curDifficulty:Int = 1;
 
@@ -36,19 +37,16 @@ class StoryMenuState extends MusicBeatState
 		'theo'
 	];*/
 
-	var weekBG:Array<String> = [
-		'SPACEROOM',
-		'BG'
-	];
-
 	var weekSongs:Array<String> = [
-		'Spaceroom',
-		'Leaf-Decay'
+		'Ardyssey',
+		'Leaf-Decay',
+		'Fear-the-Funk'
 	];
 
 	var weekNames:Array<String> = [
 		"LEFT UP DOWN RIGHT",
-		"SMELLS LIKE LEMONS"
+		"SMELLS LIKE LEMONS",
+		"FAMILY SIZED BAG OF CHIPS"
 	];
 
 	var txtWeekTitle:FlxText;
@@ -77,6 +75,8 @@ class StoryMenuState extends MusicBeatState
 
 	var fullComboCoin:FlxSprite;
 
+	var stupidArray:Array<Float> = [];
+
 	override function create()
 	{
 		if (FlxG.sound.music != null)
@@ -103,15 +103,7 @@ class StoryMenuState extends MusicBeatState
 		var ui_tex = FlxAtlasFrames.fromSparrow('assets/images/campaign_menu_UI_assets.png', 'assets/images/campaign_menu_UI_assets.xml');
 
 		allThemBackgrounds = new FlxTypedGroup<FlxSprite>();
-		add(allThemBackgrounds);
-
-		for (i in 0...weekBG.length)
-		{
-			var songBG:FlxSprite = new FlxSprite(1280 * i).loadGraphic('assets/images/storymenu_' + weekBG[i] + '.png');
-			songBG.ID = i;
-			allThemBackgrounds.add(songBG);
-		}
-		
+		add(allThemBackgrounds);	
 
 		trace('A A MONG US A A  AAAA MONG US US');
 
@@ -130,6 +122,13 @@ class StoryMenuState extends MusicBeatState
 
 		for (i in 0...weekData.length)
 		{
+			var songBG:FlxSprite = new FlxSprite(1280 * i).loadGraphic('assets/images/storyMenu/art/$i.png');
+			songBG.ID = i;
+			songBG.setGraphicSize(FlxG.width, FlxG.height);
+			songBG.updateHitbox();
+			songBG.antialiasing = true;
+			allThemBackgrounds.add(songBG);
+
 			var weekThing:MenuItem = new MenuItem(0, 720 + 10, i);
 			weekThing.y += ((weekThing.height + 20) * i);
 			weekThing.targetY = i;
@@ -152,7 +151,7 @@ class StoryMenuState extends MusicBeatState
 			}
 		}
 
-		Conductor.changeBPM(Song.loadFromJson(weekSongs[curWeek], weekSongs[curWeek]).bpm);
+		Conductor.changeBPM(Song.loadFromJson(weekSongs[curWeek]).bpm);
 
 		trace("Line 96");
 
@@ -161,7 +160,7 @@ class StoryMenuState extends MusicBeatState
 
 		trace("Line 124");
 
-		leftArrow = new FlxSprite(0, FlxG.height / 2);
+		leftArrow = new FlxSprite();
 		leftArrow.frames = ui_tex;
 		leftArrow.animation.addByPrefix('idle', "arrow left");
 		leftArrow.animation.addByPrefix('press', "arrow push left");
@@ -177,7 +176,7 @@ class StoryMenuState extends MusicBeatState
 
 		difficultySelectors.add(sprDifficulty);
 
-		rightArrow = new FlxSprite(0, FlxG.height / 2);
+		rightArrow = new FlxSprite();
 		rightArrow.frames = ui_tex;
 		rightArrow.animation.addByPrefix('idle', 'arrow right');
 		rightArrow.animation.addByPrefix('press', "arrow push right", 24, false);
@@ -185,9 +184,14 @@ class StoryMenuState extends MusicBeatState
 
 		//rightArrow.x = 895;
 		trace("Line 150");
-		rightArrow.x = FlxG.width - 47;
 		rightArrow.y -= rightArrow.height / 2;
 		leftArrow.y -= leftArrow.height / 2;
+
+		rightArrow.screenCenter();
+		leftArrow.screenCenter();
+
+		leftArrow.x -= FlxG.width / 2.5;
+		rightArrow.x += FlxG.width / 2;
 
 		//add(yellowBG);
 		add(grpWeekCharacters);
@@ -200,20 +204,16 @@ class StoryMenuState extends MusicBeatState
 
 		for (i in 0...weekData.length)
 		{
-			var weekThingy:FlxSprite = new FlxSprite(1280 * i);
-			weekThingy.frames = FlxAtlasFrames.fromSparrow('assets/images/weeks.png', 'assets/images/weeks.xml');
-			weekThingy.animation.addByPrefix('anim0', 'tutorial', 24, false);
-			weekThingy.animation.addByPrefix('anim1', 'WEEK1', 24, false);
-			weekThingy.animation.play('anim' + i, true);
-			weekThingy.setGraphicSize(Std.int(weekThingy.width / 1.5));
+			var weekThingy:FlxSprite = new FlxSprite().loadGraphic('assets/images/storyMenu/titles/$i.png');
+			weekThingy.screenCenter();
+			stupidArray.push(weekThingy.x);
+			weekThingy.x += 1280 * i;
+			weekThingy.ID = i;
 			switch (i)
 			{
-				case 0:
-					weekThingy.setGraphicSize(Std.int(weekThingy.width / 1.5));
 				case 1:
-					weekThingy.setGraphicSize(Std.int(weekThingy.width / 2.5));
+					weekThingy.setGraphicSize(Std.int(weekThingy.width * 0.45));
 			}
-			weekThingy.ID = i;
 			theYoMamaYTChannel.add(weekThingy);
 		}
 
@@ -413,6 +413,7 @@ class StoryMenuState extends MusicBeatState
 
 			PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
 			PlayState.storyWeek = curWeek;
+			PlayState.isBonusSong = false;
 			PlayState.campaignScore = 0;
 			theYoMamaYTChannel.forEach(function(spr:FlxSprite){
 				FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
@@ -467,7 +468,7 @@ class StoryMenuState extends MusicBeatState
 
 		theYoMamaYTChannel.forEach(function(spr:FlxSprite){
 			FlxTween.cancelTweensOf(spr);
-			FlxTween.tween(spr, {x: 1280 * (spr.ID - curWeek)}, 0.3, {ease: FlxEase.quintOut});
+			FlxTween.tween(spr, {x: stupidArray[spr.ID] + 1280 * (spr.ID - curWeek)}, 0.3, {ease: FlxEase.quintOut});
 		});
 
 		for (item in grpWeekText.members)

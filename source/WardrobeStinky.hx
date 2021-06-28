@@ -6,6 +6,9 @@ class WardrobeStinky
     {
         if (FlxG.save.data.wardrobeUnlocked == null)
             FlxG.save.data.wardrobeUnlocked = false;
+
+        if (FlxG.save.data.curOutfit == null)
+            FlxG.save.data.curOutfit = '';
     }
 
     public static function unlockDaWardrobe()

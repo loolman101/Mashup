@@ -1,0 +1,3928 @@
+{
+    "song": {
+        "player1": "bf",
+        "sectionLengths": [],
+        "notes": [
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 150
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 150
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 150
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 150
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 150
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 150
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        16000,
+                        0,
+                        250
+                    ],
+                    [
+                        16750,
+                        0,
+                        0
+                    ],
+                    [
+                        16875,
+                        2,
+                        0
+                    ],
+                    [
+                        16375,
+                        2,
+                        0
+                    ],
+                    [
+                        17000,
+                        1,
+                        0
+                    ],
+                    [
+                        17250,
+                        1,
+                        0
+                    ],
+                    [
+                        17625,
+                        1,
+                        0
+                    ],
+                    [
+                        17750,
+                        2,
+                        375
+                    ],
+                    [
+                        17500,
+                        0,
+                        0
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        18250,
+                        3,
+                        0
+                    ],
+                    [
+                        18375,
+                        2,
+                        0
+                    ],
+                    [
+                        18625,
+                        1,
+                        0
+                    ],
+                    [
+                        18750,
+                        0,
+                        0
+                    ],
+                    [
+                        18875,
+                        3,
+                        0
+                    ],
+                    [
+                        19000,
+                        2,
+                        0
+                    ],
+                    [
+                        19125,
+                        1,
+                        0
+                    ],
+                    [
+                        19250,
+                        0,
+                        0
+                    ],
+                    [
+                        19500,
+                        1,
+                        0
+                    ],
+                    [
+                        19750,
+                        0,
+                        0
+                    ],
+                    [
+                        19875,
+                        1,
+                        250
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        21250,
+                        1,
+                        0
+                    ],
+                    [
+                        20875,
+                        2,
+                        0
+                    ],
+                    [
+                        21000,
+                        1,
+                        0
+                    ],
+                    [
+                        20250,
+                        0,
+                        0
+                    ],
+                    [
+                        20375,
+                        2,
+                        0
+                    ],
+                    [
+                        20500,
+                        1,
+                        0
+                    ],
+                    [
+                        20750,
+                        0,
+                        0
+                    ],
+                    [
+                        21500,
+                        1,
+                        0
+                    ],
+                    [
+                        21625,
+                        2,
+                        0
+                    ],
+                    [
+                        21750,
+                        3,
+                        375
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        22375,
+                        2,
+                        0
+                    ],
+                    [
+                        22250,
+                        1,
+                        0
+                    ],
+                    [
+                        22750,
+                        1,
+                        0
+                    ],
+                    [
+                        22875,
+                        2,
+                        0
+                    ],
+                    [
+                        23750,
+                        1,
+                        0
+                    ],
+                    [
+                        23625,
+                        2,
+                        0
+                    ],
+                    [
+                        22500,
+                        3,
+                        0
+                    ],
+                    [
+                        23000,
+                        3,
+                        0
+                    ],
+                    [
+                        23125,
+                        3,
+                        0
+                    ],
+                    [
+                        23250,
+                        1,
+                        0
+                    ],
+                    [
+                        23500,
+                        3,
+                        0
+                    ],
+                    [
+                        23875,
+                        0,
+                        0
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        24000,
+                        0,
+                        250
+                    ],
+                    [
+                        24750,
+                        0,
+                        0
+                    ],
+                    [
+                        24875,
+                        2,
+                        0
+                    ],
+                    [
+                        24375,
+                        2,
+                        0
+                    ],
+                    [
+                        25000,
+                        1,
+                        0
+                    ],
+                    [
+                        25250,
+                        1,
+                        0
+                    ],
+                    [
+                        25625,
+                        1,
+                        0
+                    ],
+                    [
+                        25750,
+                        2,
+                        375
+                    ],
+                    [
+                        25500,
+                        0,
+                        0
+                    ],
+                    [
+                        24000,
+                        5,
+                        0
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        26250,
+                        3,
+                        0
+                    ],
+                    [
+                        26375,
+                        2,
+                        0
+                    ],
+                    [
+                        26625,
+                        1,
+                        0
+                    ],
+                    [
+                        26750,
+                        0,
+                        0
+                    ],
+                    [
+                        26875,
+                        3,
+                        0
+                    ],
+                    [
+                        27000,
+                        2,
+                        0
+                    ],
+                    [
+                        27125,
+                        1,
+                        0
+                    ],
+                    [
+                        27250,
+                        0,
+                        0
+                    ],
+                    [
+                        27500,
+                        1,
+                        0
+                    ],
+                    [
+                        27750,
+                        0,
+                        0
+                    ],
+                    [
+                        27875,
+                        1,
+                        250
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        29250,
+                        1,
+                        0
+                    ],
+                    [
+                        28875,
+                        2,
+                        0
+                    ],
+                    [
+                        29000,
+                        1,
+                        0
+                    ],
+                    [
+                        28250,
+                        0,
+                        0
+                    ],
+                    [
+                        28375,
+                        2,
+                        0
+                    ],
+                    [
+                        28500,
+                        1,
+                        0
+                    ],
+                    [
+                        28750,
+                        0,
+                        0
+                    ],
+                    [
+                        29500,
+                        1,
+                        0
+                    ],
+                    [
+                        29625,
+                        2,
+                        0
+                    ],
+                    [
+                        29750,
+                        3,
+                        375
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        30375,
+                        2,
+                        0
+                    ],
+                    [
+                        30250,
+                        1,
+                        0
+                    ],
+                    [
+                        30750,
+                        1,
+                        0
+                    ],
+                    [
+                        30875,
+                        2,
+                        0
+                    ],
+                    [
+                        31750,
+                        1,
+                        0
+                    ],
+                    [
+                        31625,
+                        2,
+                        0
+                    ],
+                    [
+                        30500,
+                        3,
+                        0
+                    ],
+                    [
+                        31000,
+                        3,
+                        0
+                    ],
+                    [
+                        31125,
+                        3,
+                        0
+                    ],
+                    [
+                        31250,
+                        1,
+                        0
+                    ],
+                    [
+                        31500,
+                        3,
+                        0
+                    ],
+                    [
+                        31875,
+                        0,
+                        0
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        33000,
+                        0,
+                        0
+                    ],
+                    [
+                        32000,
+                        3,
+                        0
+                    ],
+                    [
+                        32375,
+                        0,
+                        0
+                    ],
+                    [
+                        32500,
+                        3,
+                        0
+                    ],
+                    [
+                        32875,
+                        3,
+                        0
+                    ],
+                    [
+                        33125,
+                        3,
+                        0
+                    ],
+                    [
+                        33250,
+                        0,
+                        0
+                    ],
+                    [
+                        33375,
+                        1,
+                        0
+                    ],
+                    [
+                        33500,
+                        2,
+                        0
+                    ],
+                    [
+                        33625,
+                        3,
+                        0
+                    ],
+                    [
+                        33750,
+                        1,
+                        0
+                    ],
+                    [
+                        32125,
+                        2,
+                        0
+                    ],
+                    [
+                        32250,
+                        1,
+                        0
+                    ],
+                    [
+                        32625,
+                        2,
+                        0
+                    ],
+                    [
+                        32750,
+                        1,
+                        0
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        34500,
+                        3,
+                        0
+                    ],
+                    [
+                        35000,
+                        3,
+                        0
+                    ],
+                    [
+                        35875,
+                        0,
+                        0
+                    ],
+                    [
+                        34000,
+                        2,
+                        0
+                    ],
+                    [
+                        34625,
+                        2,
+                        0
+                    ],
+                    [
+                        34750,
+                        1,
+                        0
+                    ],
+                    [
+                        34875,
+                        0,
+                        0
+                    ],
+                    [
+                        34125,
+                        0,
+                        0
+                    ],
+                    [
+                        34250,
+                        3,
+                        0
+                    ],
+                    [
+                        34375,
+                        1,
+                        0
+                    ],
+                    [
+                        35125,
+                        2,
+                        0
+                    ],
+                    [
+                        35250,
+                        1,
+                        0
+                    ],
+                    [
+                        35375,
+                        0,
+                        0
+                    ],
+                    [
+                        35500,
+                        1,
+                        0
+                    ],
+                    [
+                        35625,
+                        2,
+                        0
+                    ],
+                    [
+                        35750,
+                        1,
+                        0
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        36375,
+                        0,
+                        0
+                    ],
+                    [
+                        37500,
+                        3,
+                        0
+                    ],
+                    [
+                        36000,
+                        1,
+                        250
+                    ],
+                    [
+                        36875,
+                        1,
+                        0
+                    ],
+                    [
+                        36500,
+                        2,
+                        250
+                    ],
+                    [
+                        37000,
+                        3,
+                        250
+                    ],
+                    [
+                        37375,
+                        2,
+                        0
+                    ],
+                    [
+                        37625,
+                        1,
+                        0
+                    ],
+                    [
+                        37750,
+                        1,
+                        250
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        38125,
+                        3,
+                        0
+                    ],
+                    [
+                        38375,
+                        1,
+                        0
+                    ],
+                    [
+                        38750,
+                        0,
+                        0
+                    ],
+                    [
+                        38875,
+                        3,
+                        0
+                    ],
+                    [
+                        39375,
+                        1,
+                        0
+                    ],
+                    [
+                        38250,
+                        2,
+                        0
+                    ],
+                    [
+                        38500,
+                        2,
+                        0
+                    ],
+                    [
+                        38625,
+                        1,
+                        0
+                    ],
+                    [
+                        39000,
+                        0,
+                        0
+                    ],
+                    [
+                        39125,
+                        3,
+                        0
+                    ],
+                    [
+                        39250,
+                        2,
+                        0
+                    ],
+                    [
+                        39500,
+                        0,
+                        0
+                    ],
+                    [
+                        39750,
+                        1,
+                        0
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        41000,
+                        0,
+                        0
+                    ],
+                    [
+                        40000,
+                        3,
+                        0
+                    ],
+                    [
+                        40375,
+                        0,
+                        0
+                    ],
+                    [
+                        40500,
+                        3,
+                        0
+                    ],
+                    [
+                        40875,
+                        3,
+                        0
+                    ],
+                    [
+                        41125,
+                        3,
+                        0
+                    ],
+                    [
+                        41250,
+                        0,
+                        0
+                    ],
+                    [
+                        41375,
+                        1,
+                        0
+                    ],
+                    [
+                        41500,
+                        2,
+                        0
+                    ],
+                    [
+                        41625,
+                        3,
+                        0
+                    ],
+                    [
+                        41750,
+                        1,
+                        0
+                    ],
+                    [
+                        40125,
+                        2,
+                        0
+                    ],
+                    [
+                        40250,
+                        1,
+                        0
+                    ],
+                    [
+                        40625,
+                        2,
+                        0
+                    ],
+                    [
+                        40750,
+                        1,
+                        0
+                    ],
+                    [
+                        40000,
+                        4,
+                        0
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        42500,
+                        3,
+                        0
+                    ],
+                    [
+                        43000,
+                        3,
+                        0
+                    ],
+                    [
+                        43875,
+                        0,
+                        0
+                    ],
+                    [
+                        42000,
+                        2,
+                        0
+                    ],
+                    [
+                        42625,
+                        2,
+                        0
+                    ],
+                    [
+                        42750,
+                        1,
+                        0
+                    ],
+                    [
+                        42875,
+                        0,
+                        0
+                    ],
+                    [
+                        42125,
+                        0,
+                        0
+                    ],
+                    [
+                        42250,
+                        3,
+                        0
+                    ],
+                    [
+                        42375,
+                        1,
+                        0
+                    ],
+                    [
+                        43125,
+                        2,
+                        0
+                    ],
+                    [
+                        43250,
+                        1,
+                        0
+                    ],
+                    [
+                        43375,
+                        0,
+                        0
+                    ],
+                    [
+                        43500,
+                        1,
+                        0
+                    ],
+                    [
+                        43625,
+                        2,
+                        0
+                    ],
+                    [
+                        43750,
+                        1,
+                        0
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        44375,
+                        0,
+                        0
+                    ],
+                    [
+                        45500,
+                        3,
+                        0
+                    ],
+                    [
+                        44000,
+                        1,
+                        250
+                    ],
+                    [
+                        44875,
+                        1,
+                        0
+                    ],
+                    [
+                        44500,
+                        2,
+                        250
+                    ],
+                    [
+                        45000,
+                        3,
+                        250
+                    ],
+                    [
+                        45375,
+                        2,
+                        0
+                    ],
+                    [
+                        45625,
+                        1,
+                        0
+                    ],
+                    [
+                        45750,
+                        1,
+                        250
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        46125,
+                        3,
+                        0
+                    ],
+                    [
+                        46375,
+                        1,
+                        0
+                    ],
+                    [
+                        46750,
+                        0,
+                        0
+                    ],
+                    [
+                        46875,
+                        3,
+                        0
+                    ],
+                    [
+                        47375,
+                        1,
+                        0
+                    ],
+                    [
+                        46250,
+                        2,
+                        0
+                    ],
+                    [
+                        46500,
+                        2,
+                        0
+                    ],
+                    [
+                        46625,
+                        1,
+                        0
+                    ],
+                    [
+                        47000,
+                        0,
+                        0
+                    ],
+                    [
+                        47125,
+                        3,
+                        0
+                    ],
+                    [
+                        47250,
+                        2,
+                        0
+                    ],
+                    [
+                        47500,
+                        0,
+                        0
+                    ],
+                    [
+                        47750,
+                        1,
+                        0
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        48000,
+                        0,
+                        375
+                    ],
+                    [
+                        49000,
+                        1,
+                        0
+                    ],
+                    [
+                        49500,
+                        1,
+                        375
+                    ],
+                    [
+                        49250,
+                        3,
+                        0
+                    ],
+                    [
+                        49375,
+                        2,
+                        0
+                    ],
+                    [
+                        48500,
+                        3,
+                        375
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        50375,
+                        3,
+                        0
+                    ],
+                    [
+                        50000,
+                        0,
+                        0
+                    ],
+                    [
+                        50125,
+                        2,
+                        0
+                    ],
+                    [
+                        50250,
+                        1,
+                        0
+                    ],
+                    [
+                        50500,
+                        0,
+                        0
+                    ],
+                    [
+                        50625,
+                        2,
+                        0
+                    ],
+                    [
+                        50750,
+                        1,
+                        0
+                    ],
+                    [
+                        50875,
+                        3,
+                        0
+                    ],
+                    [
+                        51000,
+                        2,
+                        375
+                    ],
+                    [
+                        51500,
+                        3,
+                        375
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        53500,
+                        1,
+                        375
+                    ],
+                    [
+                        52000,
+                        2,
+                        375
+                    ],
+                    [
+                        52500,
+                        3,
+                        375
+                    ],
+                    [
+                        53000,
+                        0,
+                        375
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        54000,
+                        2,
+                        375
+                    ],
+                    [
+                        54500,
+                        1,
+                        375
+                    ],
+                    [
+                        55000,
+                        0,
+                        375
+                    ],
+                    [
+                        55500,
+                        1,
+                        375
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        56000,
+                        4,
+                        375
+                    ],
+                    [
+                        57000,
+                        5,
+                        0
+                    ],
+                    [
+                        57500,
+                        5,
+                        375
+                    ],
+                    [
+                        57250,
+                        7,
+                        0
+                    ],
+                    [
+                        57375,
+                        6,
+                        0
+                    ],
+                    [
+                        56500,
+                        7,
+                        375
+                    ],
+                    [
+                        56000,
+                        0,
+                        375
+                    ],
+                    [
+                        57000,
+                        1,
+                        0
+                    ],
+                    [
+                        57500,
+                        1,
+                        375
+                    ],
+                    [
+                        57250,
+                        3,
+                        0
+                    ],
+                    [
+                        57375,
+                        2,
+                        0
+                    ],
+                    [
+                        56500,
+                        3,
+                        375
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        58375,
+                        7,
+                        0
+                    ],
+                    [
+                        58000,
+                        4,
+                        0
+                    ],
+                    [
+                        58125,
+                        6,
+                        0
+                    ],
+                    [
+                        58250,
+                        5,
+                        0
+                    ],
+                    [
+                        58500,
+                        4,
+                        0
+                    ],
+                    [
+                        58625,
+                        6,
+                        0
+                    ],
+                    [
+                        58750,
+                        5,
+                        0
+                    ],
+                    [
+                        58875,
+                        7,
+                        0
+                    ],
+                    [
+                        59000,
+                        6,
+                        375
+                    ],
+                    [
+                        59500,
+                        7,
+                        375
+                    ],
+                    [
+                        58000,
+                        2,
+                        0
+                    ],
+                    [
+                        58125,
+                        3,
+                        0
+                    ],
+                    [
+                        58250,
+                        0,
+                        0
+                    ],
+                    [
+                        58375,
+                        1,
+                        0
+                    ],
+                    [
+                        58500,
+                        0,
+                        0
+                    ],
+                    [
+                        58625,
+                        2,
+                        0
+                    ],
+                    [
+                        58750,
+                        1,
+                        0
+                    ],
+                    [
+                        58875,
+                        3,
+                        0
+                    ],
+                    [
+                        59000,
+                        3,
+                        375
+                    ],
+                    [
+                        59500,
+                        0,
+                        375
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        61500,
+                        5,
+                        375
+                    ],
+                    [
+                        60000,
+                        6,
+                        375
+                    ],
+                    [
+                        60500,
+                        7,
+                        375
+                    ],
+                    [
+                        61000,
+                        4,
+                        375
+                    ],
+                    [
+                        60000,
+                        3,
+                        375
+                    ],
+                    [
+                        60500,
+                        2,
+                        375
+                    ],
+                    [
+                        61000,
+                        1,
+                        375
+                    ],
+                    [
+                        61500,
+                        0,
+                        375
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        62000,
+                        6,
+                        375
+                    ],
+                    [
+                        62500,
+                        5,
+                        375
+                    ],
+                    [
+                        63000,
+                        4,
+                        375
+                    ],
+                    [
+                        63500,
+                        5,
+                        375
+                    ],
+                    [
+                        62000,
+                        1,
+                        375
+                    ],
+                    [
+                        62500,
+                        2,
+                        375
+                    ],
+                    [
+                        63000,
+                        3,
+                        375
+                    ],
+                    [
+                        63500,
+                        2,
+                        0
+                    ],
+                    [
+                        63625,
+                        1,
+                        250
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        64000,
+                        2,
+                        0
+                    ],
+                    [
+                        64250,
+                        3,
+                        0
+                    ],
+                    [
+                        64500,
+                        2,
+                        0
+                    ],
+                    [
+                        64750,
+                        1,
+                        0
+                    ],
+                    [
+                        65000,
+                        0,
+                        0
+                    ],
+                    [
+                        65125,
+                        2,
+                        0
+                    ],
+                    [
+                        65250,
+                        1,
+                        0
+                    ],
+                    [
+                        65375,
+                        3,
+                        0
+                    ],
+                    [
+                        65500,
+                        2,
+                        375
+                    ],
+                    [
+                        64000,
+                        4,
+                        375
+                    ],
+                    [
+                        64500,
+                        5,
+                        375
+                    ],
+                    [
+                        65000,
+                        6,
+                        0
+                    ],
+                    [
+                        65250,
+                        7,
+                        0
+                    ],
+                    [
+                        65375,
+                        6,
+                        0
+                    ],
+                    [
+                        65500,
+                        5,
+                        375
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        66375,
+                        3,
+                        0
+                    ],
+                    [
+                        66000,
+                        0,
+                        0
+                    ],
+                    [
+                        66125,
+                        2,
+                        0
+                    ],
+                    [
+                        66250,
+                        1,
+                        0
+                    ],
+                    [
+                        66500,
+                        0,
+                        0
+                    ],
+                    [
+                        66625,
+                        2,
+                        0
+                    ],
+                    [
+                        66750,
+                        1,
+                        0
+                    ],
+                    [
+                        66875,
+                        3,
+                        0
+                    ],
+                    [
+                        67000,
+                        2,
+                        375
+                    ],
+                    [
+                        67500,
+                        3,
+                        375
+                    ],
+                    [
+                        66000,
+                        6,
+                        0
+                    ],
+                    [
+                        66125,
+                        7,
+                        0
+                    ],
+                    [
+                        66250,
+                        4,
+                        0
+                    ],
+                    [
+                        66375,
+                        5,
+                        0
+                    ],
+                    [
+                        66500,
+                        4,
+                        0
+                    ],
+                    [
+                        66625,
+                        6,
+                        0
+                    ],
+                    [
+                        66750,
+                        5,
+                        0
+                    ],
+                    [
+                        66875,
+                        7,
+                        0
+                    ],
+                    [
+                        67000,
+                        7,
+                        375
+                    ],
+                    [
+                        67500,
+                        4,
+                        375
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        69500,
+                        1,
+                        375
+                    ],
+                    [
+                        68000,
+                        2,
+                        375
+                    ],
+                    [
+                        68500,
+                        3,
+                        375
+                    ],
+                    [
+                        69000,
+                        0,
+                        375
+                    ],
+                    [
+                        68000,
+                        7,
+                        375
+                    ],
+                    [
+                        68500,
+                        6,
+                        375
+                    ],
+                    [
+                        69000,
+                        5,
+                        375
+                    ],
+                    [
+                        69500,
+                        4,
+                        375
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        70000,
+                        2,
+                        375
+                    ],
+                    [
+                        70500,
+                        1,
+                        375
+                    ],
+                    [
+                        70000,
+                        5,
+                        375
+                    ],
+                    [
+                        70500,
+                        6,
+                        375
+                    ],
+                    [
+                        71000,
+                        0,
+                        0
+                    ],
+                    [
+                        71000,
+                        7,
+                        0
+                    ],
+                    [
+                        71375,
+                        7,
+                        0
+                    ],
+                    [
+                        71375,
+                        0,
+                        0
+                    ],
+                    [
+                        71750,
+                        0,
+                        0
+                    ],
+                    [
+                        71750,
+                        7,
+                        0
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        72375,
+                        3,
+                        0
+                    ],
+                    [
+                        72875,
+                        0,
+                        0
+                    ],
+                    [
+                        73750,
+                        1,
+                        375
+                    ],
+                    [
+                        72000,
+                        0,
+                        0
+                    ],
+                    [
+                        72250,
+                        1,
+                        0
+                    ],
+                    [
+                        72125,
+                        2,
+                        0
+                    ],
+                    [
+                        72500,
+                        3,
+                        0
+                    ],
+                    [
+                        72625,
+                        2,
+                        0
+                    ],
+                    [
+                        72750,
+                        1,
+                        0
+                    ],
+                    [
+                        73000,
+                        3,
+                        0
+                    ],
+                    [
+                        73250,
+                        3,
+                        0
+                    ],
+                    [
+                        73125,
+                        1,
+                        0
+                    ],
+                    [
+                        73375,
+                        2,
+                        250
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        74500,
+                        3,
+                        0
+                    ],
+                    [
+                        74625,
+                        2,
+                        0
+                    ],
+                    [
+                        74750,
+                        1,
+                        0
+                    ],
+                    [
+                        74875,
+                        0,
+                        0
+                    ],
+                    [
+                        74375,
+                        3,
+                        0
+                    ],
+                    [
+                        74250,
+                        2,
+                        0
+                    ],
+                    [
+                        75000,
+                        2,
+                        0
+                    ],
+                    [
+                        75250,
+                        2,
+                        0
+                    ],
+                    [
+                        75500,
+                        2,
+                        0
+                    ],
+                    [
+                        75125,
+                        1,
+                        0
+                    ],
+                    [
+                        75375,
+                        1,
+                        0
+                    ],
+                    [
+                        75750,
+                        0,
+                        0
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        77000,
+                        3,
+                        0
+                    ],
+                    [
+                        77750,
+                        0,
+                        375
+                    ],
+                    [
+                        77250,
+                        1,
+                        0
+                    ],
+                    [
+                        77500,
+                        2,
+                        0
+                    ],
+                    [
+                        76000,
+                        1,
+                        0
+                    ],
+                    [
+                        76250,
+                        0,
+                        0
+                    ],
+                    [
+                        76500,
+                        1,
+                        0
+                    ],
+                    [
+                        76750,
+                        0,
+                        0
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        78250,
+                        0,
+                        0
+                    ],
+                    [
+                        78500,
+                        1,
+                        0
+                    ],
+                    [
+                        78750,
+                        0,
+                        0
+                    ],
+                    [
+                        79000,
+                        1,
+                        0
+                    ],
+                    [
+                        79250,
+                        2,
+                        0
+                    ],
+                    [
+                        79500,
+                        3,
+                        0
+                    ],
+                    [
+                        79750,
+                        2,
+                        0
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        80375,
+                        3,
+                        0
+                    ],
+                    [
+                        80875,
+                        0,
+                        0
+                    ],
+                    [
+                        81750,
+                        1,
+                        375
+                    ],
+                    [
+                        80000,
+                        0,
+                        0
+                    ],
+                    [
+                        80250,
+                        1,
+                        0
+                    ],
+                    [
+                        80125,
+                        2,
+                        0
+                    ],
+                    [
+                        80500,
+                        3,
+                        0
+                    ],
+                    [
+                        80625,
+                        2,
+                        0
+                    ],
+                    [
+                        80750,
+                        1,
+                        0
+                    ],
+                    [
+                        81000,
+                        3,
+                        0
+                    ],
+                    [
+                        81250,
+                        3,
+                        0
+                    ],
+                    [
+                        81125,
+                        1,
+                        0
+                    ],
+                    [
+                        81375,
+                        2,
+                        250
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        82500,
+                        3,
+                        0
+                    ],
+                    [
+                        82625,
+                        2,
+                        0
+                    ],
+                    [
+                        82750,
+                        1,
+                        0
+                    ],
+                    [
+                        82875,
+                        0,
+                        0
+                    ],
+                    [
+                        82375,
+                        3,
+                        0
+                    ],
+                    [
+                        82250,
+                        2,
+                        0
+                    ],
+                    [
+                        83000,
+                        2,
+                        0
+                    ],
+                    [
+                        83250,
+                        2,
+                        0
+                    ],
+                    [
+                        83500,
+                        2,
+                        0
+                    ],
+                    [
+                        83125,
+                        1,
+                        0
+                    ],
+                    [
+                        83375,
+                        1,
+                        0
+                    ],
+                    [
+                        83750,
+                        0,
+                        0
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        85000,
+                        3,
+                        0
+                    ],
+                    [
+                        85750,
+                        0,
+                        375
+                    ],
+                    [
+                        85250,
+                        1,
+                        0
+                    ],
+                    [
+                        84000,
+                        1,
+                        0
+                    ],
+                    [
+                        84250,
+                        0,
+                        0
+                    ],
+                    [
+                        84500,
+                        1,
+                        0
+                    ],
+                    [
+                        84750,
+                        0,
+                        0
+                    ],
+                    [
+                        85500,
+                        3,
+                        0
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        86250,
+                        0,
+                        0
+                    ],
+                    [
+                        86500,
+                        1,
+                        0
+                    ],
+                    [
+                        86750,
+                        0,
+                        0
+                    ],
+                    [
+                        87000,
+                        1,
+                        0
+                    ],
+                    [
+                        87250,
+                        2,
+                        0
+                    ],
+                    [
+                        87500,
+                        3,
+                        0
+                    ],
+                    [
+                        87750,
+                        2,
+                        0
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        89000,
+                        0,
+                        0
+                    ],
+                    [
+                        88000,
+                        3,
+                        0
+                    ],
+                    [
+                        88375,
+                        0,
+                        0
+                    ],
+                    [
+                        88500,
+                        3,
+                        0
+                    ],
+                    [
+                        88875,
+                        3,
+                        0
+                    ],
+                    [
+                        89125,
+                        3,
+                        0
+                    ],
+                    [
+                        89250,
+                        0,
+                        0
+                    ],
+                    [
+                        89375,
+                        1,
+                        0
+                    ],
+                    [
+                        89500,
+                        2,
+                        0
+                    ],
+                    [
+                        89625,
+                        3,
+                        0
+                    ],
+                    [
+                        89750,
+                        1,
+                        0
+                    ],
+                    [
+                        88125,
+                        2,
+                        0
+                    ],
+                    [
+                        88250,
+                        1,
+                        0
+                    ],
+                    [
+                        88625,
+                        2,
+                        0
+                    ],
+                    [
+                        88750,
+                        1,
+                        0
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        90500,
+                        3,
+                        0
+                    ],
+                    [
+                        91000,
+                        3,
+                        0
+                    ],
+                    [
+                        91875,
+                        0,
+                        0
+                    ],
+                    [
+                        90000,
+                        2,
+                        0
+                    ],
+                    [
+                        90625,
+                        2,
+                        0
+                    ],
+                    [
+                        90750,
+                        1,
+                        0
+                    ],
+                    [
+                        90875,
+                        0,
+                        0
+                    ],
+                    [
+                        90125,
+                        0,
+                        0
+                    ],
+                    [
+                        90250,
+                        3,
+                        0
+                    ],
+                    [
+                        90375,
+                        1,
+                        0
+                    ],
+                    [
+                        91125,
+                        2,
+                        0
+                    ],
+                    [
+                        91250,
+                        1,
+                        0
+                    ],
+                    [
+                        91375,
+                        0,
+                        0
+                    ],
+                    [
+                        91500,
+                        1,
+                        0
+                    ],
+                    [
+                        91625,
+                        2,
+                        0
+                    ],
+                    [
+                        91750,
+                        1,
+                        0
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "sectionNotes": [
+                    [
+                        92375,
+                        0,
+                        0
+                    ],
+                    [
+                        93500,
+                        3,
+                        0
+                    ],
+                    [
+                        92000,
+                        1,
+                        250
+                    ],
+                    [
+                        92875,
+                        1,
+                        0
+                    ],
+                    [
+                        92500,
+                        2,
+                        250
+                    ],
+                    [
+                        93000,
+                        3,
+                        250
+                    ],
+                    [
+                        93375,
+                        2,
+                        0
+                    ],
+                    [
+                        93625,
+                        1,
+                        0
+                    ],
+                    [
+                        93750,
+                        1,
+                        250
+                    ]
+                ],
+                "typeOfSection": 0,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "sectionNotes": [
+                    [
+                        94125,
+                        3,
+                        0
+                    ],
+                    [
+                        94375,
+                        1,
+                        0
+                    ],
+                    [
+                        94750,
+                        0,
+                        0
+                    ],
+                    [
+                        94875,
+                        3,
+                        0
+                    ],
+                    [
+                        95375,
+                        1,
+                        0
+                    ],
+                    [
+                        94250,
+                        2,
+                        0
+                    ],
+                    [
+                        94500,
+                        2,
+                        0
+                    ],
+                    [
+                        94625,
+                        1,
+                        0
+                    ],
+                    [
+                        95000,
+                        0,
+                        0
+                    ],
+                    [
+                        95125,
+                        3,
+                        0
+                    ],
+                    [
+                        95250,
+                        2,
+                        0
+                    ],
+                    [
+                        95500,
+                        0,
+                        0
+                    ],
+                    [
+                        95750,
+                        1,
+                        0
+                    ]
+                ],
+                "typeOfSection": 0,
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "sectionNotes": [
+                    [
+                        97000,
+                        0,
+                        0
+                    ],
+                    [
+                        96000,
+                        3,
+                        0
+                    ],
+                    [
+                        96375,
+                        0,
+                        0
+                    ],
+                    [
+                        96500,
+                        3,
+                        0
+                    ],
+                    [
+                        96875,
+                        3,
+                        0
+                    ],
+                    [
+                        97125,
+                        3,
+                        0
+                    ],
+                    [
+                        97250,
+                        0,
+                        0
+                    ],
+                    [
+                        97375,
+                        1,
+                        0
+                    ],
+                    [
+                        97500,
+                        2,
+                        0
+                    ],
+                    [
+                        97625,
+                        3,
+                        0
+                    ],
+                    [
+                        97750,
+                        1,
+                        0
+                    ],
+                    [
+                        96125,
+                        2,
+                        0
+                    ],
+                    [
+                        96250,
+                        1,
+                        0
+                    ],
+                    [
+                        96625,
+                        2,
+                        0
+                    ],
+                    [
+                        96750,
+                        1,
+                        0
+                    ],
+                    [
+                        96000,
+                        4,
+                        0
+                    ]
+                ],
+                "typeOfSection": 0,
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "sectionNotes": [
+                    [
+                        98500,
+                        3,
+                        0
+                    ],
+                    [
+                        99000,
+                        3,
+                        0
+                    ],
+                    [
+                        99875,
+                        0,
+                        0
+                    ],
+                    [
+                        98000,
+                        2,
+                        0
+                    ],
+                    [
+                        98625,
+                        2,
+                        0
+                    ],
+                    [
+                        98750,
+                        1,
+                        0
+                    ],
+                    [
+                        98875,
+                        0,
+                        0
+                    ],
+                    [
+                        98125,
+                        0,
+                        0
+                    ],
+                    [
+                        98250,
+                        3,
+                        0
+                    ],
+                    [
+                        98375,
+                        1,
+                        0
+                    ],
+                    [
+                        99125,
+                        2,
+                        0
+                    ],
+                    [
+                        99250,
+                        1,
+                        0
+                    ],
+                    [
+                        99375,
+                        0,
+                        0
+                    ],
+                    [
+                        99500,
+                        1,
+                        0
+                    ],
+                    [
+                        99625,
+                        2,
+                        0
+                    ],
+                    [
+                        99750,
+                        1,
+                        0
+                    ]
+                ],
+                "typeOfSection": 0,
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "sectionNotes": [
+                    [
+                        100375,
+                        0,
+                        0
+                    ],
+                    [
+                        101500,
+                        3,
+                        0
+                    ],
+                    [
+                        100000,
+                        1,
+                        250
+                    ],
+                    [
+                        100875,
+                        1,
+                        0
+                    ],
+                    [
+                        100500,
+                        2,
+                        250
+                    ],
+                    [
+                        101000,
+                        3,
+                        250
+                    ],
+                    [
+                        101375,
+                        2,
+                        0
+                    ],
+                    [
+                        101625,
+                        1,
+                        0
+                    ],
+                    [
+                        101750,
+                        1,
+                        250
+                    ]
+                ],
+                "typeOfSection": 0,
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "sectionNotes": [
+                    [
+                        102125,
+                        3,
+                        0
+                    ],
+                    [
+                        102375,
+                        1,
+                        0
+                    ],
+                    [
+                        102750,
+                        0,
+                        0
+                    ],
+                    [
+                        102875,
+                        3,
+                        0
+                    ],
+                    [
+                        103375,
+                        1,
+                        0
+                    ],
+                    [
+                        102250,
+                        2,
+                        0
+                    ],
+                    [
+                        102500,
+                        2,
+                        0
+                    ],
+                    [
+                        102625,
+                        1,
+                        0
+                    ],
+                    [
+                        103000,
+                        0,
+                        0
+                    ],
+                    [
+                        103125,
+                        3,
+                        0
+                    ],
+                    [
+                        103250,
+                        2,
+                        0
+                    ],
+                    [
+                        103500,
+                        0,
+                        0
+                    ],
+                    [
+                        103750,
+                        1,
+                        0
+                    ]
+                ],
+                "typeOfSection": 0,
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "sectionNotes": [
+                    [
+                        104000,
+                        0,
+                        375
+                    ],
+                    [
+                        105000,
+                        1,
+                        0
+                    ],
+                    [
+                        105500,
+                        1,
+                        375
+                    ],
+                    [
+                        105250,
+                        3,
+                        0
+                    ],
+                    [
+                        105375,
+                        2,
+                        0
+                    ],
+                    [
+                        104500,
+                        3,
+                        375
+                    ]
+                ],
+                "typeOfSection": 0,
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "sectionNotes": [
+                    [
+                        106375,
+                        3,
+                        0
+                    ],
+                    [
+                        106000,
+                        0,
+                        0
+                    ],
+                    [
+                        106125,
+                        2,
+                        0
+                    ],
+                    [
+                        106250,
+                        1,
+                        0
+                    ],
+                    [
+                        106500,
+                        0,
+                        0
+                    ],
+                    [
+                        106625,
+                        2,
+                        0
+                    ],
+                    [
+                        106750,
+                        1,
+                        0
+                    ],
+                    [
+                        106875,
+                        3,
+                        0
+                    ],
+                    [
+                        107000,
+                        2,
+                        375
+                    ],
+                    [
+                        107500,
+                        3,
+                        375
+                    ]
+                ],
+                "typeOfSection": 0,
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "sectionNotes": [
+                    [
+                        109500,
+                        1,
+                        375
+                    ],
+                    [
+                        108000,
+                        2,
+                        375
+                    ],
+                    [
+                        108500,
+                        3,
+                        375
+                    ],
+                    [
+                        109000,
+                        0,
+                        375
+                    ]
+                ],
+                "typeOfSection": 0,
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "sectionNotes": [
+                    [
+                        110000,
+                        2,
+                        375
+                    ],
+                    [
+                        110500,
+                        1,
+                        375
+                    ],
+                    [
+                        111000,
+                        0,
+                        375
+                    ],
+                    [
+                        111500,
+                        1,
+                        375
+                    ]
+                ],
+                "typeOfSection": 0,
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "sectionNotes": [
+                    [
+                        112000,
+                        4,
+                        375
+                    ],
+                    [
+                        113000,
+                        5,
+                        0
+                    ],
+                    [
+                        113500,
+                        5,
+                        375
+                    ],
+                    [
+                        113250,
+                        7,
+                        0
+                    ],
+                    [
+                        113375,
+                        6,
+                        0
+                    ],
+                    [
+                        112500,
+                        7,
+                        375
+                    ],
+                    [
+                        112000,
+                        0,
+                        375
+                    ],
+                    [
+                        113000,
+                        1,
+                        0
+                    ],
+                    [
+                        113500,
+                        1,
+                        375
+                    ],
+                    [
+                        113250,
+                        3,
+                        0
+                    ],
+                    [
+                        113375,
+                        2,
+                        0
+                    ],
+                    [
+                        112500,
+                        3,
+                        375
+                    ]
+                ],
+                "typeOfSection": 0,
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "sectionNotes": [
+                    [
+                        114375,
+                        7,
+                        0
+                    ],
+                    [
+                        114000,
+                        4,
+                        0
+                    ],
+                    [
+                        114125,
+                        6,
+                        0
+                    ],
+                    [
+                        114250,
+                        5,
+                        0
+                    ],
+                    [
+                        114500,
+                        4,
+                        0
+                    ],
+                    [
+                        114625,
+                        6,
+                        0
+                    ],
+                    [
+                        114750,
+                        5,
+                        0
+                    ],
+                    [
+                        114875,
+                        7,
+                        0
+                    ],
+                    [
+                        115000,
+                        6,
+                        375
+                    ],
+                    [
+                        115500,
+                        7,
+                        375
+                    ],
+                    [
+                        114000,
+                        2,
+                        0
+                    ],
+                    [
+                        114125,
+                        3,
+                        0
+                    ],
+                    [
+                        114250,
+                        0,
+                        0
+                    ],
+                    [
+                        114375,
+                        1,
+                        0
+                    ],
+                    [
+                        114500,
+                        0,
+                        0
+                    ],
+                    [
+                        114625,
+                        2,
+                        0
+                    ],
+                    [
+                        114750,
+                        1,
+                        0
+                    ],
+                    [
+                        114875,
+                        3,
+                        0
+                    ],
+                    [
+                        115000,
+                        3,
+                        375
+                    ],
+                    [
+                        115500,
+                        0,
+                        375
+                    ]
+                ],
+                "typeOfSection": 0,
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "sectionNotes": [
+                    [
+                        117500,
+                        5,
+                        375
+                    ],
+                    [
+                        116000,
+                        6,
+                        375
+                    ],
+                    [
+                        116500,
+                        7,
+                        375
+                    ],
+                    [
+                        117000,
+                        4,
+                        375
+                    ],
+                    [
+                        116000,
+                        3,
+                        375
+                    ],
+                    [
+                        116500,
+                        2,
+                        375
+                    ],
+                    [
+                        117000,
+                        1,
+                        375
+                    ],
+                    [
+                        117500,
+                        0,
+                        375
+                    ]
+                ],
+                "typeOfSection": 0,
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "sectionNotes": [
+                    [
+                        118000,
+                        6,
+                        375
+                    ],
+                    [
+                        118500,
+                        5,
+                        375
+                    ],
+                    [
+                        119000,
+                        4,
+                        375
+                    ],
+                    [
+                        119500,
+                        5,
+                        375
+                    ],
+                    [
+                        118000,
+                        1,
+                        375
+                    ],
+                    [
+                        118500,
+                        2,
+                        375
+                    ],
+                    [
+                        119000,
+                        3,
+                        375
+                    ],
+                    [
+                        119500,
+                        2,
+                        0
+                    ],
+                    [
+                        119625,
+                        1,
+                        250
+                    ]
+                ],
+                "typeOfSection": 0,
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "sectionNotes": [
+                    [
+                        120000,
+                        2,
+                        0
+                    ],
+                    [
+                        120250,
+                        3,
+                        0
+                    ],
+                    [
+                        120500,
+                        2,
+                        0
+                    ],
+                    [
+                        120750,
+                        1,
+                        0
+                    ],
+                    [
+                        121000,
+                        0,
+                        0
+                    ],
+                    [
+                        121125,
+                        2,
+                        0
+                    ],
+                    [
+                        121250,
+                        1,
+                        0
+                    ],
+                    [
+                        121375,
+                        3,
+                        0
+                    ],
+                    [
+                        121500,
+                        2,
+                        375
+                    ],
+                    [
+                        120000,
+                        4,
+                        375
+                    ],
+                    [
+                        120500,
+                        5,
+                        375
+                    ],
+                    [
+                        121000,
+                        6,
+                        0
+                    ],
+                    [
+                        121250,
+                        7,
+                        0
+                    ],
+                    [
+                        121375,
+                        6,
+                        0
+                    ],
+                    [
+                        121500,
+                        5,
+                        375
+                    ]
+                ],
+                "typeOfSection": 0,
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "sectionNotes": [
+                    [
+                        122375,
+                        3,
+                        0
+                    ],
+                    [
+                        122000,
+                        0,
+                        0
+                    ],
+                    [
+                        122125,
+                        2,
+                        0
+                    ],
+                    [
+                        122250,
+                        1,
+                        0
+                    ],
+                    [
+                        122500,
+                        0,
+                        0
+                    ],
+                    [
+                        122625,
+                        2,
+                        0
+                    ],
+                    [
+                        122750,
+                        1,
+                        0
+                    ],
+                    [
+                        122875,
+                        3,
+                        0
+                    ],
+                    [
+                        123000,
+                        2,
+                        375
+                    ],
+                    [
+                        123500,
+                        3,
+                        375
+                    ],
+                    [
+                        122000,
+                        6,
+                        0
+                    ],
+                    [
+                        122125,
+                        7,
+                        0
+                    ],
+                    [
+                        122250,
+                        4,
+                        0
+                    ],
+                    [
+                        122375,
+                        5,
+                        0
+                    ],
+                    [
+                        122500,
+                        4,
+                        0
+                    ],
+                    [
+                        122625,
+                        6,
+                        0
+                    ],
+                    [
+                        122750,
+                        5,
+                        0
+                    ],
+                    [
+                        122875,
+                        7,
+                        0
+                    ],
+                    [
+                        123000,
+                        7,
+                        375
+                    ],
+                    [
+                        123500,
+                        4,
+                        375
+                    ]
+                ],
+                "typeOfSection": 0,
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "sectionNotes": [
+                    [
+                        125500,
+                        1,
+                        375
+                    ],
+                    [
+                        124000,
+                        2,
+                        375
+                    ],
+                    [
+                        124500,
+                        3,
+                        375
+                    ],
+                    [
+                        125000,
+                        0,
+                        375
+                    ],
+                    [
+                        124000,
+                        7,
+                        375
+                    ],
+                    [
+                        124500,
+                        6,
+                        375
+                    ],
+                    [
+                        125000,
+                        5,
+                        375
+                    ],
+                    [
+                        125500,
+                        4,
+                        375
+                    ]
+                ],
+                "typeOfSection": 0,
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "sectionNotes": [
+                    [
+                        126000,
+                        2,
+                        375
+                    ],
+                    [
+                        126500,
+                        1,
+                        375
+                    ],
+                    [
+                        126000,
+                        5,
+                        375
+                    ],
+                    [
+                        126500,
+                        6,
+                        375
+                    ],
+                    [
+                        127000,
+                        0,
+                        0
+                    ],
+                    [
+                        127000,
+                        7,
+                        0
+                    ],
+                    [
+                        127375,
+                        7,
+                        0
+                    ],
+                    [
+                        127375,
+                        0,
+                        0
+                    ],
+                    [
+                        127750,
+                        0,
+                        0
+                    ],
+                    [
+                        127750,
+                        7,
+                        0
+                    ]
+                ],
+                "typeOfSection": 0,
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "mustHitSection": false,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "sectionNotes": [],
+                "typeOfSection": 0,
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "sectionNotes": [],
+                "typeOfSection": 0,
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "sectionNotes": [],
+                "typeOfSection": 0,
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "sectionNotes": [],
+                "typeOfSection": 0,
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "typeOfSection": 0,
+                "sectionNotes": [],
+                "altAnim": false,
+                "bpm": 120,
+                "changeBPM": false,
+                "mustHitSection": true
+            },
+            {
+                "lengthInSteps": 16,
+                "typeOfSection": 0,
+                "sectionNotes": [],
+                "altAnim": false,
+                "bpm": 120,
+                "changeBPM": false,
+                "mustHitSection": true
+            },
+            {
+                "sectionNotes": [],
+                "typeOfSection": 0,
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "sectionNotes": [],
+                "typeOfSection": 0,
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "typeOfSection": 0,
+                "sectionNotes": [],
+                "altAnim": false,
+                "bpm": 120,
+                "changeBPM": false,
+                "mustHitSection": true
+            },
+            {
+                "lengthInSteps": 16,
+                "typeOfSection": 0,
+                "sectionNotes": [],
+                "altAnim": false,
+                "bpm": 120,
+                "changeBPM": false,
+                "mustHitSection": true
+            },
+            {
+                "sectionNotes": [],
+                "typeOfSection": 0,
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "sectionNotes": [],
+                "typeOfSection": 0,
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "sectionNotes": [],
+                "typeOfSection": 0,
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "mustHitSection": true,
+                "changeBPM": false,
+                "bpm": 120
+            },
+            {
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "typeOfSection": 0,
+                "sectionNotes": [],
+                "bpm": 120,
+                "changeBPM": false,
+                "mustHitSection": true
+            }
+        ],
+        "player2": "gene",
+        "song": "GIG",
+        "validScore": true,
+        "sections": 0,
+        "needsVoices": true,
+        "bpm": 120,
+        "speed": 2
+    }
+}

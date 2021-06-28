@@ -17,6 +17,8 @@ class NoteSplash extends FlxSprite
 		{
 			case 'dread':
 				stageSuffix = '-dread';
+			case 'fear-the-funk':
+				stageSuffix = ''; // CHANGE LATER!!!
 		}
 
 		frames = FlxAtlasFrames.fromSparrow('assets/images/noteSplashes$stageSuffix.png', 'assets/images/noteSplashes.xml');

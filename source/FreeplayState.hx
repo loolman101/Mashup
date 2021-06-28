@@ -20,8 +20,8 @@ using StringTools;
 
 class FreeplayState extends MusicBeatState
 {
-	var songs:Array<String> = ['Spaceroom', 'Autumn', 'Leaf-Decay', 'Corruption', 'Dread'];
-	var songChars:Array<String> = ['gf', 'theo', 'theo', 'theo', 'theo-lemon'];
+	var songs:Array<String> = ['Ardyssey', 'Autumn', 'Leaf-Decay', 'Corruption', 'Dread', 'Fear-the-Funk'];
+	var songChars:Array<String> = ['gf', 'theo', 'theo', 'theo', 'theo-lemon', 'gene'];
 	var chars:FlxTypedGroup<Character>;
 
 	var selector:FlxText;
@@ -217,6 +217,7 @@ class FreeplayState extends MusicBeatState
 
 			PlayState.SONG = Song.loadFromJson(poop, songs[curSelected].toLowerCase());
 			PlayState.isStoryMode = false;
+			PlayState.isBonusSong = false;
 			PlayState.storyDifficulty = curDifficulty;
 			FlxG.switchState(new PlayState());
 			if (FlxG.sound.music != null)
@@ -317,6 +318,11 @@ class FreeplayState extends MusicBeatState
 				case 'theo':
 					spr.flipX = true;
 					FlxTween.tween(spr, {x: 916, y: 332}, 0.35, {ease: FlxEase.quartOut});
+				case 'gene':
+					spr.setGraphicSize(0, 480);
+					spr.updateHitbox();
+					spr.flipX = true;
+					FlxTween.tween(spr, {x: 916, y: 232}, 0.35, {ease: FlxEase.quartOut});
 				case 'theo-lemon':
 					spr.setGraphicSize(0, 540);
 					spr.updateHitbox();

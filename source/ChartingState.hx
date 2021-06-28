@@ -230,7 +230,7 @@ class ChartingState extends MusicBeatState
 		stepperBPM.value = Conductor.bpm;
 		stepperBPM.name = 'song_bpm';
 
-		var characters:Array<String> = ['bf', 'gf', 'theo', 'theo-lemon'];
+		var characters:Array<String> = ['bf', 'gf', 'theo', 'theo-lemon', 'calliope', 'gene', 'speakers'];
 
 		var player1DropDown = new FlxUIDropDownMenu(10, 100, FlxUIDropDownMenu.makeStrIdLabelArray(characters, true), function(character:String)
 		{
@@ -287,9 +287,17 @@ class ChartingState extends MusicBeatState
 
 		var stepperCopy:FlxUINumericStepper = new FlxUINumericStepper(110, 130, 1, 1, -999, 999, 0);
 
-		var copyButton:FlxButton = new FlxButton(10, 130, "Copy last section", function()
+		var copyLastButton:FlxButton = new FlxButton(10, 130, "Copy last section", function()
 		{
-			copySection(Std.int(stepperCopy.value));
+			copyLastSection(Std.int(stepperCopy.value));
+		});
+
+		var copyButton:FlxButton = new FlxButton(200, 130, "Copy Section to Clipboard", function(){
+			copySection();
+		});
+
+		var pasteButton:FlxButton = new FlxButton(200, 160, "Paste Section from Clipboard", function(){
+			pasteSection();
 		});
 
 		var clearSectionButton:FlxButton = new FlxButton(10, 150, "Clear", clearSection);
@@ -322,7 +330,9 @@ class ChartingState extends MusicBeatState
 		tab_group_section.add(check_mustHitSection);
 		tab_group_section.add(check_altAnim);
 		tab_group_section.add(check_changeBPM);
+		tab_group_section.add(copyLastButton);
 		tab_group_section.add(copyButton);
+		tab_group_section.add(pasteButton);
 		tab_group_section.add(clearSectionButton);
 		tab_group_section.add(swapSection);
 
@@ -756,7 +766,36 @@ class ChartingState extends MusicBeatState
 		}
 	}
 
-	function copySection(?sectionNum:Int = 1)
+	var curCopiedSection:Array<Array<Dynamic>> = [];
+
+	function pasteSection()
+	{
+		for (note in curCopiedSection)
+		{
+			var newStrum = note[0] + (Conductor.stepCrochet * (_song.notes[curSection].lengthInSteps * curSection));
+
+			var newNote:Array<Dynamic> = [newStrum, note[1], note[2]];
+			trace('PASTING NOTE $newNote');
+			_song.notes[curSection].sectionNotes.push(newNote);
+		}
+		trace(_song.notes[curSection].sectionNotes);
+		updateGrid();
+	}
+
+	function copySection()
+	{
+		curCopiedSection = [];
+		for (note in _song.notes[curSection].sectionNotes)
+		{
+			var strum = note[0] - (Conductor.stepCrochet * (_song.notes[curSection].lengthInSteps * curSection));
+
+			var copiedNote:Array<Dynamic> = [strum, note[1], note[2]];
+			curCopiedSection.push(copiedNote);
+		}
+		trace(curCopiedSection);
+	}
+
+	function copyLastSection(?sectionNum:Int = 1)
 	{
 		var daSec = FlxMath.maxInt(curSection, sectionNum);
 
@@ -902,7 +941,7 @@ class ChartingState extends MusicBeatState
 	{
 		for (i in _song.notes[curSection].sectionNotes)
 		{
-			if (i[0] == note.strumTime && i[1] % 4 == note.noteData)
+			if (i[0] == note.strumTime && i[1] == note.noteData)
 			{
 				FlxG.log.add('FOUND EVIL NUMBER');
 				_song.notes[curSection].sectionNotes.remove(i);

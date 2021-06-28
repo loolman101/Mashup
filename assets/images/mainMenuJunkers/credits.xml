@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Credits_Mashup.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="credits basic0000" x="0" y="0" width="613" height="154" frameX="0" frameY="0" frameWidth="613" frameHeight="157"/>
+	<SubTexture name="credits basic0001" x="0" y="154" width="610" height="156" frameX="-1" frameY="-1" frameWidth="613" frameHeight="157"/>
+	<SubTexture name="credits basic0002" x="0" y="310" width="612" height="154" frameX="0" frameY="-2" frameWidth="613" frameHeight="157"/>
+</TextureAtlas>
