@@ -22,7 +22,7 @@ class OptionsMenu extends MusicBeatState
 
 	public static var cinematicMode:Bool = false;
 
-	var controlsStrings:Array<String> = ['CINEMATIC MODE', 'TOGGLE FULLSCREEN', FlxG.save.data.scrolltype];
+	var controlsStrings:Array<String> = ['CINEMATIC MODE', 'TOGGLE FULLSCREEN', 'BIND KEYS', FlxG.save.data.scrolltype];
 
 	var iLoveWow2:FlxBackdrop;
 
@@ -85,6 +85,8 @@ class OptionsMenu extends MusicBeatState
 				case 1:
 					FlxG.fullscreen = !FlxG.fullscreen;
 				case 2:
+					FlxG.switchState(new KeyBindState());
+				case 3:
 					var newScrollType:String = '';
 
 					switch (FlxG.save.data.scrolltype)
@@ -111,10 +113,12 @@ class OptionsMenu extends MusicBeatState
 
 		switch(curSelected) {
 			case 0:
+				checkMark.visible = true;
 				checkMark.animation.play(Std.string(cinematicMode));
 			case 1:
+				checkMark.visible = true;
 				checkMark.animation.play(Std.string(FlxG.fullscreen));
-			case 2:
+			case 2 | 3:
 				checkMark.visible = false;
 		}
 

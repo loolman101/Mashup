@@ -13,6 +13,7 @@ import flixel.util.FlxColor;
 import io.newgrounds.NG;
 import lime.app.Application;
 import flixel.addons.display.FlxBackdrop;
+import Controls.KeyboardScheme;
 
 using StringTools;
 
@@ -39,6 +40,9 @@ class MainMenuState extends MusicBeatState
 		{
 			FlxG.sound.playMusic('assets/music/freakyMenu' + TitleState.soundExt);
 		}
+
+		Controls.initControls();
+		controls.setKeyboardScheme(KeyboardScheme.Solo, true);
 
 		if (FlxG.save.data.wardrobeUnlocked)
 			optionShit = ['story mode', 'freeplay', 'bonus-songs', 'options', 'wardrobe', 'credits'];

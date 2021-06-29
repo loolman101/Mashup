@@ -24,6 +24,7 @@ import io.newgrounds.NG;
 import lime.app.Application;
 import openfl.Assets;
 import polymod.Polymod;
+import Controls.KeyboardScheme;
 
 using StringTools;
 
@@ -52,7 +53,9 @@ class TitleState extends MusicBeatState
 		TitleState.soundExt = '.ogg';
 		#end
 
+		Controls.initControls();
 		PlayerSettings.init();
+		controls.setKeyboardScheme(KeyboardScheme.Solo, true);
 
 		FlxG.mouse.visible = false;
 
