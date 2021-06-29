@@ -83,7 +83,15 @@ class BonusSongState extends MusicBeatState
 
             var daSong:SwagSong = Song.loadFromJson(songs[i].toLowerCase(), songs[i].toLowerCase());
 
-            var coolBfChar:Character = new Character(732, 392, daSong.player1, false, true);
+            var coolSwagThing:String = 'bf';
+
+            switch (daSong.song.toLowerCase())
+            {
+                case 'breakdown':
+                    coolSwagThing = 'scared';
+            }
+
+            var coolBfChar:Character = new Character(732, 392, daSong.player1, false, true, FlxG.save.data.curOutfit, coolSwagThing);
             var poopAndFart = coolBfChar.height;
             coolBfChar.setGraphicSize(0, 320);
             coolBfChar.updateHitbox();
@@ -95,6 +103,11 @@ class BonusSongState extends MusicBeatState
             {
                 coolDadChar.setGraphicSize(0, 544);
                 coolDadChar.x -= 115;
+            }
+            else if (daSong.player2 == 'vanus')
+            {
+                coolDadChar.setGraphicSize(0, Std.int(coolDadChar.height / (poopAndFart / coolBfChar.height)));
+                coolDadChar.x -= 125;
             }
             else
                 coolDadChar.setGraphicSize(0, Std.int(coolDadChar.height / (poopAndFart / coolBfChar.height)));

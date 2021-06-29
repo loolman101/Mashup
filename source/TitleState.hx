@@ -44,6 +44,8 @@ class TitleState extends MusicBeatState
 	var wackyImage:FlxSprite;
 
 	var seeecret:Int = 0;
+	var seecret:Int = 0;
+	var secret:Int = 0;
 
 	override public function create():Void
 	{
@@ -263,16 +265,42 @@ class TitleState extends MusicBeatState
 			#end
 		}
 
-		if (FlxG.keys.justPressed.SIX)
+		if (FlxG.keys.justPressed.SIX && seeecret == 0)
 			seeecret = 1;
-		if (FlxG.keys.justPressed.NINE)
+		if (FlxG.keys.justPressed.NINE && seeecret == 1)
 			seeecret = 2;
-		if (FlxG.keys.justPressed.FOUR)
+		if (FlxG.keys.justPressed.FOUR && seeecret == 2)
 			seeecret = 3;
-		if (FlxG.keys.justPressed.TWO)
+		if (FlxG.keys.justPressed.TWO && seeecret == 3)
 		{
-			if (seeecret == 3)
-				FlxG.switchState(new SecretState());
+			SecretState.secretType = 'minion';
+			FlxG.switchState(new SecretState());
+		}
+
+		if (FlxG.keys.justPressed.T && seecret == 0)
+			seecret = 1;
+		if (FlxG.keys.justPressed.I && seecret == 1)
+			seecret = 2;
+		if (FlxG.keys.justPressed.K && seecret == 2)
+			seecret = 3;
+		if (FlxG.keys.justPressed.Y && seecret == 3)
+		{
+			SecretState.secretType = 'tiky';
+			FlxG.switchState(new SecretState());
+		}
+
+		if (FlxG.keys.justPressed.S && secret == 0)
+			secret = 1;
+		if (FlxG.keys.justPressed.U && secret == 1)
+			secret = 2;
+		if (FlxG.keys.justPressed.S && secret == 2)
+			secret = 3;
+		if (FlxG.keys.justPressed.S && secret == 3)
+			secret = 4;
+		if (FlxG.keys.justPressed.Y && secret == 4)
+		{
+			SecretState.secretType = 'sussy';
+			FlxG.switchState(new SecretState());
 		}
 
 		#if debug

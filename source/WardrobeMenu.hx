@@ -13,7 +13,7 @@ using StringTools;
 class WardrobeMenu extends MusicBeatState
 {
     var wardrobeItems:Array<String> = ['NORMAL'];
-    var wardrobeCharNames:Array<String> = ['', '-theo'];
+    var wardrobeCharNames:Array<String> = ['', '-theo', '-cnf'];
 
     var menuItems:FlxTypedGroup<Alphabet>;
 
@@ -36,6 +36,11 @@ class WardrobeMenu extends MusicBeatState
             wardrobeItems.push('THEO OUTFIT');
         if (FlxG.save.data.spaceroomOutfit)
             trace('nothing yet');
+
+        /*for (i in ['COMMUNITY NIGHT FUNKIN'])
+        {
+            wardrobeItems.push(i);
+        }*/
 
         for (i in 0...wardrobeItems.length)
         {

@@ -114,7 +114,7 @@ class Controls extends FlxActionSet
 	var _cheat = new FlxActionDigital(Action.CHEAT);
 
 	public static var KeysNotToBindTo:Array<FlxKey> = [
-		FlxKey.LEFT, FlxKey.DOWN, FlxKey.UP, FlxKey.RIGHT, FlxKey.ENTER, FlxKey.SPACE
+		FlxKey.LEFT, FlxKey.DOWN, FlxKey.UP, FlxKey.RIGHT, FlxKey.ENTER, FlxKey.SPACE, FlxKey.BACKSPACE, FlxKey.ESCAPE
 	];
 
 	#if (haxe >= "4.0.0")

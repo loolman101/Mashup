@@ -8,6 +8,8 @@ import flixel.util.FlxTimer;
 import Controls.KeyboardScheme;
 import flixel.text.FlxText;
 import flixel.addons.display.FlxBackdrop;
+import flixel.text.FlxText;
+import flixel.util.FlxColor;
 
 using StringTools;
 
@@ -22,6 +24,8 @@ class KeyBindState extends MusicBeatState
     var curSelected:Int = 0;
 
     var bgTiles:FlxBackdrop;
+
+    var pressAButton:FlxText;
 
     override function create()
     {
@@ -49,6 +53,11 @@ class KeyBindState extends MusicBeatState
 			thoseThings.add(controlLabel);
         }
 
+        pressAButton = new FlxText(FlxG.width * 0.7, FlxG.height - 235, 0, "PRESS A BUTTON...", 55);
+		pressAButton.setFormat("assets/fonts/vcr.ttf", 55, FlxColor.WHITE, RIGHT);
+        pressAButton.screenCenter(X);
+        add(pressAButton);
+
         super.create();
     }
 
@@ -58,6 +67,8 @@ class KeyBindState extends MusicBeatState
 
         bgTiles.x -= -0.27/(120/60);
 		bgTiles.y -= -0.63/(120/60);
+
+        pressAButton.visible = isWaitingInput;
 
         if (controls.ACCEPT && !isWaitingInput)
         {
@@ -70,7 +81,7 @@ class KeyBindState extends MusicBeatState
                         {
                             if (FlxG.keys.anyPressed(Controls.KeysNotToBindTo))
                             {   
-                                FlxG.sound.play('assets/sounds/S2_6D' + TitleState.soundExt, 0.4);
+                                FlxG.sound.play('assets/sounds/S2_6D' + TitleState.soundExt, 0.6);
                                 controlTimer.reset();
                             }
                             else
@@ -137,6 +148,7 @@ class KeyBindState extends MusicBeatState
         swagArray[cursel] = lastKey;
     }*/ 
 
+    // super proud of this
     function setNewBind():Void
     {
         var curKeyPressed = FlxG.keys.getIsDown()[0].ID;

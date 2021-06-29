@@ -91,9 +91,9 @@ class MainMenuState extends MusicBeatState
 
 		for (i in 0...optionShit.length)
 		{
-			switch (i)
+			switch (optionShit[i])
 			{
-				case 0 | 1 | 3:
+				case 'story mode', 'freeplay', 'options':
 					var menuItem:FlxSprite = new FlxSprite();
 					menuItem.frames = tex;
 					menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
@@ -249,6 +249,8 @@ class MainMenuState extends MusicBeatState
 										FlxG.switchState(new OptionsMenu());
 									case 'credits':
 										FlxG.switchState(new CreditsMenu());
+									case 'favourite-mods':
+										FlxG.switchState(new FavModState());
 								}
 							});
 						}

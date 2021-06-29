@@ -15,10 +15,10 @@ class NoteSplash extends FlxSprite
 
 		switch (PlayState.SONG.song.toLowerCase())
 		{
-			case 'dread':
+			case 'dread' | 'ardyssey':
 				stageSuffix = '-dread';
-			case 'fear-the-funk':
-				stageSuffix = ''; // CHANGE LATER!!!
+			case 'fear-the-funk' | 'gig':
+				stageSuffix = '-gene';
 		}
 
 		frames = FlxAtlasFrames.fromSparrow('assets/images/noteSplashes$stageSuffix.png', 'assets/images/noteSplashes.xml');

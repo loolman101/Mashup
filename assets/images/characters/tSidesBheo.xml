@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="tSidesBheo.png">
+	<!-- Created with Adobe Animate version 19.0.0.326 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="creppy0000" x="0" y="0" width="251" height="387" frameX="-15" frameY="-5" frameWidth="266" frameHeight="392"/>
+	<SubTexture name="creppy0001" x="0" y="0" width="251" height="387" frameX="-15" frameY="-5" frameWidth="266" frameHeight="392"/>
+	<SubTexture name="creppy0002" x="256" y="0" width="253" height="391" frameX="-3" frameY="-1" frameWidth="266" frameHeight="392"/>
+	<SubTexture name="creppy0003" x="256" y="0" width="253" height="391" frameX="-3" frameY="-1" frameWidth="266" frameHeight="392"/>
+	<SubTexture name="creppy0004" x="514" y="0" width="255" height="392" frameX="0" frameY="0" frameWidth="266" frameHeight="392"/>
+	<SubTexture name="creppy0005" x="514" y="0" width="255" height="392" frameX="0" frameY="0" frameWidth="266" frameHeight="392"/>
+	<SubTexture name="creppy0006" x="514" y="0" width="255" height="392" frameX="0" frameY="0" frameWidth="266" frameHeight="392"/>
+	<SubTexture name="creppy0007" x="514" y="0" width="255" height="392" frameX="0" frameY="0" frameWidth="266" frameHeight="392"/>
+	<SubTexture name="theo down0000" x="774" y="0" width="283" height="352" frameX="-6" frameY="0" frameWidth="295" frameHeight="352"/>
+	<SubTexture name="theo down0001" x="1062" y="0" width="283" height="352" frameX="-6" frameY="0" frameWidth="295" frameHeight="352"/>
+	<SubTexture name="theo down0002" x="1350" y="0" width="292" height="345" frameX="-2" frameY="-6" frameWidth="295" frameHeight="352"/>
+	<SubTexture name="theo down0003" x="1647" y="0" width="292" height="345" frameX="-2" frameY="-6" frameWidth="295" frameHeight="352"/>
+	<SubTexture name="theo down0004" x="0" y="397" width="295" height="342" frameX="0" frameY="-8" frameWidth="295" frameHeight="352"/>
+	<SubTexture name="theo down0005" x="300" y="397" width="295" height="342" frameX="0" frameY="-8" frameWidth="295" frameHeight="352"/>
+	<SubTexture name="theo down0006" x="300" y="397" width="295" height="342" frameX="0" frameY="-8" frameWidth="295" frameHeight="352"/>
+	<SubTexture name="theo down0007" x="600" y="397" width="295" height="342" frameX="0" frameY="-8" frameWidth="295" frameHeight="352"/>
+	<SubTexture name="theo idle0000" x="900" y="397" width="274" height="388" frameX="0" frameY="-3" frameWidth="274" frameHeight="391"/>
+	<SubTexture name="theo idle0001" x="1179" y="397" width="274" height="388" frameX="0" frameY="-3" frameWidth="274" frameHeight="391"/>
+	<SubTexture name="theo idle0002" x="1458" y="397" width="257" height="390" frameX="-13" frameY="-1" frameWidth="274" frameHeight="391"/>
+	<SubTexture name="theo idle0003" x="1720" y="397" width="257" height="390" frameX="-13" frameY="-1" frameWidth="274" frameHeight="391"/>
+	<SubTexture name="theo idle0004" x="0" y="792" width="255" height="391" frameX="-12" frameY="0" frameWidth="274" frameHeight="391"/>
+	<SubTexture name="theo idle0005" x="260" y="792" width="255" height="391" frameX="-12" frameY="0" frameWidth="274" frameHeight="391"/>
+	<SubTexture name="theo idle0006" x="520" y="792" width="256" height="391" frameX="-11" frameY="0" frameWidth="274" frameHeight="391"/>
+	<SubTexture name="theo idle0007" x="781" y="792" width="256" height="391" frameX="-11" frameY="0" frameWidth="274" frameHeight="391"/>
+	<SubTexture name="theo idle0008" x="1042" y="792" width="256" height="391" frameX="-11" frameY="0" frameWidth="274" frameHeight="391"/>
+	<SubTexture name="theo idle0009" x="1303" y="792" width="256" height="391" frameX="-11" frameY="0" frameWidth="274" frameHeight="391"/>
+	<SubTexture name="theo idle0010" x="1303" y="792" width="256" height="391" frameX="-11" frameY="0" frameWidth="274" frameHeight="391"/>
+	<SubTexture name="theo idle0011" x="1303" y="792" width="256" height="391" frameX="-11" frameY="0" frameWidth="274" frameHeight="391"/>
+	<SubTexture name="theo idle0012" x="1303" y="792" width="256" height="391" frameX="-11" frameY="0" frameWidth="274" frameHeight="391"/>
+	<SubTexture name="theo idle0013" x="1303" y="792" width="256" height="391" frameX="-11" frameY="0" frameWidth="274" frameHeight="391"/>
+	<SubTexture name="theo left0000" x="1564" y="792" width="300" height="387" frameX="-24" frameY="-2" frameWidth="324" frameHeight="389"/>
+	<SubTexture name="theo left0001" x="0" y="1188" width="300" height="387" frameX="-24" frameY="-2" frameWidth="324" frameHeight="389"/>
+	<SubTexture name="theo left0002" x="305" y="1188" width="317" height="389" frameX="-4" frameY="0" frameWidth="324" frameHeight="389"/>
+	<SubTexture name="theo left0003" x="627" y="1188" width="317" height="389" frameX="-4" frameY="0" frameWidth="324" frameHeight="389"/>
+	<SubTexture name="theo left0004" x="949" y="1188" width="320" height="389" frameX="0" frameY="0" frameWidth="324" frameHeight="389"/>
+	<SubTexture name="theo left0005" x="1274" y="1188" width="320" height="389" frameX="0" frameY="0" frameWidth="324" frameHeight="389"/>
+	<SubTexture name="theo left0006" x="1599" y="1188" width="320" height="389" frameX="0" frameY="0" frameWidth="324" frameHeight="389"/>
+	<SubTexture name="theo left0007" x="1599" y="1188" width="320" height="389" frameX="0" frameY="0" frameWidth="324" frameHeight="389"/>
+	<SubTexture name="theo left0008" x="1599" y="1188" width="320" height="389" frameX="0" frameY="0" frameWidth="324" frameHeight="389"/>
+	<SubTexture name="theo right0000" x="0" y="1582" width="295" height="402" frameX="0" frameY="-11" frameWidth="311" frameHeight="413"/>
+	<SubTexture name="theo right0001" x="300" y="1582" width="295" height="402" frameX="0" frameY="-11" frameWidth="311" frameHeight="413"/>
+	<SubTexture name="theo right0002" x="600" y="1582" width="308" height="411" frameX="-1" frameY="-2" frameWidth="311" frameHeight="413"/>
+	<SubTexture name="theo right0003" x="913" y="1582" width="308" height="411" frameX="-1" frameY="-2" frameWidth="311" frameHeight="413"/>
+	<SubTexture name="theo right0004" x="1226" y="1582" width="309" height="413" frameX="-2" frameY="0" frameWidth="311" frameHeight="413"/>
+	<SubTexture name="theo right0005" x="1540" y="1582" width="309" height="413" frameX="-2" frameY="0" frameWidth="311" frameHeight="413"/>
+	<SubTexture name="theo right0006" x="0" y="2000" width="309" height="413" frameX="-2" frameY="0" frameWidth="311" frameHeight="413"/>
+	<SubTexture name="theo right0007" x="0" y="2000" width="309" height="413" frameX="-2" frameY="0" frameWidth="311" frameHeight="413"/>
+	<SubTexture name="theo right0008" x="0" y="2000" width="309" height="413" frameX="-2" frameY="0" frameWidth="311" frameHeight="413"/>
+	<SubTexture name="theo up0000" x="314" y="2000" width="295" height="402" frameX="0" frameY="-42" frameWidth="299" frameHeight="445"/>
+	<SubTexture name="theo up0001" x="314" y="2000" width="295" height="402" frameX="0" frameY="-42" frameWidth="299" frameHeight="445"/>
+	<SubTexture name="theo up0002" x="614" y="2000" width="270" height="438" frameX="-28" frameY="-7" frameWidth="299" frameHeight="445"/>
+	<SubTexture name="theo up0003" x="614" y="2000" width="270" height="438" frameX="-28" frameY="-7" frameWidth="299" frameHeight="445"/>
+	<SubTexture name="theo up0004" x="889" y="2000" width="265" height="445" frameX="-34" frameY="0" frameWidth="299" frameHeight="445"/>
+	<SubTexture name="theo up0005" x="889" y="2000" width="265" height="445" frameX="-34" frameY="0" frameWidth="299" frameHeight="445"/>
+	<SubTexture name="theo up0006" x="889" y="2000" width="265" height="445" frameX="-34" frameY="0" frameWidth="299" frameHeight="445"/>
+	<SubTexture name="theo up0007" x="889" y="2000" width="265" height="445" frameX="-34" frameY="0" frameWidth="299" frameHeight="445"/>
+	<SubTexture name="theo up0008" x="889" y="2000" width="265" height="445" frameX="-34" frameY="0" frameWidth="299" frameHeight="445"/>
+</TextureAtlas>

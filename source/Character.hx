@@ -17,7 +17,7 @@ class Character extends FlxSprite
 
 	public var holdTimer:Float = 0;
 
-	public function new(x:Float, y:Float, ?character:String = "bf", ?isPlayer:Bool = false, ?isPreview:Bool = false, outFitModifier:String = '')
+	public function new(x:Float, y:Float, ?character:String = "bf", ?isPlayer:Bool = false, ?isPreview:Bool = false, outFitModifier:String = '', previewBF:String = 'bf')
 	{
 		animOffsets = new Map<String, Array<Dynamic>>();
 		super(x, y);
@@ -35,6 +35,7 @@ class Character extends FlxSprite
 		{
 			case 'gf':
 				// GIRLFRIEND CODE
+				trace('https://www.youtube.com/watch?v=h5KV1ACb4KE');
 				tex = FlxAtlasFrames.fromSparrow('assets/images/characters/Calliope_Assets.png', 'assets/images/characters/Calliope_Assets.xml');
 				frames = tex;
 				animation.addByPrefix('cheer', 'GF Cheer', 24, false);
@@ -67,11 +68,44 @@ class Character extends FlxSprite
 				addOffset('scared', -2, -11);
 
 				playAnim('idle');
+			case 'calliope-bside':
+				// GIRLFRIEND CODE
+				trace('https://www.youtube.com/watch?v=h5KV1ACb4KE');
+				tex = FlxAtlasFrames.fromSparrow('assets/images/characters/cSideBalliope.png', 'assets/images/characters/cSideBalliope.xml');
+				frames = tex;
+				if (isPreview)
+					animation.addByPrefix('idle', 'Calliope Idle', 24, true);
+				else
+				{
+					animation.addByPrefix('idle', 'Calliope Idle', 24, false);
+				}
+				addOffset('idle', -250, 0);
+
+				playAnim('idle');
+			case 'calliope-n-bf':
+				frames = FlxAtlasFrames.fromSparrow('assets/images/characters/CalliopeBoyfriend_Assets.png', 'assets/images/characters/CalliopeBoyfriend_Assets.xml');
+				animation.addByPrefix('idle', 'Calliope Dread Idle', 24, isPreview);
+				animation.addByPrefix('singUP', 'up', 24, false);
+				animation.addByPrefix('singDOWN', 'Down', 24, false);
+				animation.addByPrefix('singLEFT', 'left lmaoooooo!!!!!!!', 24, false);
+				animation.addByPrefix('singRIGHT', 'right', 24, false);
+
+				addOffset('idle');
+				addOffset('singUP');
+				addOffset('singDOWN', -3, -17);
+				addOffset('singLEFT', 6, 3);
+				addOffset('singRIGHT', 5, -17);
+				
+				playAnim('idle');
+
+				if (!isPreview)
+					flipX = true;
 			case 'speakers':
 				frames = FlxAtlasFrames.fromSparrow('assets/images/characters/Speaker_Alone.png', 'assets/images/characters/Speaker_Alone.xml');
 				animation.addByPrefix('idle', 'speaker going boom boom', 24, isPreview);
 				playAnim('idle');
 			case 'calliope':
+				trace('https://www.youtube.com/watch?v=h5KV1ACb4KE');
 				frames = FlxAtlasFrames.fromSparrow('assets/images/characters/CalliopeStanding.png', 'assets/images/characters/CalliopeStanding.xml');
 				animation.addByPrefix('idle', 'calliope idle', 24, isPreview);
 				animation.addByPrefix('singUP', 'calliope up', 24, false);
@@ -86,6 +120,42 @@ class Character extends FlxSprite
 				addOffset("singDOWN", -14, -10);
 
 				playAnim('idle');
+			case 'vanus':
+				// GIRLFRIEND CODE
+				tex = FlxAtlasFrames.fromSparrow('assets/images/characters/Vanus_ass_sets.png', 'assets/images/characters/Vanus_ass_sets.xml');
+				frames = tex;
+				animation.addByPrefix('cheer', 'GF Cheer', 24, false);
+				animation.addByPrefix('singLEFT', 'GF left note', 24, false);
+				animation.addByPrefix('singRIGHT', 'GF Right Note', 24, false);
+				animation.addByPrefix('singUP', 'GF Up Note', 24, false);
+				animation.addByPrefix('singDOWN', 'GF Down Note', 24, false);
+				animation.addByIndices('sad', 'gf sad', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "", 24, false);
+				if (isPreview)
+					animation.addByPrefix('danceRight', 'GF Dancing Beat', 24, true);
+				else
+				{
+					animation.addByIndices('danceLeft', 'GF Dancing Beat', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+					animation.addByIndices('danceRight', 'GF Dancing Beat', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+				}
+				animation.addByIndices('hairBlow', "GF Dancing Beat Hair blowing", [0, 1, 2, 3], "", 24);
+				animation.addByIndices('hairFall', "GF Dancing Beat Hair Landing", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], "", 24, false);
+				animation.addByPrefix('scared', 'GF FEAR', 24);
+
+				addOffset('cheer');
+				addOffset('sad', -2, -22);
+				addOffset('danceLeft', 0, -9);
+				addOffset('danceRight', 0, -9);
+
+				addOffset("singUP", 0, 0);
+				addOffset("singRIGHT", 0, -9);
+				addOffset("singLEFT", 0, -22);
+				addOffset("singDOWN", 0, -25);
+				addOffset('hairBlow', 0, -9);
+				addOffset('hairFall', 0, -9);
+
+				addOffset('scared', -2, -11);
+
+				playAnim('danceRight');
 			case 'theo-lemon':
 				tex = FlxAtlasFrames.fromSparrow('assets/images/characters/TheoDemon_FINISHED_Assets.png', 'assets/images/characters/TheoDemon_FINISHED_Assets.xml');
 				frames = tex;
@@ -108,10 +178,9 @@ class Character extends FlxSprite
 				addOffset('meAndAcidicWhenAmongUs', -30, 6);
 				addOffset('swipe', 46, 289);
 				playAnim('idle');
+			case 'bf-bside':
 
-			case 'bf-breakdown':
-
-					var tex = FlxAtlasFrames.fromSparrow('assets/images/characters/bfThatSong.png', 'assets/images/characters/bfThatSong.xml');
+					var tex = FlxAtlasFrames.fromSparrow('assets/images/characters/fSideBoyTriend.png', 'assets/images/characters/fSideBoyTriend.xml');
 					frames = tex;
 
 					animation.addByPrefix('idle', 'BF idle dance', 24, isPreview);
@@ -161,7 +230,13 @@ class Character extends FlxSprite
 							case 'dread':
 								//bfType = 'scared';
 								trace('imagine forgetting to wake lancey up!');
+							case 'breakdown':
+								bfType = 'scared';
 						}
+					}
+					else
+					{
+						bfType = previewBF;
 					}
 
 					var tex = FlxAtlasFrames.fromSparrow('assets/images/boyfriend/$bfType$outFitModifier.png', 'assets/images/boyfriend/$bfType$outFitModifier.xml');
@@ -217,6 +292,26 @@ class Character extends FlxSprite
 				animation.addByPrefix('creppy', 'creppy', 24 ,false);
 
 				addOffset('vore');
+				addOffset('idle', 0, 11);
+				addOffset('singUP', 19, 54);
+				addOffset('singRIGHT', -24, 37);
+				addOffset('singLEFT', 53, 5);
+				addOffset('singDOWN', 13, -30);
+				addOffset('creppy', -11, 12);
+
+				playAnim('idle');
+			case 'theo-bsides':
+				frames = FlxAtlasFrames.fromSparrow('assets/images/characters/tSidesBheo.png', 'assets/images/characters/tSidesBheo.xml');
+				if (isPreview)
+					animation.addByPrefix('idle', 'theo idle', 24, true);
+				else
+					animation.addByPrefix('idle', 'theo idle', 24, false);
+				animation.addByPrefix('singUP', 'theo up', 24, false);
+				animation.addByPrefix('singRIGHT', 'theo right', 24, false);
+				animation.addByPrefix('singLEFT', 'theo left', 24, false);
+				animation.addByPrefix('singDOWN', 'theo down', 24, false);
+				animation.addByPrefix('creppy', 'creppy', 24 ,false);
+
 				addOffset('idle', 0, 11);
 				addOffset('singUP', 19, 54);
 				addOffset('singRIGHT', -24, 37);
@@ -374,7 +469,7 @@ class Character extends FlxSprite
 
 	override function update(elapsed:Float)
 	{
-		if (!curCharacter.startsWith('bf'))
+		if (!curCharacter.startsWith('bf') && curCharacter != 'calliope-n-bf')
 		{
 			if (animation.curAnim.name.startsWith('sing'))
 			{
@@ -394,7 +489,7 @@ class Character extends FlxSprite
 
 		switch (curCharacter)
 		{
-			case 'og-gf':
+			case 'vanus':
 				if (animation.curAnim.name == 'hairFall' && animation.curAnim.finished)
 					playAnim('danceRight');
 		}
@@ -413,7 +508,7 @@ class Character extends FlxSprite
 		{
 			switch (curCharacter)
 			{
-				case 'spooky' | 'gf-pixel':
+				case 'spooky' | 'gf-pixel' | 'vanus':
 					danced = !danced;
 
 					if (danced)
@@ -440,6 +535,7 @@ class Character extends FlxSprite
 	{
 		animation.play(AnimName, Force, Reversed, Frame);
 
+		// trace(curCharacter);
 		// trace(animOffsets);
 
 		var daOffset = animOffsets.get(animation.curAnim.name);

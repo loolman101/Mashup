@@ -26,7 +26,7 @@ class CreditsMenu extends MusicBeatState
 
 	var fart:FlxBackdrop;
 
-	var coolPeople:Array<String> = ['ACIDICSHOES', 'ZUMORIZU', 'JUKEBOX', 'BLAMEJAJUBZ', 'KIRO', 'RUBY', 'GRANTARE', 'RAT', 'EVANCLUBYT', 'ROCKETPOPS', 'COSMIC BERRY', 'JOHNLEBRON'];
+	var coolPeople:Array<String> = ['SPACEMEN', 'ZUMORIZU', 'JUKEBOX', 'BLAMEJAJUBZ', 'KIRO', 'RUBY', 'GRANTARE', 'RAT', 'EVANCLUBYT', 'ROCKETPOPS', 'COSMIC BERRY', 'JOHNLEBRON', 'ANICKMATIONS', 'SATURN', 'PIESARIUSZ', 'GAMER WORD', 'JELLYFISH', 'LANCEY'];
 
 	private var grpControls:FlxTypedGroup<Alphabet>;
 
@@ -87,12 +87,14 @@ class CreditsMenu extends MusicBeatState
 		if (controls.ACCEPT)
 		{
 			switch(curSelected) {
+				case 0:
+					FlxG.openURL("https://www.youtube.com/channel/UC69x65wXNHc_rj5HMtswoAg");
 				case 3:
 					FlxG.openURL("https://www.youtube.com/channel/UCou-r4h1UnFDN1_zo4TDRrg");
 				case 4:
 					FlxG.openURL("https://www.youtube.com/channel/UCYWbre_6s1DbTpHTRK-GKKQ");
 				case 5:
-					trace('fizzy was here');
+					FlxG.openURL('https://twitter.com/RubysArt_');
 				case 6:
 					FlxG.openURL('https://www.youtube.com/channel/UCKbKOSJPbP4u81cpBpoSntw');
 				case 7:
@@ -103,6 +105,11 @@ class CreditsMenu extends MusicBeatState
 					FlxG.openURL('https://www.youtube.com/channel/UCVbNlXsQ-9WA2WcN8u2se_Q');
 				case 10:
 					FlxG.openURL('https://www.instagram.com/lol.fruits/');
+				case 16:
+					FlxG.openURL('https://www.youtube.com/channel/UCVgVvwOzvsR8pRwVy316SyA');
+				case 17:
+					FlxG.openURL('https://www.youtube.com/channel/UCXLzKLUzVUewu_NXHMb-_cQ');
+
 			}
 		//	var funnystring = Std.string(curSelected);
 		//	FlxG.openURL(funnystring); 
