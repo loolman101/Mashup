@@ -44,10 +44,12 @@ class MainMenuState extends MusicBeatState
 		Controls.initControls();
 		controls.setKeyboardScheme(KeyboardScheme.Solo, true);
 
-		if (FlxG.save.data.wardrobeUnlocked)
-			optionShit = ['story mode', 'freeplay', 'bonus-songs', 'options', 'wardrobe', 'credits'];
-		else
-			optionShit = ['story mode', 'freeplay', 'bonus-songs', 'options', 'credits'];
+		DiscordJunk.change('In Menus');
+
+		// if (FlxG.save.data.wardrobeUnlocked)
+		optionShit = ['story mode', 'freeplay', 'bonus-songs', 'options', 'wardrobe', 'credits'];
+		// else
+		// 	optionShit = ['story mode', 'freeplay', 'bonus-songs', 'options', 'credits'];
 
 		// optionShit = ['story mode', 'freeplay', 'options', 'credits'];
 

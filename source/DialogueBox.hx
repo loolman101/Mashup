@@ -78,25 +78,30 @@ class DialogueBox extends FlxSpriteGroup
 				bgFade.alpha = 0.7;
 		}, 5);
 
-		daCoolImage = new FlxSprite();
-		daCoolImage.scrollFactor.set();
-		add(daCoolImage);
+		// daCoolImage = new FlxSprite();
+		// daCoolImage.scrollFactor.set();
+		// add(daCoolImage);
 
-		portraitLeft = new FlxSprite(232, 229).loadGraphic('assets/images/dialogueJunk/chars/th_norm.png');
-		portraitLeft.setGraphicSize(Std.int(portraitLeft.width * 0.5));
+		portraitLeft = new FlxSprite(232 - 135, 229).loadGraphic('assets/images/dialogueJunk/chars/th_norm.png');
+		portraitLeft.setGraphicSize(Std.int(portraitLeft.width * 0.7));
 		portraitLeft.updateHitbox();
 		portraitLeft.scrollFactor.set();
 		add(portraitLeft);
 		portraitLeft.visible = false;
+		portraitLeft.antialiasing = true;
 
-		portraitRight = new FlxSprite((532 + 285), 228).loadGraphic('assets/images/dialogueJunk/chars/bf_norm.png');
-		portraitRight.setGraphicSize(Std.int(portraitRight.width * 0.5));
+		portraitRight = new FlxSprite((532 + 285 + 35), 228).loadGraphic('assets/images/dialogueJunk/chars/bf_norm.png');
+		portraitRight.setGraphicSize(Std.int(portraitRight.width * 0.7));
 		portraitRight.updateHitbox();
 		portraitRight.scrollFactor.set();
 		add(portraitRight);
 		portraitRight.visible = false;
+		portraitRight.antialiasing = true;
 
 		box = new FlxSprite(-20, 45);
+
+		portraitLeft.y = 440 - portraitLeft.height;
+		portraitRight.y = 440 - portraitRight.height;
 
 		switch (PlayState.SONG.song.toLowerCase())
 		{
@@ -234,25 +239,32 @@ class DialogueBox extends FlxSpriteGroup
 				portraitRight.visible = false;
 				portraitLeft.visible = true;
 				portraitLeft.loadGraphic('assets/images/dialogueJunk/chars/th_' + expression + '.png');
-			case 'bf':
+			case 'boyfriend':
 				portraitLeft.visible = false;
 				portraitRight.visible = true;
+				portraitRight.flipX = true;
 				portraitRight.loadGraphic('assets/images/dialogueJunk/chars/bf_' + expression + '.png');
 			case 'vanus':
 				portraitLeft.visible = false;
 				portraitRight.visible = true;
+				portraitRight.flipX = false;
 				portraitRight.loadGraphic('assets/images/dialogueJunk/chars/va_' + expression + '.png');
+			case 'calliope':
+				portraitLeft.visible = false;
+				portraitRight.visible = true;
+				portraitRight.flipX = true;
+				portraitRight.loadGraphic('assets/images/dialogueJunk/chars/ca_' + expression + '.png');
 		}
 
-		daCoolImage.loadGraphic('assets/images/dialogueJunk/images/' + PlayState.SONG.song.toLowerCase() + '/dia' + imageJunks[curImage] + '.png');
+		// daCoolImage.loadGraphic('assets/images/dialogueJunk/images/' + PlayState.SONG.song.toLowerCase() + '/dia' + imageJunks[curImage] + '.png');
 		curImage += 1;
 	}
 
 	function cleanDialog():Void
 	{
 		var splitName:Array<String> = dialogueList[0].split(":");
-		curCharacter = splitName[1];
-		dialogueList[0] = dialogueList[0].substr(splitName[1].length + 2).trim();
+		curCharacter = splitName[0].toLowerCase();
+		dialogueList[0] = dialogueList[0].substr(splitName[0].length + 1).trim();
 	}
 
 	function getExpression(sussyImposter:String)

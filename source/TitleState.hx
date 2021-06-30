@@ -25,6 +25,7 @@ import lime.app.Application;
 import openfl.Assets;
 import polymod.Polymod;
 import Controls.KeyboardScheme;
+import Discord.DiscordClient;
 
 using StringTools;
 
@@ -59,6 +60,8 @@ class TitleState extends MusicBeatState
 		PlayerSettings.init();
 		controls.setKeyboardScheme(KeyboardScheme.Solo, true);
 
+		DiscordClient.initialize();
+
 		FlxG.mouse.visible = false;
 
 		curWacky = FlxG.random.getObject(getIntroTextShit());
@@ -66,6 +69,8 @@ class TitleState extends MusicBeatState
 		// DEBUG BULLSHIT
 
 		super.create();
+
+		FlxG.save.data.theoOutfit = true;
 
 		/*NGio.noLogin(APIStuff.API);
 

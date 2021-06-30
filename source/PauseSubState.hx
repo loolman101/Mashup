@@ -22,6 +22,8 @@ class PauseSubState extends MusicBeatSubstate
 	{
 		super();
 
+		DiscordJunk.change('PAUSED on ${PlayState.SONG.song}', 'Score: ${PlayState.songScore}, Misses: ${PlayState.misses}');
+
 		pauseMusic = new FlxSound().loadEmbedded('assets/music/breakfast' + TitleState.soundExt, true, true);
 		pauseMusic.volume = 0;
 		pauseMusic.play(false, FlxG.random.int(0, Std.int(pauseMusic.length / 2)));

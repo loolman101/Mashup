@@ -32,6 +32,8 @@ class GameOverSubstate extends MusicBeatSubstate
 
 		super();
 
+		DiscordJunk.change('DEAD on ${PlayState.SONG.song}');
+
 		Conductor.songPosition = 0;
 
 		bf = new Boyfriend(x, y, daBf);

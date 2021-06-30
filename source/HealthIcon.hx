@@ -14,14 +14,16 @@ class HealthIcon extends FlxSprite
 
 		antialiasing = true;
 		addIcon('bf', 0);
-		addIcon('bf-scared', 10);
+		addIcon('bf-breakdown', 2);
 		addIcon('theo', 4);
-		addIcon('theo-lemon', 19);
-		addIcon('gf', 17);
-		addIcon('calliope', 17);
-		addIcon('gene', 2);
-		addIcon('senpai', 6);
-		addIcon('bf-pixel', 8);
+		addIcon('theo-lemon', 6);
+		addIcon('gf', 10);
+		addIcon('calliope', 10);
+		addIcon('gene', 8);
+		addIcon('theo-bsides', 12);
+		addIcon('theo-breakdown', 14);
+		addIcon('senpai', 20);
+		addIcon('bf-pixel', 22);
 		
 		animation.play('bf'); // fix so it doesnt crash when junking djunking ! ! ! 
 		animation.play(char);

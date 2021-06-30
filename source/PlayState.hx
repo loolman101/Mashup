@@ -121,10 +121,12 @@ class PlayState extends MusicBeatState
 	var wiggleShit:WiggleEffect = new WiggleEffect();
 
 	var talking:Bool = true;
-	var songScore:Int = 0;
-	var misses:Int = 0;
+	public static var songScore:Int = 0;
+	public static var misses:Int = 0;
 	var scoreTxt:FlxText;
 	var missTxt:FlxText;
+
+	public static var detailJunks:String;
 
 	var warningText:FlxSprite;
 
@@ -141,6 +143,9 @@ class PlayState extends MusicBeatState
 
 	var inCutscene:Bool = false;
 
+	var stupidUglyBf:Character;
+	var uglyCalliope:Character;
+
 	override public function create()
 	{
 		// var gameCam:FlxCamera = FlxG.camera;
@@ -149,6 +154,10 @@ class PlayState extends MusicBeatState
 		camHUD.bgColor.alpha = 0;
 		camJUNK = new FlxCamera();
 		camJUNK.bgColor.alpha = 0;
+		misses = 0;
+		songScore = 0;
+
+		DiscordJunk.change('About to start a song.');
 
 		FlxG.cameras.reset(camGame);
 		FlxG.cameras.add(camHUD);
@@ -165,6 +174,13 @@ class PlayState extends MusicBeatState
 
 		if (SONG.song == 'Dread')
 			FlxG.cameras.add(camJUNK);
+
+		if (isStoryMode)
+			detailJunks = 'Story Mode: ';
+		else if (isBonusSong)
+			detailJunks = 'Bonus Song: ';
+		else
+			detailJunks = 'Freeplay: ';
 
 		Conductor.changeBPM(SONG.bpm);
 
@@ -603,7 +619,6 @@ class PlayState extends MusicBeatState
 			case 'calliope-n-bf':
 				boyfriend.y -= 375;
 				boyfriend.x += 125;
-				ogBfPos = [boyfriend.x, boyfriend.y];
 		}
 
 		// REPOSITIONING PER STAGE
@@ -615,7 +630,19 @@ class PlayState extends MusicBeatState
 				gf.y += 550;
 			case 'philly':
 				if (SONG.song.toLowerCase() == 'dread')
+				{
 					gf.y += 550;
+					if (isStoryMode)
+					{
+						gf.visible = false;
+						boyfriend.visible = false;
+						stupidUglyBf = new Character(770, 450, 'bf', false, true, FlxG.save.data.curOutfit, 'scared');	
+						uglyCalliope = new Character(400, 130, 'gf');
+						uglyCalliope.scrollFactor.set(0.95, 0.95);
+						add(uglyCalliope);
+						add(stupidUglyBf);
+					}
+				}
 			case 'school':
 				boyfriend.x += 200;
 				boyfriend.y += 220;
@@ -624,6 +651,8 @@ class PlayState extends MusicBeatState
 			case 'spaceThing':
 				gf.visible = boyfriend.visible = dad.visible = false;
 		}
+
+		ogBfPos = [boyfriend.x, boyfriend.y];
 
 		if (SONG.song.toLowerCase() == 'breakdown')
 			gf.visible = false;
@@ -743,6 +772,7 @@ class PlayState extends MusicBeatState
 
 		iconP1 = new HealthIcon(SONG.player1, true);
 		iconP1.y = healthBar.y - (iconP1.height / 2);
+		resetBfIcon();
 		if (!isCinematic && curStage != 'spaceThing')
 			add(iconP1);
 
@@ -795,8 +825,7 @@ class PlayState extends MusicBeatState
 					camFollow.setPosition(boyfriend.getMidpoint().x - 100, boyfriend.getMidpoint().y - 100);
 					schoolIntro(doof);
 				case 'autumn' | 'leaf-decay' | 'corruption':
-					trace('acidic is dumb');
-					startCountdown();
+					schoolIntro(doof);
 				default:
 					startCountdown();
 			}
@@ -916,7 +945,11 @@ class PlayState extends MusicBeatState
 								trace(camFollow.x);
 								trace(camFollow.y);
 								bgCult.alpha = 1;
-								startCountdown();
+								gf.visible = true;
+								boyfriend.visible = true;
+								uglyCalliope.kill();
+								stupidUglyBf.kill();
+								add(dialogueBox);
 							}, true);
 						});
 						new FlxTimer().start(6.65, function(deadTime:FlxTimer)
@@ -1716,6 +1749,20 @@ class PlayState extends MusicBeatState
 		vocals.play();
 	}
 
+	function resetBfIcon():Void
+	{
+		if (SONG.player1 == 'bf')
+		{
+			switch (SONG.song.toLowerCase())
+			{
+				case 'breakdown':
+					iconP1.animation.play('bf-breakdown');
+			}
+		}
+		else
+			iconP1.animation.play(SONG.player1);
+	}
+
 	private var paused:Bool = false;
 	var startedCountdown:Bool = false;
 	var canPause:Bool = true;
@@ -1733,7 +1780,9 @@ class PlayState extends MusicBeatState
 		if (FlxG.keys.justPressed.NINE)
 		{
 			if (iconP1.animation.curAnim.name == 'bf-old')
-				iconP1.animation.play(SONG.player1);
+			{
+				resetBfIcon();
+			}
 			else
 				iconP1.animation.play('bf-old');
 		}
@@ -1759,7 +1808,7 @@ class PlayState extends MusicBeatState
 				// phillyCityLights.members[curLight].alpha -= (Conductor.crochet / 1000) * FlxG.elapsed;
 		}
 
-		if (SONG.player1 == 'calliope-n-bf' && isFloating && !inTheActualLiteralPhysicalSpiritualStateOfFloating)
+		if (SONG.player1 == 'calliope-n-bf' && isFloating && !inTheActualLiteralPhysicalSpiritualStateOfFloating && ogBfPos != null) // stupid null boyfriend!
 		{
 			if (whichWayWeFloating)
 			{
@@ -1801,13 +1850,10 @@ class PlayState extends MusicBeatState
 		// FlxG.watch.addQuick('VOL', vocals.amplitudeLeft);
 		// FlxG.watch.addQuick('VOLRight', vocals.amplitudeRight);
 
-		iconP1.setGraphicSize(Std.int(FlxMath.lerp(150, iconP1.width, 0.50)));
-		iconP2.setGraphicSize(Std.int(FlxMath.lerp(150, iconP2.width, 0.50)));
+		var iconOffset:Int = 26;
 
 		iconP1.updateHitbox();
 		iconP2.updateHitbox();
-
-		var iconOffset:Int = 26;
 
 		iconP1.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01) - iconOffset);
 		iconP2.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01)) - (iconP2.width - iconOffset);
@@ -2828,6 +2874,8 @@ class PlayState extends MusicBeatState
 			// dad.dance();
 		}
 
+		DiscordJunk.change('$detailJunks${SONG.song}', 'Score: $songScore, Misses: $misses', 'mashusap', SONG.player2);
+
 		super.stepHit();
 	}
 
@@ -2987,11 +3035,17 @@ class PlayState extends MusicBeatState
 		if (curSong.toLowerCase() == 'dread' && curBeat == 15)
 			dad.playAnim('idle');
 
-		iconP1.setGraphicSize(Std.int(iconP1.width + 30));
-		iconP2.setGraphicSize(Std.int(iconP2.width + 30));
+		// iconP1.setGraphicSize(Std.int(iconP1.width + 30));
+		// iconP2.setGraphicSize(Std.int(iconP2.width + 30));
 
-		iconP1.updateHitbox();
-		iconP2.updateHitbox();
+		// iconP1.updateHitbox();
+		// iconP2.updateHitbox();
+		iconP1.scale.set(1.2, 1.2);
+		FlxTween.cancelTweensOf(iconP1);
+		FlxTween.tween(iconP1, {"scale.x": 1, 'scale.y': 1}, Conductor.stepCrochet / 1000, {ease: FlxEase.sineOut});
+		iconP2.scale.set(1.2, 1.2);
+		FlxTween.cancelTweensOf(iconP2);
+		FlxTween.tween(iconP2, {"scale.x": 1, 'scale.y': 1}, Conductor.stepCrochet / 1000, {ease: FlxEase.sineOut});
 
 		if (totalBeats % gfSpeed == 0)
 		{

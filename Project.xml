@@ -75,6 +75,7 @@
 	<haxelib name="newgrounds"/>
 	<haxelib name="faxe" if='switch'/>
 	<haxelib name="polymod"/>
+	<haxelib name="discord_rpc"/>
 
 	<!-- <haxelib name="markdown" /> -->
 	<!-- <haxelib name="HtmlParser" /> -->

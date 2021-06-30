@@ -60,6 +60,8 @@ class FreeplayState extends MusicBeatState
 		isDebug = true;
 		#end
 
+		DiscordJunk.change('In Menus');
+
 		// LOAD MUSIC
 
 		// LOAD CHARACTERS

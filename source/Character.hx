@@ -180,7 +180,7 @@ class Character extends FlxSprite
 				playAnim('idle');
 			case 'bf-bside':
 
-					var tex = FlxAtlasFrames.fromSparrow('assets/images/characters/fSideBoyTriend.png', 'assets/images/characters/fSideBoyTriend.xml');
+					var tex = FlxAtlasFrames.fromSparrow('assets/images/characters/fSideBoyBriend.png', 'assets/images/characters/fSideBoyBriend.xml');
 					frames = tex;
 
 					animation.addByPrefix('idle', 'BF idle dance', 24, isPreview);
@@ -449,7 +449,7 @@ class Character extends FlxSprite
 			flipX = !flipX;
 
 			// Doesn't flip for BF, since his are already in the right place???
-			if (!curCharacter.startsWith('bf'))
+			if (!curCharacter.startsWith('bf') && curCharacter != 'calliope-n-bf')
 			{
 				// var animArray
 				var oldRight = animation.getByName('singRIGHT').frames;

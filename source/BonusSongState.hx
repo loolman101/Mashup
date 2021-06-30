@@ -14,7 +14,7 @@ import flixel.util.FlxColor;
 
 class BonusSongState extends MusicBeatState
 {
-    var songs:Array<String> = ['Corruption-BSides', 'GIG', 'Contemplating-Space', 'Breakdown', 'Ashes'];
+    var songs:Array<String> = ['Corruption-BSides', 'GIG', 'Contemplating-Space', 'Breakdown'];
     var poopoo:FlxTypedGroup<Alphabet>;
     var micdUpIRL:FlxBackdrop;
 
@@ -30,6 +30,8 @@ class BonusSongState extends MusicBeatState
     override function create()
     {
         super.create();
+
+        DiscordJunk.change('In Menus');
 
         var ui_tex = FlxAtlasFrames.fromSparrow('assets/images/campaign_menu_UI_assets.png', 'assets/images/campaign_menu_UI_assets.xml');
         
