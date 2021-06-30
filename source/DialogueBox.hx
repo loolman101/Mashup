@@ -9,6 +9,8 @@ import flixel.input.FlxKeyManager;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
 
 using StringTools;
 
@@ -46,12 +48,16 @@ class DialogueBox extends FlxSpriteGroup
 		switch (PlayState.SONG.song.toLowerCase())
 		{
 			case 'autumn':
-				FlxG.sound.playMusic('assets/music/Theo_Dialogue_Theme' + TitleState.soundExt, 0);
+				FlxG.sound.playMusic('assets/music/Autumn_Dialogue' + TitleState.soundExt, 0);
 				FlxG.sound.music.fadeIn(1, 0, 0.8);
 				imageJunks = [0, 1, 2, 2, 3, 4, 5, 6, 6, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15];
 			case 'corruption':
+				FlxG.sound.playMusic('assets/music/Corruption_Dialogue' + TitleState.soundExt, 0);
+				FlxG.sound.music.fadeIn(1, 0, 0.8);
 				imageJunks = [0, 0, 1, 1, 2, 3, 4, 5];
 			case 'leaf-decay':
+				FlxG.sound.playMusic('assets/music/Theo_Dialogue_Theme' + TitleState.soundExt, 0);
+				FlxG.sound.music.fadeIn(1, 0, 0.8);
 				imageJunks = [0, 1, 2, 3, 4, 4, 5];
 			case 'dread':
 				imageJunks = [0, 1, 2, 3, 4, 5];
@@ -86,7 +92,6 @@ class DialogueBox extends FlxSpriteGroup
 		portraitLeft.setGraphicSize(Std.int(portraitLeft.width * 0.7));
 		portraitLeft.updateHitbox();
 		portraitLeft.scrollFactor.set();
-		add(portraitLeft);
 		portraitLeft.visible = false;
 		portraitLeft.antialiasing = true;
 
@@ -94,14 +99,13 @@ class DialogueBox extends FlxSpriteGroup
 		portraitRight.setGraphicSize(Std.int(portraitRight.width * 0.7));
 		portraitRight.updateHitbox();
 		portraitRight.scrollFactor.set();
-		add(portraitRight);
 		portraitRight.visible = false;
 		portraitRight.antialiasing = true;
 
 		box = new FlxSprite(-20, 45);
 
-		portraitLeft.y = 440 - portraitLeft.height;
-		portraitRight.y = 440 - portraitRight.height;
+		portraitLeft.y = 439 - portraitLeft.height;
+		portraitRight.y = 439 - portraitRight.height;
 
 		switch (PlayState.SONG.song.toLowerCase())
 		{
@@ -116,6 +120,8 @@ class DialogueBox extends FlxSpriteGroup
 		box.setGraphicSize(Std.int(box.width * PlayState.daPixelZoom * 0.9));
 		box.updateHitbox();
 		add(box);
+		add(portraitRight);
+		add(portraitLeft);
 
 		handSelect = new FlxSprite(FlxG.width * 0.9, FlxG.height * 0.9).loadGraphic('assets/images/dialogueJunk/hand_textbox.png');
 		//add(handSelect);
@@ -136,7 +142,6 @@ class DialogueBox extends FlxSpriteGroup
 		swagDialogue = new FlxTypeText(240, 500, Std.int(FlxG.width * 0.6), "", 32);
 		swagDialogue.font = 'Pixel Arial 11 Bold';
 		swagDialogue.color = 0xFFFFFFFF;
-		swagDialogue.sounds = [FlxG.sound.load('assets/sounds/pixelText' + TitleState.soundExt, 0.6)];
 		add(swagDialogue);
 
 		dialogue = new Alphabet(0, 80, "", false, true);
@@ -171,7 +176,7 @@ class DialogueBox extends FlxSpriteGroup
 			dialogueStarted = true;
 		}
 
-		if (FlxG.keys.justPressed.ANY)
+		if (FlxG.keys.justPressed.ANY && !FlxG.keys.justPressed.PLUS && !FlxG.keys.justPressed.MINUS && !FlxG.keys.justPressed.ZERO)
 		{
 			remove(dialogue);
 
@@ -214,6 +219,7 @@ class DialogueBox extends FlxSpriteGroup
 	}
 
 	var isEnding:Bool = false;
+	var lastChar:String;
 
 	function startDialogue():Void
 	{
@@ -228,7 +234,7 @@ class DialogueBox extends FlxSpriteGroup
 
 		// swagDialogue.text = ;
 		swagDialogue.resetText(dialogueList[0]);
-		swagDialogue.start(0.04, true);
+		swagDialogue.start(0.035, true);
 
 		charAndExpression = getExpression(curCharacter);
 		expression = charAndExpression[1];
@@ -239,25 +245,37 @@ class DialogueBox extends FlxSpriteGroup
 				portraitRight.visible = false;
 				portraitLeft.visible = true;
 				portraitLeft.loadGraphic('assets/images/dialogueJunk/chars/th_' + expression + '.png');
+				if (lastChar != charAndExpression[0])
+					tweenThisCrap(portraitLeft);
+				FlxG.sound.play('assets/sounds/theo${FlxG.random.int(1, 3)}.ogg', 1);
 			case 'boyfriend':
 				portraitLeft.visible = false;
 				portraitRight.visible = true;
 				portraitRight.flipX = true;
 				portraitRight.loadGraphic('assets/images/dialogueJunk/chars/bf_' + expression + '.png');
+				if (lastChar != charAndExpression[0])
+					tweenThisCrap(portraitRight);
+				FlxG.sound.play('assets/sounds/bf${FlxG.random.int(1, 3)}.ogg', 1);
 			case 'vanus':
 				portraitLeft.visible = false;
 				portraitRight.visible = true;
 				portraitRight.flipX = false;
 				portraitRight.loadGraphic('assets/images/dialogueJunk/chars/va_' + expression + '.png');
+				if (lastChar != charAndExpression[0])
+					tweenThisCrap(portraitRight);
 			case 'calliope':
 				portraitLeft.visible = false;
 				portraitRight.visible = true;
 				portraitRight.flipX = true;
 				portraitRight.loadGraphic('assets/images/dialogueJunk/chars/ca_' + expression + '.png');
+				if (lastChar != charAndExpression[0])
+					tweenThisCrap(portraitRight);
+				FlxG.sound.play('assets/sounds/calliope${FlxG.random.int(1, 3)}.ogg', 1);
 		}
 
 		// daCoolImage.loadGraphic('assets/images/dialogueJunk/images/' + PlayState.SONG.song.toLowerCase() + '/dia' + imageJunks[curImage] + '.png');
 		curImage += 1;
+		lastChar = charAndExpression[0];
 	}
 
 	function cleanDialog():Void
@@ -270,5 +288,14 @@ class DialogueBox extends FlxSpriteGroup
 	function getExpression(sussyImposter:String)
 	{
 		return sussyImposter.split('-');
+	}
+
+	function tweenThisCrap(poop:FlxSprite):Void
+	{
+		poop.scale.set(0, 0);
+		FlxTween.cancelTweensOf(poop);
+		FlxTween.tween(poop, {'scale.x': 0.95, 'scale.y': 1.15}, 0.125, {ease: FlxEase.quadOut, onComplete: function(twn:FlxTween){
+			FlxTween.tween(poop, {'scale.x': 0.7, 'scale.y': 0.7}, 0.1, {ease: FlxEase.quadIn});
+		}});
 	}
 }

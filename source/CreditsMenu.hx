@@ -26,7 +26,7 @@ class CreditsMenu extends MusicBeatState
 
 	var fart:FlxBackdrop;
 
-	var coolPeople:Array<String> = ['SPACEMEN', 'ZUMORIZU', 'JUKEBOX', 'BLAMEJAJUBZ', 'KIRO', 'RUBY', 'GRANTARE', 'RAT', 'EVANCLUBYT', 'ROCKETPOPS', 'COSMIC BERRY', 'JOHNLEBRON', 'ANICKMATIONS', 'SATURN', 'PIESARIUSZ', 'GAMER WORD', 'JELLYFISH', 'LANCEY'];
+	var coolPeople:Array<String> = ['SPACEMEN', 'SquishyZumorizu', 'JUKEBOX', 'BLAMEJAJUBZ', 'KIRO', 'RUBY', 'GRANTARE', 'RAT', 'EVANCLUBYT', 'ROCKETPOPS', 'COSMIC BERRY', 'JOHNLEBRON', 'ANICKMATIONS', 'SATURN', 'PIESARIUSZ', 'GAMER WORD', 'JELLYFISH', 'TWOOP', 'LANCEY'];
 
 	private var grpControls:FlxTypedGroup<Alphabet>;
 
@@ -63,7 +63,7 @@ class CreditsMenu extends MusicBeatState
 		titleText.x = -300;
 		add(titleText);
 
-		FlxG.sound.playMusic('assets/music/Credits_LOOL.ogg');
+		FlxG.sound.playMusic('assets/music/credits_2.ogg');
 
 		super.create();
 	}
@@ -89,6 +89,10 @@ class CreditsMenu extends MusicBeatState
 			switch(curSelected) {
 				case 0:
 					FlxG.openURL("https://www.youtube.com/channel/UC69x65wXNHc_rj5HMtswoAg");
+				case 1:
+					FlxG.openURL('https://twitter.com/Squish_26');
+				case 2:
+					FlxG.openURL('https://www.youtube.com/channel/UCwA3jnG5cu3toaVCOhc-Tqw');
 				case 3:
 					FlxG.openURL("https://www.youtube.com/channel/UCou-r4h1UnFDN1_zo4TDRrg");
 				case 4:
@@ -102,12 +106,24 @@ class CreditsMenu extends MusicBeatState
 				case 8:
 					FlxG.openURL('https://www.youtube.com/channel/UCdkHxFQnvyIKHSPcRRu-9PQ');
 				case 9:
-					FlxG.openURL('https://www.youtube.com/channel/UCVbNlXsQ-9WA2WcN8u2se_Q');
+					FlxG.openURL('https://twitter.com/R0cketp0psreal');
 				case 10:
 					FlxG.openURL('https://www.instagram.com/lol.fruits/');
+				case 11:
+					FlxG.openURL('https://twitter.com/johnlayton2002');
+				case 12:
+					FlxG.openURL('https://www.youtube.com/channel/UCaMMmZ0jnFjz96ttEMuXvQg');
+				case 13:
+					FlxG.openURL('https://www.youtube.com/channel/UCk7Q2kTP7-2J2WX0jLkT5tA');
+				case 14:
+					FlxG.openURL('https://gamebanana.com/members/1782722');
+				case 15:
+					FlxG.openURL('https://gamebanana.com/members/1789625');
 				case 16:
 					FlxG.openURL('https://www.youtube.com/channel/UCVgVvwOzvsR8pRwVy316SyA');
 				case 17:
+					FlxG.openURL('https://www.youtube.com/channel/UCWbYhAfPcEIDvYiHqrTB87A');
+				case 18:
 					FlxG.openURL('https://www.youtube.com/channel/UCXLzKLUzVUewu_NXHMb-_cQ');
 
 			}

@@ -66,6 +66,8 @@ class FreeplayState extends MusicBeatState
 
 		// LOAD CHARACTERS
 
+		PlayState.justDied = false;
+
 		var bg:FlxSprite = new FlxSprite().loadGraphic('assets/images/menuBGBlue.png');
 		add(bg);
 

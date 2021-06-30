@@ -89,6 +89,8 @@ class StoryMenuState extends MusicBeatState
 
 		DiscordJunk.change('In Menus');
 
+		PlayState.justDied = false;
+
 		scoreText = new FlxText(10, 10, 0, "SCORE: 49324858", 36);
 		scoreText.setFormat("VCR OSD Mono", 32, FlxColor.BLACK);
 

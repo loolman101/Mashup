@@ -15,6 +15,7 @@ class HealthIcon extends FlxSprite
 		antialiasing = true;
 		addIcon('bf', 0);
 		addIcon('bf-breakdown', 2);
+		addIcon('calliope-n-bf', 2);
 		addIcon('theo', 4);
 		addIcon('theo-lemon', 6);
 		addIcon('gf', 10);

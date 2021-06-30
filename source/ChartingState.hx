@@ -89,6 +89,8 @@ class ChartingState extends MusicBeatState
 
 		DiscordJunk.change('Charting');
 
+		PlayState.justDied = false;
+
 		gridBG = FlxGridOverlay.create(GRID_SIZE, GRID_SIZE, GRID_SIZE * 8, GRID_SIZE * 16);
 		add(gridBG);
 

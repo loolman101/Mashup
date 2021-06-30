@@ -1,8 +1,8 @@
 Theo-bruh: How many songs am I supposed to sing? 
 Calliope-norm: 3. 
 Theo-kill: Perfect. Let's get this final song over with. 
-Boyfriend-giggle: Just the way I like my opponents, less talk and more action!
-Calliope-distress: That was the cheesiest thing I've ever heard Boyfriend.
+Boyfriend-norm: Just the way I like my opponents, less talk and more action!
+Calliope-norm: That was the cheesiest thing I've ever heard Boyfriend.
 Boyfriend-giggle: Get used to it because there's gonna be plenty more cheesy bullshit coming from this mouth!
-Theo-pissed: Are we gonna fucking sing? We don't have all day. You both literally only have till night time. 
-Boyfriend-panic: Sorry. 
+Theo-bruh: Are we gonna fucking sing? We don't have all day. You both literally only have till night time. 
+Boyfriend-sad: Sorry. 

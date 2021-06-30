@@ -85,16 +85,24 @@ class Character extends FlxSprite
 			case 'calliope-n-bf':
 				frames = FlxAtlasFrames.fromSparrow('assets/images/characters/CalliopeBoyfriend_Assets.png', 'assets/images/characters/CalliopeBoyfriend_Assets.xml');
 				animation.addByPrefix('idle', 'Calliope Dread Idle', 24, isPreview);
-				animation.addByPrefix('singUP', 'up', 24, false);
-				animation.addByPrefix('singDOWN', 'Down', 24, false);
+				animation.addByPrefix('singUP', 'up0', 24, false);
+				animation.addByPrefix('singDOWN', 'Down0', 24, false);
 				animation.addByPrefix('singLEFT', 'left lmaoooooo!!!!!!!', 24, false);
-				animation.addByPrefix('singRIGHT', 'right', 24, false);
+				animation.addByPrefix('singRIGHT', 'right0', 24, false);
+				animation.addByPrefix('singUPmiss', 'up MISS', 24, false);
+				animation.addByPrefix('singDOWNmiss', 'Down MISS', 24, false);
+				animation.addByPrefix('singLEFTmiss', 'left MISS', 24, false);
+				animation.addByPrefix('singRIGHTmiss', 'right MISS', 24, false);
 
 				addOffset('idle');
 				addOffset('singUP');
 				addOffset('singDOWN', -3, -17);
 				addOffset('singLEFT', 6, 3);
 				addOffset('singRIGHT', 5, -17);
+				addOffset('singUPmiss');
+				addOffset('singDOWNmiss', -3, -17);
+				addOffset('singLEFTmiss', 6, 3);
+				addOffset('singRIGHTmiss', 5, -17);
 				
 				playAnim('idle');
 

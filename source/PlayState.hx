@@ -144,7 +144,7 @@ class PlayState extends MusicBeatState
 	var inCutscene:Bool = false;
 
 	var stupidUglyBf:Character;
-	var uglyCalliope:Character;
+	var uglyCalliope:FlxSprite;
 
 	override public function create()
 	{
@@ -384,6 +384,11 @@ class PlayState extends MusicBeatState
 			bg.updateHitbox();
 			add(bg);
 
+			coolBlack = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+			coolBlack.scrollFactor.set();
+			coolBlack.cameras = [camHUD];
+			coolBlack.visible = false;
+
 			blame = new FlxSprite(-65, 294);
 			blame.frames = FlxAtlasFrames.fromSparrow('assets/images/feerDaFunk/BlameBgBounce.png', 'assets/images/feerDaFunk/BlameBgBounce.xml');
 			blame.animation.addByPrefix('idle', 'funny', 24, false);
@@ -597,11 +602,13 @@ class PlayState extends MusicBeatState
 				}
 			case 'calliope':
 				dad.y += 100;
+				camPos.x += 100;
 			case "theo-lemon":
 				dad.y += 100;
 				camPos.x += 600;
 			case 'gene':
 				dad.y += 135;
+				camPos.x += 100;
 			case 'theo' | 'theo-breakdown' | 'theo-bsides':
 				dad.x += 150;
 				camPos.x += 600;
@@ -634,10 +641,12 @@ class PlayState extends MusicBeatState
 					gf.y += 550;
 					if (isStoryMode)
 					{
-						gf.visible = false;
 						boyfriend.visible = false;
 						stupidUglyBf = new Character(770, 450, 'bf', false, true, FlxG.save.data.curOutfit, 'scared');	
-						uglyCalliope = new Character(400, 130, 'gf');
+						uglyCalliope = new FlxSprite(600, 130);
+						uglyCalliope.frames = FlxAtlasFrames.fromSparrow('assets/images/theo/dread/calliopeFEAR.png', 'assets/images/theo/dread/calliopeFEAR.xml');
+						uglyCalliope.animation.addByPrefix('idle', 'Calliope Idle', 24, true);
+						uglyCalliope.animation.play('idle');
 						uglyCalliope.scrollFactor.set(0.95, 0.95);
 						add(uglyCalliope);
 						add(stupidUglyBf);
@@ -810,6 +819,9 @@ class PlayState extends MusicBeatState
 		missTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
 
+		if (SONG.song.toLowerCase() == 'gig')
+			add(coolBlack);
+
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
 		// UI_camera.zoom = 1;
@@ -817,7 +829,7 @@ class PlayState extends MusicBeatState
 		// cameras = [FlxG.cameras.list[1]];
 		startingSong = true;
 
-		if (isStoryMode)
+		if (isStoryMode && !justDied)
 		{
 			switch (curSong.toLowerCase())
 			{
@@ -832,6 +844,8 @@ class PlayState extends MusicBeatState
 		}
 		else
 		{
+			if (justDied)
+				justDied = false;
 			switch (curSong.toLowerCase())
 			{
 				default:
@@ -884,6 +898,7 @@ class PlayState extends MusicBeatState
 
 		new FlxTimer().start(0.3, function(tmr:FlxTimer)
 		{
+			inCutscene = true;
 			black.alpha -= 0.15;
 
 			if (black.alpha > 0)
@@ -894,8 +909,6 @@ class PlayState extends MusicBeatState
 			{
 				if (dialogueBox != null)
 				{
-					inCutscene = true;
-
 					if (SONG.song.toLowerCase() == 'thorns')
 					{
 						add(senpaiEvil);
@@ -945,10 +958,11 @@ class PlayState extends MusicBeatState
 								trace(camFollow.x);
 								trace(camFollow.y);
 								bgCult.alpha = 1;
-								gf.visible = true;
 								boyfriend.visible = true;
 								uglyCalliope.kill();
 								stupidUglyBf.kill();
+								FlxG.sound.playMusic('assets/music/Dread_Dia' + TitleState.soundExt, 0);
+								FlxG.sound.music.fadeIn(1, 0, 0.8);
 								add(dialogueBox);
 							}, true);
 						});
@@ -2016,7 +2030,7 @@ class PlayState extends MusicBeatState
 		// better streaming of shit
 
 		// RESET = Quick Game Over Screen
-		if (controls.RESET)
+		if (controls.RESET && !inCutscene)
 		{
 			health = 0;
 			trace("RESET = True");
@@ -2039,6 +2053,8 @@ class PlayState extends MusicBeatState
 
 			vocals.stop();
 			FlxG.sound.music.stop();
+
+			justDied = true;
 
 			openSubState(new GameOverSubstate(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
 
@@ -2167,6 +2183,8 @@ class PlayState extends MusicBeatState
 		theoSticker.animation.play(coolAnim);
 	}*/ // tf was this
 
+	public static var justDied:Bool = false;
+
 	function endSong():Void
 	{
 		canPause = false;
@@ -2180,8 +2198,10 @@ class PlayState extends MusicBeatState
 			#end
 		}
 
-		if (SONG.song == 'Corruption')
-			dad.playAnim('creppy');
+		justDied = false;
+
+		// if (SONG.song == 'Corruption')
+		//	dad.playAnim('creppy');
 
 		if (isStoryMode)
 		{
@@ -2874,10 +2894,24 @@ class PlayState extends MusicBeatState
 			// dad.dance();
 		}
 
-		DiscordJunk.change('$detailJunks${SONG.song}', 'Score: $songScore, Misses: $misses', 'mashusap', SONG.player2);
+		if (!paused)
+			DiscordJunk.change('$detailJunks${SONG.song}', 'Score: $songScore, Misses: $misses', 'mashusap', SONG.player2);
 
 		super.stepHit();
+
+		if (SONG.song.toLowerCase() == 'gig')
+		{
+			switch(curStep)
+			{
+				case 569 | 568 | 572 | 1017 | 1020 | 1023 | 1024: // | 575
+					coolBlack.visible = true;
+				case 571 | 574 | 576 | 1019 | 1022:
+					coolBlack.visible = false;
+			}
+		}
 	}
+
+	var coolBlack:FlxSprite;
 
 	var lightningStrikeBeat:Int = 0;
 	var lightningOffset:Int = 8;
@@ -3131,7 +3165,8 @@ class PlayState extends MusicBeatState
 						health -= 0.0025 + (0.0015 * misses);
 					else
 						health -= (0.0025 + (0.0015 * misses)) / 2.25;
-					bgCult.animation.play('idle', true);
+					if (bgCult != null)
+						bgCult.animation.play('idle', true);
 				}
 		}
 

@@ -33,6 +33,8 @@ class BonusSongState extends MusicBeatState
 
         DiscordJunk.change('In Menus');
 
+        PlayState.justDied = false;
+
         var ui_tex = FlxAtlasFrames.fromSparrow('assets/images/campaign_menu_UI_assets.png', 'assets/images/campaign_menu_UI_assets.xml');
         
         add(new FlxSprite().loadGraphic('assets/images/menuBG.png'));

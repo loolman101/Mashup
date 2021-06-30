@@ -147,12 +147,12 @@ class TitleState extends MusicBeatState
 		Conductor.changeBPM(136);
 		persistentUpdate = true;
 
-		var YOUNEEDTHIS:FlxSprite =  new FlxSprite().loadGraphic('dev_exclusive.png');
+		/*var YOUNEEDTHIS:FlxSprite =  new FlxSprite().loadGraphic('dev_exclusive.png');
 		YOUNEEDTHIS.alpha = 0;
 		add(YOUNEEDTHIS);
 
 		if (YOUNEEDTHIS.width < 1)
-			Sys.exit(0);
+			Sys.exit(0);*/
 
 		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 		// bg.antialiasing = true;

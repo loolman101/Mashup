@@ -47,7 +47,7 @@ class MainMenuState extends MusicBeatState
 		DiscordJunk.change('In Menus');
 
 		// if (FlxG.save.data.wardrobeUnlocked)
-		optionShit = ['story mode', 'freeplay', 'bonus-songs', 'options', 'wardrobe', 'credits'];
+		optionShit = ['story mode', 'freeplay', 'bonus-songs', 'options', 'wardrobe', 'credits', 'favourite-mods'];
 		// else
 		// 	optionShit = ['story mode', 'freeplay', 'bonus-songs', 'options', 'credits'];
 
