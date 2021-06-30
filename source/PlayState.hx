@@ -272,7 +272,7 @@ class PlayState extends MusicBeatState
 				bgCult.frames = FlxAtlasFrames.fromSparrow('assets/images/theo/dread/bgCultFreaks.png', 'assets/images/theo/dread/bgCultFreaks.xml');
 				bgCult.animation.addByPrefix('idle', 'bgcult', 24, false);
 				bgCult.animation.play('idle');
-				if (isStoryMode)
+				if (isStoryMode && !justDied)
 					bgCult.alpha = 0;
 			}
 			else
@@ -639,7 +639,7 @@ class PlayState extends MusicBeatState
 				if (SONG.song.toLowerCase() == 'dread')
 				{
 					gf.y += 550;
-					if (isStoryMode)
+					if (isStoryMode && !justDied)
 					{
 						boyfriend.visible = false;
 						stupidUglyBf = new Character(770, 450, 'bf', false, true, FlxG.save.data.curOutfit, 'scared');	
