@@ -2899,7 +2899,7 @@ class PlayState extends MusicBeatState
 
 		super.stepHit();
 
-		if (SONG.song.toLowerCase() == 'gig')
+		/*if (SONG.song.toLowerCase() == 'gig')
 		{
 			switch(curStep)
 			{
@@ -2908,7 +2908,7 @@ class PlayState extends MusicBeatState
 				case 571 | 574 | 576 | 1019 | 1022:
 					coolBlack.visible = false;
 			}
-		}
+		}*/
 	}
 
 	var coolBlack:FlxSprite;
@@ -3161,10 +3161,6 @@ class PlayState extends MusicBeatState
 
 				if (SONG.song.toLowerCase() == 'dread')
 				{
-					if (!SONG.notes[Math.floor(curStep / 16)].mustHitSection)
-						health -= 0.0025 + (0.0015 * misses);
-					else
-						health -= (0.0025 + (0.0015 * misses)) / 2.25;
 					if (bgCult != null)
 						bgCult.animation.play('idle', true);
 				}

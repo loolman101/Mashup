@@ -32,8 +32,8 @@ class WardrobeMenu extends MusicBeatState
         bfPreviews =  new FlxTypedGroup<Character>();
         add(bfPreviews);
 
-        if (FlxG.save.data.theoOutfit)
-            wardrobeItems.push('THEO OUTFIT');
+        //if (FlxG.save.data.theoOutfit)
+        wardrobeItems.push('THEO OUTFIT');
         if (FlxG.save.data.spaceroomOutfit)
             trace('nothing yet');
 
