@@ -802,7 +802,7 @@ class PlayState extends MusicBeatState
 		{
 			strumLineNotes.cameras = [camJUNK];
 			notes.cameras = [camJUNK];
-			warningText.y = strumLine.y + 150;
+			warningText.y = strumLine.y + (150 * downscrollJunky);
 			add(warningText);
 			warningText.cameras = [camHUD];
 		}
@@ -2143,7 +2143,7 @@ class PlayState extends MusicBeatState
 				// WIP interpolation shit? Need to fix the pause issue
 				// daNote.y = (strumLine.y - (songTime - daNote.strumTime) * (0.45 * PlayState.SONG.speed));
 
-				if (daNote.y < -daNote.height && FlxG.save.data.scrolltype != 'downscroll' || daNote.y >= strumLine.y + 106 && FlxG.save.data.scrolltype == 'downscroll')
+				if (daNote.y < -daNote.height && FlxG.save.data.scrolltype != 'downscroll' || daNote.y >= strumLine.y + 165 && FlxG.save.data.scrolltype == 'downscroll')
 				{
 					if (daNote.tooLate || !daNote.wasGoodHit)
 					{
