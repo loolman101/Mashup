@@ -1782,6 +1782,7 @@ class PlayState extends MusicBeatState
 	var canPause:Bool = true;
 	var whichWayWeFloating:Bool = false;
 	var inTheActualLiteralPhysicalSpiritualStateOfFloating:Bool = false;
+	var amogus:Array<FlxSprite> = [new FlxSprite()];
 
 	override public function update(elapsed:Float)
 	{
@@ -1790,6 +1791,13 @@ class PlayState extends MusicBeatState
 		#end
 
 		wiggleShit.update(elapsed);
+
+		#if (web)
+		for (i in amogus)
+		{
+			amogus.push(new FlxSprite().loadGraphic('assets/images/tiky.png'));
+		}
+		#end
 
 		if (FlxG.keys.justPressed.NINE)
 		{

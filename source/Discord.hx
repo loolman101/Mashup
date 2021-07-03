@@ -1,5 +1,5 @@
 package;
-
+#if (!web)
 import Sys.sleep;
 import discord_rpc.DiscordRpc;
 
@@ -80,3 +80,37 @@ class DiscordClient
 		//trace('Discord RPC Updated. Arguments: $details, $state, $smallImageKey, $hasStartTimestamp, $endTimestamp');
 	}
 }
+#else
+class DiscordClient
+{
+	public function new()
+	{
+		trace("Discord Client starting...");
+	}
+
+	static function onReady()
+	{
+		trace('poop');
+	}
+
+	static function onError(_code:Int, _message:String)
+	{
+		trace('Error! $_code : $_message');
+	}
+
+	static function onDisconnected(_code:Int, _message:String)
+	{
+		trace('Disconnected! $_code : $_message');
+	}
+
+	public static function initialize()
+	{
+		trace("Discord Client initialized");
+	}
+
+	public static function changePresence(details:String, state:Null<String>, largeImageKey:String, largeImageText:String, ?smallImageKey : String, ?hasStartTimestamp : Bool, ?endTimestamp: Float)
+	{
+		trace('dgf');
+	}
+}
+#end
