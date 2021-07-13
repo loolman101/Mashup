@@ -2,20 +2,20 @@
 <TextureAtlas imagePath="cSideBalliope.png">
 	<!-- Created with Adobe Animate version 19.0.0.326 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="Calliope Idle0000" x="0" y="0" width="313" height="556" frameX="0" frameY="-15" frameWidth="385" frameHeight="571"/>
-	<SubTexture name="Calliope Idle0001" x="318" y="0" width="306" height="551" frameX="-7" frameY="-12" frameWidth="385" frameHeight="571"/>
-	<SubTexture name="Calliope Idle0002" x="629" y="0" width="305" height="549" frameX="-12" frameY="-10" frameWidth="385" frameHeight="571"/>
-	<SubTexture name="Calliope Idle0003" x="939" y="0" width="305" height="548" frameX="-12" frameY="-8" frameWidth="385" frameHeight="571"/>
-	<SubTexture name="Calliope Idle0004" x="1249" y="0" width="318" height="550" frameX="-12" frameY="-4" frameWidth="385" frameHeight="571"/>
-	<SubTexture name="Calliope Idle0005" x="1572" y="0" width="311" height="550" frameX="-12" frameY="-1" frameWidth="385" frameHeight="571"/>
-	<SubTexture name="Calliope Idle0006" x="0" y="561" width="335" height="549" frameX="-12" frameY="0" frameWidth="385" frameHeight="571"/>
-	<SubTexture name="Calliope Idle0007" x="340" y="561" width="361" height="543" frameX="-12" frameY="-2" frameWidth="385" frameHeight="571"/>
-	<SubTexture name="Calliope Idle0008" x="706" y="561" width="361" height="544" frameX="-12" frameY="-5" frameWidth="385" frameHeight="571"/>
-	<SubTexture name="Calliope Idle0009" x="1072" y="561" width="361" height="543" frameX="-12" frameY="-8" frameWidth="385" frameHeight="571"/>
-	<SubTexture name="Calliope Idle0010" x="1438" y="561" width="373" height="542" frameX="-12" frameY="-12" frameWidth="385" frameHeight="571"/>
-	<SubTexture name="Calliope Idle0011" x="0" y="1115" width="373" height="542" frameX="-12" frameY="-14" frameWidth="385" frameHeight="571"/>
-	<SubTexture name="Calliope Idle0012" x="378" y="1115" width="373" height="542" frameX="-12" frameY="-17" frameWidth="385" frameHeight="571"/>
-	<SubTexture name="Calliope Idle0013" x="756" y="1115" width="363" height="540" frameX="-12" frameY="-21" frameWidth="385" frameHeight="571"/>
-	<SubTexture name="Calliope Idle0014" x="1124" y="1115" width="363" height="541" frameX="-12" frameY="-29" frameWidth="385" frameHeight="571"/>
-	<SubTexture name="Calliope Idle0015" x="1124" y="1115" width="363" height="541" frameX="-12" frameY="-29" frameWidth="385" frameHeight="571"/>
+	<SubTexture name="Calliope Idle0000" x="0" y="0" width="311" height="556" frameX="0" frameY="-2" frameWidth="383" frameHeight="558"/>
+	<SubTexture name="Calliope Idle0001" x="316" y="0" width="306" height="551" frameX="-6" frameY="-2" frameWidth="383" frameHeight="558"/>
+	<SubTexture name="Calliope Idle0002" x="627" y="0" width="304" height="549" frameX="-12" frameY="-2" frameWidth="383" frameHeight="558"/>
+	<SubTexture name="Calliope Idle0003" x="936" y="0" width="304" height="548" frameX="-12" frameY="-2" frameWidth="383" frameHeight="558"/>
+	<SubTexture name="Calliope Idle0004" x="1245" y="0" width="317" height="550" frameX="-12" frameY="0" frameWidth="383" frameHeight="558"/>
+	<SubTexture name="Calliope Idle0005" x="1567" y="0" width="310" height="550" frameX="-12" frameY="0" frameWidth="383" frameHeight="558"/>
+	<SubTexture name="Calliope Idle0006" x="0" y="561" width="333" height="550" frameX="-12" frameY="0" frameWidth="383" frameHeight="558"/>
+	<SubTexture name="Calliope Idle0007" x="338" y="561" width="359" height="543" frameX="-12" frameY="-5" frameWidth="383" frameHeight="558"/>
+	<SubTexture name="Calliope Idle0008" x="702" y="561" width="359" height="544" frameX="-12" frameY="-6" frameWidth="383" frameHeight="558"/>
+	<SubTexture name="Calliope Idle0009" x="1066" y="561" width="359" height="543" frameX="-12" frameY="-7" frameWidth="383" frameHeight="558"/>
+	<SubTexture name="Calliope Idle0010" x="1430" y="561" width="371" height="542" frameX="-12" frameY="-9" frameWidth="383" frameHeight="558"/>
+	<SubTexture name="Calliope Idle0011" x="0" y="1116" width="371" height="542" frameX="-12" frameY="-9" frameWidth="383" frameHeight="558"/>
+	<SubTexture name="Calliope Idle0012" x="376" y="1116" width="371" height="542" frameX="-12" frameY="-9" frameWidth="383" frameHeight="558"/>
+	<SubTexture name="Calliope Idle0013" x="752" y="1116" width="362" height="541" frameX="-12" frameY="-11" frameWidth="383" frameHeight="558"/>
+	<SubTexture name="Calliope Idle0014" x="1119" y="1116" width="362" height="540" frameX="-12" frameY="-18" frameWidth="383" frameHeight="558"/>
+	<SubTexture name="Calliope Idle0015" x="1119" y="1116" width="362" height="540" frameX="-12" frameY="-15" frameWidth="383" frameHeight="558"/>
 </TextureAtlas>

@@ -23,6 +23,7 @@ class WardrobeMenu extends MusicBeatState
 
     override function create()
     {
+        FlxG.sound.playMusic('assets/music/Mega-Happy-Fashion.ogg');
         var bg:FlxSprite = new FlxSprite().loadGraphic('assets/images/menuBG.png');
         add(bg);
 
@@ -71,13 +72,13 @@ class WardrobeMenu extends MusicBeatState
         if (controls.DOWN_P)
             changeSelection(1);
 
-        if (controls.BACK)
-            FlxG.switchState(new MainMenuState());
+        if (controls.BACK){FlxG.sound.music.stop();
+            FlxG.switchState(new MainMenuState());}
 
         if (controls.ACCEPT)
         {
             FlxG.save.data.curOutfit = wardrobeCharNames[curSelected];
-            FlxG.sound.play('assets/sounds/confirmMenu' + TitleState.soundExt, 0.7);
+            FlxG.sound.play('assets/sounds/selectSkin' + TitleState.soundExt, 0.9);
             for (junkers in menuItems)
             {
                 if (junkers.ID == curSelected)
@@ -96,6 +97,7 @@ class WardrobeMenu extends MusicBeatState
                 if (flStudio.ID == curSelected){ flStudio.playAnim('hey');
                     FlxFlicker.flicker(flStudio, 1, 0.06, true, false, function(flick:FlxFlicker)
                     {
+                        FlxG.sound.music.stop();
                         FlxG.switchState(new MainMenuState());
                     });
                 }

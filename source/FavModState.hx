@@ -27,6 +27,7 @@ class FavModState extends MusicBeatState
 
     override function create()
     {
+        FlxG.sound.playMusic('assets/music/Fluffy.ogg');
         add(new FlxSprite().loadGraphic('assets/images/menuBG.png'));
 
         bgTiles = new FlxBackdrop('assets/images/Literal_Micd_Up.png', 1, 1, true, true);
@@ -87,6 +88,7 @@ class FavModState extends MusicBeatState
 
         if(controls.BACK)
         {
+            FlxG.sound.music.stop();
             FlxG.switchState(new MainMenuState());
         }
 

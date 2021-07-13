@@ -48,7 +48,7 @@ class Character extends FlxSprite
 					animation.addByPrefix('idle', 'Calliope Idle', 24, true);
 				else
 				{
-					animation.addByPrefix('idle', 'Calliope Idle', 24, false);
+					animation.addByPrefix('idle', 'better idle', 24, false);
 				}
 				animation.addByIndices('hairBlow', "GF Dancing Beat Hair blowing", [0, 1, 2, 3], "", 24);
 				animation.addByIndices('hairFall', "GF Dancing Beat Hair Landing", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], "", 24, false);
@@ -523,12 +523,17 @@ class Character extends FlxSprite
 						playAnim('danceRight');
 					else
 						playAnim('danceLeft');
-				case 'gf':
+				case 'gf' | 'calliope-bside':
 					danced = !danced;
 
 					if (!danced)
 						playAnim('idle', true);
-					else if (PlayState.SONG != null) {if (PlayState.SONG.song == 'Fear-the-Funk') 
+					else if (PlayState.SONG != null) 
+					{
+						if (
+							PlayState.SONG.song == 'Fear-the-Funk' || 
+							PlayState.SONG.song == 'GIG'
+							) 
 						playAnim('idle', true);
 					}	
 					else

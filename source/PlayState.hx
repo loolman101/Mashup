@@ -661,7 +661,10 @@ class PlayState extends MusicBeatState
 				gf.visible = boyfriend.visible = dad.visible = false;
 		}
 
-		ogBfPos = [boyfriend.x, boyfriend.y];
+		if (SONG.player1 == 'calliope-n-bf')
+			ogBfPos = [boyfriend.x, boyfriend.y];
+		else
+			ogBfPos = [gf.x, gf.y];
 
 		if (SONG.song.toLowerCase() == 'breakdown')
 			gf.visible = false;
@@ -1847,6 +1850,28 @@ class PlayState extends MusicBeatState
 					inTheActualLiteralPhysicalSpiritualStateOfFloating = false;
 				}});
 				whichWayWeFloating = true;
+			}
+		}
+		else if (gf.curCharacter == 'gf' && !inCutscene || gf.curCharacter == 'calliope-bside' && !inCutscene)
+		{
+			if (isFloating && !inTheActualLiteralPhysicalSpiritualStateOfFloating && ogBfPos != null)
+			{
+				if (whichWayWeFloating)
+				{
+					inTheActualLiteralPhysicalSpiritualStateOfFloating = true;
+					FlxTween.tween(gf, {y: ogBfPos[1] - 20 * (Conductor.stepCrochet / 150)}, Conductor.crochet / 1000, {ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){
+						inTheActualLiteralPhysicalSpiritualStateOfFloating = false;
+					}});
+					whichWayWeFloating = false;
+				}
+				else
+				{
+					inTheActualLiteralPhysicalSpiritualStateOfFloating = true;
+					FlxTween.tween(gf, {y: ogBfPos[1] + 40 * (Conductor.stepCrochet / 150)}, Conductor.crochet / 1000, {ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){
+						inTheActualLiteralPhysicalSpiritualStateOfFloating = false;
+					}});
+					whichWayWeFloating = true;
+				}
 			}
 		}
 
